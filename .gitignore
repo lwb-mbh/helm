@@ -1,0 +1,4 @@
+# IDE resources
+.vscode
+.idea
+.devcontainer/
