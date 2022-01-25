@@ -1,0 +1,20 @@
+{{- range $key, $value := .Values.rest.services }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "deploy.fullname" $ }}-rest-{{ $key }}
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    {{- include "deploy.labels" $ | nindent 4 }}
+spec:
+  type: {{ $.Values.rest.service.type }}
+  ports:
+    - port: {{ $.Values.rest.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    rest: {{ $key }}
+    {{- include "mariadb.deploy.selectorLabels" $ | nindent 4 }}
+{{- end }}

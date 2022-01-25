@@ -1,0 +1,7 @@
+apiVersion: v2
+name: signavio
+description: Chart for Signavio - Apache Tomcat
+type: application
+version: 0.1.0
+appVersion: "0.1.0"
+  

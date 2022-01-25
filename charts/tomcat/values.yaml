@@ -1,0 +1,117 @@
+# Default values for deploy.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+global:
+  plain:
+    environment: stage # production
+    baseUrl: "tomcat.web.lwb.local"
+  secret: {}
+  createSecret: true
+  imageCredentials:
+    createSecret: true
+
+env:
+  plain: {}
+  secret: {}
+
+image:
+  repository: "tomcat"
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+imagePullSecrets:
+  - name: registry.gitlab.com
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
+
+nameOverride: ""
+fullnameOverride: ""
+
+app: 
+  port: 8080
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: false
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+#  app.gitlab.com/app: ANNOTATION_APP
+#  app.gitlab.com/env: ANNOTATION_ENV 
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  tls: true
+  path: /
+  pathType: ImplementationSpecific
+  className: ""
+  annotations: {
+    cert-manager.io/cluster-issuer: ca-issuer,
+    traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd
+  }
+
+resources:
+  limits:
+    cpu: 2000m
+    memory: 8Gi
+  requests:
+    cpu: 200m
+    memory: 512Mi
+
+startupProbe:
+  enabled: false
+  path: /
+  initialDelaySeconds: 180
+  periodSeconds: 30
+  timeoutSeconds: 30
+  failureThreshold: 14
+  successThreshold: 1
+
+livenessProbe:
+  enabled: false
+  path: /
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  timeoutSeconds: 10
+  failureThreshold: 3
+  successThreshold: 1
+
+readinessProbe:
+  enabled: false
+  path: /
+  initialDelaySeconds: 360
+  periodSeconds: 10
+  timeoutSeconds: 10
+  failureThreshold: 3
+  successThreshold: 1
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

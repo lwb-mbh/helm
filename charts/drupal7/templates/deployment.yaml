@@ -1,0 +1,137 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "deploy.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "deploy.labels" . | nindent 4 }}
+  {{- with .Values.podAnnotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  replicas: 1
+  strategy: 
+    type: Recreate
+  selector:
+    matchLabels:
+      {{- include "drupal7.deploy.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "drupal7.deploy.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "deploy.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+          - name: drupal
+            mountPath: /opt/drupal
+          - name: settings
+            mountPath: /opt/drupal/web/sites/default/settings.php
+            subPath: settings.php            
+          ports:
+            - name: http
+              containerPort: {{ .Values.app.port }}
+              protocol: TCP            
+          {{- if .Values.livenessProbe.enabled }}
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.livenessProbe.path }}
+              port: http
+            initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}
+            successThreshold: {{ .Values.livenessProbe.successThreshold }}
+            failureThreshold: {{ .Values.livenessProbe.failureThreshold }}
+          {{- end }}
+          {{- if .Values.readinessProbe.enabled }}
+          readinessProbe:
+            httpGet:
+              path: {{ .Values.readinessProbe.path }}
+              port: http
+            initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.readinessProbe.timeoutSeconds }}
+            successThreshold: {{ .Values.readinessProbe.successThreshold }}
+            failureThreshold: {{ .Values.readinessProbe.failureThreshold }}
+          {{- end }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      initContainers:
+      {{- if and .Release.IsInstall .Values.import.enabled }}
+        - name: import-fs
+          image: "{{ .Values.import.image.repository }}:{{ .Values.import.image.tag }}"
+          imagePullPolicy: {{ .Values.import.image.pullPolicy }}
+          env:
+          {{- include "helpers.list-drupal7-env-variables" . | indent 12 }}          
+          volumeMounts:
+          - name: source
+            mountPath: /mnt/source
+            subPath: {{ include "deploy.import.subPath" . }}
+          - name: drupal
+            mountPath: /mnt/target
+        {{- if not .Values.global.plain.dbExternal }}
+        - name: wait-for-mariadb
+          image: bitnami/kubectl
+          command: 
+            - /bin/bash
+            - -c
+            - |
+              until ! kubectl get pods -l job-name={{ $.Release.Name }}-mariadb-import -o=jsonpath='{.items[0].metadata.name}' -n {{ $.Release.Namespace }} &> /dev/null
+              do
+                echo 'sleep'
+                sleep 5
+              done
+        {{- end }}
+      {{- end }}
+        - name: set-volume-permissions
+          image: busybox
+          command: 
+            - /bin/sh
+            - -ec
+            - |
+              chown -R 33:33 /opt/drupal/web
+          securityContext:
+            runAsUser: 0
+          volumeMounts:
+            - name: drupal
+              mountPath: /opt/drupal/web
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      volumes:
+      - name: drupal
+        persistentVolumeClaim:
+          claimName: {{ include "deploy.fullname" . }}
+      {{- if and .Release.IsInstall .Values.import.enabled }}
+      - name: source
+        persistentVolumeClaim:
+          claimName: {{ include "deploy.import.name" . }}
+      {{- end }}
+      - name: settings
+        configMap:
+          name: {{ include "deploy.fullname" . }}  

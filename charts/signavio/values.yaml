@@ -1,0 +1,196 @@
+# Default values for deploy.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+global:
+  plain:
+    environment: stage # production
+    baseUrl: "signavio.web.lwb.local"
+  secret: {}
+  imageCredentials: {}
+
+env:
+  plain: {}
+  secret: {}
+
+app:
+  port: 8080
+
+  image:
+    repository: "registry.gitlab.com/lwb-web/docker/signavio/app"
+    pullPolicy: IfNotPresent
+    tag: "latest"
+
+  resources:
+    limits:
+      cpu: 4000m
+      memory: 8Gi
+    requests:
+      cpu: 200m
+      memory: 512Mi
+
+  service:
+    type: ClusterIP
+    port: 80
+
+  startupProbe:
+    enabled: true
+    path: /diagnostics/
+    initialDelaySeconds: 180
+    periodSeconds: 10
+    timeoutSeconds: 10
+    failureThreshold: 90
+    successThreshold: 1
+
+  livenessProbe:
+    enabled: true
+    path: /diagnostics/
+    initialDelaySeconds: 30
+    periodSeconds: 10
+    timeoutSeconds: 10
+    failureThreshold: 3
+    successThreshold: 1
+
+  readinessProbe:
+    enabled: true
+    path: /diagnostics/
+    initialDelaySeconds: 180
+    periodSeconds: 10
+    timeoutSeconds: 10
+    failureThreshold: 90
+    successThreshold: 1
+
+bdm:
+  port: 8080
+
+  image:
+    repository: "registry.gitlab.com/lwb-web/docker/signavio/bdm"
+    pullPolicy: IfNotPresent
+    tag: "latest"
+
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 2Gi
+    requests:
+      cpu: 200m
+      memory: 512Mi
+
+  service:
+    type: ClusterIP
+    port: 8080
+
+  startupProbe:
+    enabled: true
+    initialDelaySeconds: 10
+    periodSeconds: 10
+    timeoutSeconds: 10
+    failureThreshold: 90
+    successThreshold: 1
+
+  livenessProbe:
+    enabled: true
+    initialDelaySeconds: 10
+    periodSeconds: 10
+    timeoutSeconds: 10
+    failureThreshold: 3
+    successThreshold: 1
+
+  readinessProbe:
+    enabled: true
+    initialDelaySeconds: 10
+    periodSeconds: 10
+    timeoutSeconds: 10
+    failureThreshold: 3
+    successThreshold: 1
+
+solr:
+  port: 8983
+
+  image:
+    repository: "registry.gitlab.com/lwb-web/docker/signavio/solr"
+    pullPolicy: IfNotPresent
+    tag: "latest"
+
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 2Gi
+    requests:
+      cpu: 200m
+      memory: 512Mi
+
+  service:
+    type: ClusterIP
+    port: 8983
+
+  startupProbe:
+    enabled: true
+    initialDelaySeconds: 10
+    periodSeconds: 10
+    timeoutSeconds: 10
+    failureThreshold: 90
+    successThreshold: 1
+
+  livenessProbe:
+    enabled: true
+    initialDelaySeconds: 10
+    periodSeconds: 10
+    timeoutSeconds: 10
+    failureThreshold: 3
+    successThreshold: 1
+
+  readinessProbe:
+    enabled: true
+    initialDelaySeconds: 10
+    periodSeconds: 10
+    timeoutSeconds: 10
+    failureThreshold: 3
+    successThreshold: 1
+
+imagePullSecrets:
+  - name: registry.gitlab.com
+
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: false
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+#  app.gitlab.com/app: ANNOTATION_APP
+#  app.gitlab.com/env: ANNOTATION_ENV 
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+ingress:
+  enabled: true
+  tls: true
+  path: /
+  pathType: ImplementationSpecific
+  className: ""
+  annotations: {
+    cert-manager.io/cluster-issuer: ca-issuer,
+    traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd
+  }
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

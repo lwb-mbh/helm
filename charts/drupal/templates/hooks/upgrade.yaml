@@ -1,0 +1,24 @@
+{{- if .Values.upgrade.enabled }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "deploy.fullname" . }}-upgrade
+  namespace: {{ .Release.Namespace }}
+  {{- with .Values.upgrade.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  template:
+    spec:
+      restartPolicy: OnFailure
+      containers:
+      - name: drupal-upgrade
+        image: bitnami/kubectl
+        command: ["/bin/bash", "-c"]
+        args:
+          - POD_NAME=$(kubectl get pods -l tier=frontend -o=jsonpath='{.items[0].metadata.name}' -n {{ $.Release.Namespace }} --field-selector=status.phase=Running);
+            {{- range .Values.upgrade.jobs }}
+            kubectl exec $POD_NAME -n {{ $.Release.Namespace }} -c {{ $.Chart.Name }} -- vendor/bin/drush -l https://{{ $.Values.global.plain.baseUrl }} {{ . }};
+            {{- end }}
+{{- end }}

@@ -1,0 +1,36 @@
+{{- if .Values.backup.enabled -}}
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ include "deploy.backup.name" . }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  concurrencyPolicy: Forbid
+  schedule: {{ .Values.backup.schedule | quote }}
+  failedJobsHistoryLimit: 5
+  successfulJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - name: backup
+            image: "{{ .Values.backup.image.repository }}:{{ .Values.backup.image.tag }}"
+            imagePullPolicy: {{ .Values.backup.image.pullPolicy }}
+            resources:
+              {{- toYaml .Values.backup.resources | nindent 14 }}
+            volumeMounts:
+            - name: backup
+              mountPath: /mnt/backup
+              subPath: {{ include "deploy.backup.subPath" . }}
+            env:
+            {{- include "helpers.list-backup-env-variables" . | indent 12 }}
+            envFrom:
+            - secretRef:
+                name: {{ include "deploy.backup.env.secrets" . }}
+          volumes:
+          - name: backup
+            persistentVolumeClaim:
+              claimName: {{ include "deploy.backup.name" . }}
+{{- end }}

@@ -1,0 +1,93 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "deploy.fullname" . }}-bdm
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "deploy.labels" . | nindent 4 }}
+  {{- with .Values.podAnnotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  replicas: 1
+  strategy: 
+    type: Recreate
+  selector:
+    matchLabels:
+      {{- include "signavio.bdm.deploy.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "signavio.bdm.deploy.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "deploy.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.bdm.image.repository }}:{{ .Values.bdm.image.tag }}"
+          imagePullPolicy: {{ .Values.bdm.image.pullPolicy }}
+          ports:
+            - name: bdm-http
+              containerPort: {{ .Values.bdm.port }}
+              protocol: TCP
+          {{- if .Values.bdm.startupProbe.enabled }}
+          startupProbe:
+            tcpSocket:
+              port: bdm-http
+            initialDelaySeconds: {{ .Values.bdm.startupProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.bdm.startupProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.bdm.startupProbe.timeoutSeconds }}
+            successThreshold: {{ .Values.bdm.startupProbe.successThreshold }}
+            failureThreshold: {{ .Values.bdm.startupProbe.failureThreshold }}
+          {{- end }}              
+          {{- if .Values.bdm.livenessProbe.enabled }}
+          livenessProbe:
+            tcpSocket:
+              port: bdm-http
+            initialDelaySeconds: {{ .Values.bdm.livenessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.bdm.livenessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.bdm.livenessProbe.timeoutSeconds }}
+            successThreshold: {{ .Values.bdm.livenessProbe.successThreshold }}
+            failureThreshold: {{ .Values.bdm.livenessProbe.failureThreshold }}
+          {{- end }}
+          {{- if .Values.bdm.readinessProbe.enabled }}
+          readinessProbe:
+            tcpSocket:
+              port: bdm-http
+            initialDelaySeconds: {{ .Values.bdm.readinessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.bdm.readinessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.bdm.readinessProbe.timeoutSeconds }}
+            successThreshold: {{ .Values.bdm.readinessProbe.successThreshold }}
+            failureThreshold: {{ .Values.bdm.readinessProbe.failureThreshold }}
+          {{- end }}
+          resources:
+            {{- toYaml .Values.bdm.resources | nindent 12 }}
+          env:
+          {{- include "helpers.list-signavio-env-variables" . | indent 12 }}
+          envFrom:
+          - secretRef:
+              name:  {{ include "deploy.env.secrets" . }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

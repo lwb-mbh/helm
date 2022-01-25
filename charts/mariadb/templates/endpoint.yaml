@@ -1,0 +1,12 @@
+{{- if .Values.global.plain.dbExternal -}}
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: {{ include "deploy.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+subsets:
+  - addresses:
+      - ip: {{ .Values.global.plain.dbIP }}
+    ports:
+      - port: {{ .Values.global.plain.dbPort }}
+{{- end }}

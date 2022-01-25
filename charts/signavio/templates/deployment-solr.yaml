@@ -1,0 +1,95 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "deploy.fullname" . }}-solr
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "deploy.labels" . | nindent 4 }}
+  {{- with .Values.podAnnotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  replicas: 1
+  strategy: 
+    type: Recreate
+  selector:
+    matchLabels:
+      {{- include "signavio.solr.deploy.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "signavio.solr.deploy.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "deploy.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.solr.image.repository }}:{{ .Values.solr.image.tag }}"
+          imagePullPolicy: {{ .Values.solr.image.pullPolicy }}
+          command: ["solr-precreate"]
+          args: ["signavioIndex", "./server/solr/configsets/signavioIndexConfigSet/conf"]
+          ports:
+            - name: solr-http
+              containerPort: {{ .Values.solr.port }}
+              protocol: TCP
+          {{- if .Values.solr.startupProbe.enabled }}
+          startupProbe:
+            tcpSocket:
+              port: solr-http
+            initialDelaySeconds: {{ .Values.solr.startupProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.solr.startupProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.solr.startupProbe.timeoutSeconds }}
+            successThreshold: {{ .Values.solr.startupProbe.successThreshold }}
+            failureThreshold: {{ .Values.solr.startupProbe.failureThreshold }}
+          {{- end }}              
+          {{- if .Values.solr.livenessProbe.enabled }}
+          livenessProbe:
+            tcpSocket:
+              port: solr-http
+            initialDelaySeconds: {{ .Values.solr.livenessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.solr.livenessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.solr.livenessProbe.timeoutSeconds }}
+            successThreshold: {{ .Values.solr.livenessProbe.successThreshold }}
+            failureThreshold: {{ .Values.solr.livenessProbe.failureThreshold }}
+          {{- end }}
+          {{- if .Values.solr.readinessProbe.enabled }}
+          readinessProbe:
+            tcpSocket:
+              port: solr-http
+            initialDelaySeconds: {{ .Values.solr.readinessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.solr.readinessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.solr.readinessProbe.timeoutSeconds }}
+            successThreshold: {{ .Values.solr.readinessProbe.successThreshold }}
+            failureThreshold: {{ .Values.solr.readinessProbe.failureThreshold }}
+          {{- end }}
+          resources:
+            {{- toYaml .Values.solr.resources | nindent 12 }}
+          env:
+          {{- include "helpers.list-signavio-env-variables" . | indent 12 }}
+          envFrom:
+          - secretRef:
+              name:  {{ include "deploy.env.secrets" . }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

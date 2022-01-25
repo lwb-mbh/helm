@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "deploy.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "deploy.labels" . | nindent 4 }}
+spec:
+  ports:
+    - name: mysql
+      protocol: TCP
+      port:  {{ .Values.global.plain.dbPort }}
+      targetPort: mysql
+{{- if not .Values.global.plain.dbExternal }}
+  type: ClusterIP
+  externalIPs:
+    - {{ .Values.global.plain.dbIP }}
+  selector:
+    {{- include "mariadb.deploy.selectorLabels" . | nindent 4 }}
+{{- end }}
