@@ -71,9 +71,6 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
           {{- include "helpers.list-solr-env-variables" . | indent 12 }}
-          envFrom:
-          - secretRef:
-              name:  {{ include "deploy.env.secrets" . }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
