@@ -14,14 +14,11 @@ dependencies:
 - name: phpmyadmin
   repository: file://../phpmyadmin
   version: 0.1.0
-- name: signavio
-  repository: file://../signavio
-  version: 0.1.0
 - name: solr
   repository: file://../solr
   version: 0.1.0
 - name: tomcat
   repository: file://../tomcat
   version: 0.1.0
-digest: sha256:91f62221b5347145e25c787cb4c120823a08db9ea03ab88252c774b10a9592b0
-generated: "2022-01-28T08:35:13.560787+01:00"
+digest: sha256:0b1be29e145a5d8a78ccbc5e9b6397c36cd51caf6d4040b56f8417b0cd08cdab
+generated: "2022-01-28T11:33:47.5372768+01:00"

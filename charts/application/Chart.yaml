@@ -2,7 +2,7 @@ apiVersion: v2
 name: application
 description: Umrella Chart for Applications
 type: application
-version: 0.1.1
+version: 0.1.2
 appVersion: "0.1.0"
 
 dependencies:
@@ -26,10 +26,6 @@ dependencies:
   name: phpmyadmin
   version: "0.1.*"
   repository: "file://../phpmyadmin"
-- condition: signavio.enabled
-  name: signavio
-  version: "0.1.*"
-  repository: "file://../signavio"
 - condition: solr.enabled
   name: solr
   version: "0.1.*"

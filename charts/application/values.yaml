@@ -41,9 +41,6 @@ node:
 phpmyadmin:
   enabled: false
 
-signavio:
-  enabled: false
-
 solr:
   enabled: false
 

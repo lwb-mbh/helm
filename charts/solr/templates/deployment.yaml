@@ -38,9 +38,17 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{- if .Values.command }}
+          command:
+          {{- toYaml .Values.command | nindent 12 }}
+          args:
+          {{- toYaml .Values.args | nindent 12 }}
+          {{- end }}
+          {{- if not .Values.command }}
           volumeMounts:
           - name: solr
             mountPath: /opt/solr/server/solr/core/data
+          {{- end }}
           ports:
             - name: http
               containerPort: {{ .Values.app.port }}
@@ -83,7 +91,9 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      {{- if not .Values.command }}
       volumes:
       - name: solr
         persistentVolumeClaim:
           claimName: {{ include "deploy.fullname" . }}
+      {{- end }}

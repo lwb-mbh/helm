@@ -14,6 +14,9 @@ env:
   plain: {}
   secrets: {}
 
+command: []
+args: []
+
 image:
   repository: "solr"
   pullPolicy: IfNotPresent
