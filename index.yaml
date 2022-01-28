@@ -3,6 +3,49 @@ entries:
   application:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-01-28T07:36:16.599420627Z"
+    dependencies:
+    - condition: drupal.enabled
+      name: drupal
+      repository: file://../drupal
+      version: 0.1.*
+    - condition: drupal7.enabled
+      name: drupal7
+      repository: file://../drupal7
+      version: 0.1.*
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: file://../mariadb
+      version: 0.1.*
+    - condition: node.enabled
+      name: node
+      repository: file://../node
+      version: 0.1.*
+    - condition: phpmyadmin.enabled
+      name: phpmyadmin
+      repository: file://../phpmyadmin
+      version: 0.1.*
+    - condition: signavio.enabled
+      name: signavio
+      repository: file://../signavio
+      version: 0.1.*
+    - condition: solr.enabled
+      name: solr
+      repository: file://../solr
+      version: 0.1.*
+    - condition: tomcat.enabled
+      name: tomcat
+      repository: file://../tomcat
+      version: 0.1.*
+    description: Umrella Chart for Applications
+    digest: aea7fcd2bff0816756daa05e337fd2e36916132541cc0c23cb9c5c6ac778d245
+    name: application
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/application-0.1.1/application-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-01-25T10:15:58.364428687Z"
     dependencies:
     - condition: drupal.enabled
@@ -44,4 +87,26 @@ entries:
     urls:
     - https://github.com/lwb-mbh/helm/releases/download/application-0.1.0/application-0.1.0.tgz
     version: 0.1.0
-generated: "2022-01-25T10:15:58.364440088Z"
+  mariadb:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2022-01-28T07:36:16.724441921Z"
+    description: Chart for mariadb
+    digest: cefb7202639de30593a9060a8f6e2fec4cc7b25e5f4b93197c798e5073661fab
+    name: mariadb
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/mariadb-0.1.0/mariadb-0.1.0.tgz
+    version: 0.1.0
+  solr:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2022-01-28T07:36:16.85893431Z"
+    description: Chart for Apache Solr
+    digest: d59a83cd1337182a1277697ea60d4fb2e5162022c356b88a0f38dcb1ad3fd8d3
+    name: solr
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/solr-0.1.0/solr-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-01-28T07:36:16.858977312Z"
