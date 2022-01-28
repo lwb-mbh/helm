@@ -71,16 +71,16 @@ livenessProbe:
   enabled: true
   initialDelaySeconds: 120
   periodSeconds: 10
-  timeoutSeconds: 1
+  timeoutSeconds: 10
   failureThreshold: 3
   successThreshold: 1
 
 readinessProbe:
   enabled: true
-  initialDelaySeconds: 30
+  initialDelaySeconds: 10
   periodSeconds: 10
-  timeoutSeconds: 1
-  failureThreshold: 3
+  timeoutSeconds: 10
+  failureThreshold: 30
   successThreshold: 1
 
 nodeSelector: {}

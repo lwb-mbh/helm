@@ -74,11 +74,11 @@ spec:
               value: {{ include "deploy.mariadb.host" $ }}
             - name: DB_USER
               value: {{ $value.dbUser }}
-            - name: DB_PASS
-              value: {{ $value.dbPassword }}
             - name: DB_DATABASE
               value: {{ $value.dbDatabase }}
-
+          envFrom:
+          - secretRef:
+              name: {{ include "deploy.env.secrets" $ }}-{{ $key }}
       {{- with $.Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
