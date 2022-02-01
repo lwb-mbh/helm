@@ -6,7 +6,6 @@ global:
     environment: stage # production
     baseUrl: "drupal7.web.lwb.local"
     dbExternal: false
-    dbTZ: "Europe/Berlin"
     dbIP: 127.0.0.1
     dbPort: "3306"
     dbUser: "user"

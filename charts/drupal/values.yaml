@@ -6,7 +6,6 @@ global:
     environment: stage # production
     baseUrl: drupal.web.lwb.local
     dbExternal: false
-    dbTZ: "Europe/Berlin"
     dbIP: 127.0.0.1
     dbPort: "3306"
     dbUser: "user"
@@ -23,10 +22,9 @@ env:
     dbCorePort: "3306"
     dbCoreUser: "core"
     dbCoreDatabase: "core"
-    composerMemoryLimit: "-1"
-    hashSalt: ""
     relay: "mail.lwb.local"
   secret:
+    hashSalt: ""
     dbCorePassword: "changeme"
 
 image:
@@ -90,11 +88,11 @@ ingress:
 
 resources:
   limits:
-    cpu: 2000m
-    memory: 4Gi
+    cpu: 1
+    memory: 2Gi
   requests:
     cpu: 100m
-    memory: 128Mi
+    memory: 32Mi
 
 livenessProbe:
   enabled: true

@@ -69,7 +69,7 @@ Create the name of the service account to use
 
 {{- define "helpers.list-mariadb-env-variables"}}
 - name: TZ
-  value: {{ .Values.global.plain.dbTZ | quote }}
+  value: "Europe/Berlin"
 - name: MYSQL_USER
   value: {{ .Values.global.plain.dbUser | quote }}
 - name: MYSQL_DATABASE

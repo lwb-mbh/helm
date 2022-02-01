@@ -94,10 +94,6 @@ Create the name of the service account to use
   value: {{ .Values.env.plain.dbCoreDatabase | quote }}
 - name: CORE_DB_USER
   value: {{ .Values.env.plain.dbCoreUser | quote }}
-- name: HASH_SALT
-  value: {{ .Values.env.plain.hashSalt | quote }}
-- name: COMPOSER_MEMORY_LIMIT
-  value: {{ .Values.env.plain.composerMemoryLimit | quote }}
 {{- end }}
 
 {{/*
