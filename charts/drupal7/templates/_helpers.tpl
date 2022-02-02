@@ -69,33 +69,6 @@ Create the name of the service account to use
 {{- end }}
 {{- end }}
 
-{{- define "helpers.list-drupal7-env-variables"}}
-- name: APPLICATION
-  value: {{ .Release.Name | quote }}
-- name: TZ
-  value: {{ .Values.global.plain.dbTZ | quote }}
-- name: APP_DB_HOST
-{{- if .Values.global.plain.dbExternal }}
-  value: {{ .Values.global.plain.dbIP | quote }}
-{{- else }}
-  value: {{ printf "%s-%s" .Release.Name "mariadb" | trunc 63 | quote }}
-{{- end }}
-- name: APP_DB_PORT
-  value: {{ .Values.global.plain.dbPort | quote }}
-- name: APP_DB_DB
-  value: {{ .Values.global.plain.dbDatabase | quote }}
-- name: APP_DB_USER
-  value: {{ .Values.global.plain.dbUser | quote }}
-- name: CORE_DB_HOST
-  value: {{ .Values.env.plain.dbCoreHost | quote }}
-- name: CORE_DB_PORT
-  value: {{ .Values.env.plain.dbCorePort | quote }}
-- name: CORE_DB_DB
-  value: {{ .Values.env.plain.dbCoreDatabase | quote }}
-- name: CORE_DB_USER
-  value: {{ .Values.env.plain.dbCoreUser | quote }}
-{{- end }}
-
 {{/*
 Name of backup
 */}}

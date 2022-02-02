@@ -76,9 +76,7 @@ spec:
       {{- if and .Release.IsInstall .Values.import.enabled }}
         - name: import-fs
           image: "{{ .Values.import.image.repository }}:{{ .Values.import.image.tag }}"
-          imagePullPolicy: {{ .Values.import.image.pullPolicy }}
-          env:
-          {{- include "helpers.list-drupal7-env-variables" . | indent 12 }}          
+          imagePullPolicy: {{ .Values.import.image.pullPolicy }}         
           volumeMounts:
           - name: source
             mountPath: /mnt/source
