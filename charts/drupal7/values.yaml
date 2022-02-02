@@ -163,5 +163,7 @@ tolerations: []
 
 affinity: {}
 
+createConfigMap: true
+
 settings: |-
   <?php
