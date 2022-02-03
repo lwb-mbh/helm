@@ -1,4 +1,4 @@
-{{- if .Values.createConfigMap }}
+{{- if .Values.global.createSecret }}
 apiVersion: v1
 kind: ConfigMap
 metadata:

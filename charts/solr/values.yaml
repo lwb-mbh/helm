@@ -60,7 +60,7 @@ service:
   port: 8983
 
 ingress:
-  enabled: true
+  enabled: false
   tls: true
   path: /
   pathType: ImplementationSpecific
