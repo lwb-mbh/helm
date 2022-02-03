@@ -7,7 +7,7 @@
 To install the repo just run:
 
 ```bash
-helm repo add nextcloud https://lwb-mbh.github.io/helm/
+helm repo add lwb https://lwb-mbh.github.io/helm/
 helm repo update
 ```
 
