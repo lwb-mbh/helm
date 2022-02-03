@@ -10,8 +10,7 @@ global:
     dbIP: "127.0.0.1" # setzen, wenn dbExternal: true
     dbPort: "3306"
   secret: {}
-  imageCredentials:
-    createSecret: true
+  imageCredentials: {}
 
 imagePullSecrets:
   - name: registry.gitlab.com

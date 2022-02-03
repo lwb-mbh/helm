@@ -77,20 +77,6 @@ Name of backup
 {{- end }}
 
 {{/*
-Name of import
-*/}}
-{{- define "deploy.import.name" -}}
-{{- printf "%s-%s" (include "deploy.fullname" .) "import" | trunc 63 | trimSuffix "-" }}
-{{- end }}
-
-{{/*
-Import path name
-*/}}
-{{- define "deploy.import.subPath" -}}
-{{- printf "%s/%s/%s" .Chart.Name "production" .Release.Name | trunc 63 | trimSuffix "-" }}
-{{- end }}
-
-{{/*
 Backup path name
 */}}
 {{- define "deploy.backup.subPath" -}}
@@ -102,11 +88,4 @@ Name of backup env secrets
 */}}
 {{- define "deploy.backup.env.secrets" -}}
 {{- printf "%s-%s-%s-%s" (include "deploy.fullname" .) "backup" "env" "secrets" | trunc 63 }}
-{{- end }}
-
-{{/*
-Name of import env secrets
-*/}}
-{{- define "deploy.import.env.secrets" -}}
-{{- printf "%s-%s-%s-%s" (include "deploy.fullname" .) "import" "env" "secrets" | trunc 63 | trimSuffix "-" }}
 {{- end }}

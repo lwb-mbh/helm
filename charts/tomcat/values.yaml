@@ -8,8 +8,7 @@ global:
     baseUrl: "tomcat.web.lwb.local"
   secret: {}
   createSecret: true
-  imageCredentials:
-    createSecret: true
+  imageCredentials: {}
 
 env:
   plain: {}

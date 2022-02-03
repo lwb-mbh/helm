@@ -73,16 +73,6 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       initContainers:
-      {{- if and .Release.IsInstall .Values.import.enabled }}
-        - name: import-fs
-          image: "{{ .Values.import.image.repository }}:{{ .Values.import.image.tag }}"
-          imagePullPolicy: {{ .Values.import.image.pullPolicy }}         
-          volumeMounts:
-          - name: source
-            mountPath: /mnt/source
-            subPath: {{ include "deploy.import.subPath" . }}
-          - name: drupal
-            mountPath: /mnt/target
         {{- if not .Values.global.plain.dbExternal }}
         - name: wait-for-mariadb
           image: bitnami/kubectl
@@ -96,7 +86,6 @@ spec:
                 sleep 5
               done
         {{- end }}
-      {{- end }}
         - name: set-volume-permissions
           image: busybox
           command: 
@@ -125,11 +114,6 @@ spec:
       - name: drupal
         persistentVolumeClaim:
           claimName: {{ include "deploy.fullname" . }}
-      {{- if and .Release.IsInstall .Values.import.enabled }}
-      - name: source
-        persistentVolumeClaim:
-          claimName: {{ include "deploy.import.name" . }}
-      {{- end }}
       - name: settings
         configMap:
           name: {{ include "deploy.fullname" . }}  

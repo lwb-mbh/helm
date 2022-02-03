@@ -89,36 +89,11 @@ Create the name of the service account to use
   value: {{ .Values.global.plain.dbLogHost | quote }}
 {{- end }}
 
-{{- define "helpers.list-import-env-variables"}}
-- name: DB_USERNAME
-  value: {{ .Values.global.plain.dbUser | quote }}
-- name: DB_HOST
-  value: {{ (include "deploy.mariadb.host" .) | quote }}
-- name: DB_PORT
-  value: {{ .Values.global.plain.dbPort | quote }}
-- name: LOG_USERNAME
-  value: {{ .Values.global.plain.dbLogUser | quote }}
-{{- end }}
-
 {{/*
 Name of backup
 */}}
 {{- define "deploy.backup.name" -}}
 {{- printf "%s-%s" (include "deploy.fullname" .) "backup" | trunc 63 }}
-{{- end }}
-
-{{/*
-Name of import
-*/}}
-{{- define "deploy.import.name" -}}
-{{- printf "%s-%s" (include "deploy.fullname" .) "import" | trunc 63 | trimSuffix "-" }}
-{{- end }}
-
-{{/*
-Import path name
-*/}}
-{{- define "deploy.import.subPath" -}}
-{{- printf "%s/%s/%s" .Chart.Name "production" .Release.Name | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
@@ -140,13 +115,6 @@ Name of backup env secrets
 */}}
 {{- define "deploy.backup.env.secrets" -}}
 {{- printf "%s-%s-%s-%s" (include "deploy.fullname" .) "backup" "env" "secrets" | trunc 63 }}
-{{- end }}
-
-{{/*
-Name of import env secrets
-*/}}
-{{- define "deploy.import.env.secrets" -}}
-{{- printf "%s-%s-%s-%s" (include "deploy.fullname" .) "import" "env" "secrets" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*

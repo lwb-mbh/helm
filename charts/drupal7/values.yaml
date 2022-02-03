@@ -12,8 +12,8 @@ global:
     dbDatabase: "db"
   secret:
     dbPassword: "changeme"
-  imageCredentials:
-    createSecret: true
+  imageCredentials: {}
+  createSecret: true
 
 image:
   repository: "drupal"
@@ -31,7 +31,6 @@ app:
 
 storage: 
   public: 4Gi
-  import: 20Gi
   backup: 20Gi
 
 serviceAccount:
@@ -115,14 +114,6 @@ backup:
   #  requests:
   #    cpu: 100m
   #    memory: 128Mi
-
-import:
-  enabled: true
-
-  image:
-    repository: "elcom/drupal7"
-    pullPolicy: Always
-    tag: "import"
 
 cron:
   morning:

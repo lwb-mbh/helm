@@ -3,16 +3,19 @@
 
 ## @param global.plain.baseUrl BaseURL of Application
 ## @param global.plain.environment Enironment of Application, (`stage` or `production`)
-## @param global.imageCredentials.createSecret create secret `registry.gitlab.com` or not (`true` or `false`)
+## @param global.createSecret create secret `registry.gitlab.com` or not (`true` or `false`)
 ##
 global:
   plain:
     baseUrl: web.lwb.local
     environment: stage #production
   secret: {}
-  createSecret: true
   imageCredentials:
-    createSecret: true
+    registry: ''
+    username: ''
+    password: ''
+    email: ''
+  createSecret: true
 
 ## @section Common parameters
 

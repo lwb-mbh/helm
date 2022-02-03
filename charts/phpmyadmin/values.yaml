@@ -10,8 +10,8 @@ global:
     dbIP: "127.0.0.1" # setzen, wenn dbExternal: true
     dbPort: "3306"
   secret: {}
-  imageCredentials:
-    createSecret: false
+  imageCredentials: {}
+  createSecret: false
 
 imagePullSecrets: {}
 

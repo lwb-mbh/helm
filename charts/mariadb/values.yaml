@@ -17,9 +17,8 @@ global:
     dbRootPassword: "changeme"
     dbPassword: "changeme"
     dbLogPassword: "changeme"
+  imageCredentials: {}
   createSecret: true
-  imageCredentials:
-    createSecret: true
 
 imagePullSecrets:
   - name: registry.gitlab.com
@@ -90,7 +89,6 @@ affinity: {}
 
 backup:
   enabled: false
-  createSecret: true
   schedule: "0 21 * * *"
 
   image:
@@ -102,35 +100,6 @@ backup:
   #  limits:
   #    cpu: 1
   #    memory: 1Gi
-
-import:
-  enabled: false
-  createSecret: true
-
-  image:
-    repository: "elcom/mariadb"
-    pullPolicy: Always
-    tag: "import"
-
-  secret:
-    annotations: {
-      "helm.sh/hook": post-install,
-      "helm.sh/hook-weight": "1",
-      "helm.sh/hook-delete-policy": hook-succeeded  
-    }
-
-  pvc:
-    annotations: {
-      "helm.sh/hook": post-install,
-      "helm.sh/hook-weight": "0",
-      "helm.sh/hook-delete-policy": hook-succeeded  
-    }
-  job:
-    annotations: {
-      "helm.sh/hook": post-install,
-      "helm.sh/hook-weight": "2",
-      "helm.sh/hook-delete-policy": hook-succeeded  
-    }
 
 configuration: |-
   [mysqld]

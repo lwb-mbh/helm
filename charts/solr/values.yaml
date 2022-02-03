@@ -7,8 +7,8 @@ global:
     environment: stage # production
     baseUrl: "solr.web.lwb.local"
   secrets: {}
-  imageCredentials:
-    createSecret: true
+  imageCredentials: {}
+  createSecret: true
 
 env:
   plain: {}

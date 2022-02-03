@@ -77,18 +77,6 @@ spec:
           - secretRef:
               name: {{ include "deploy.env.secrets" . }}
       initContainers:
-      {{- if and .Release.IsInstall .Values.import.enabled }}
-        - name: import-fs
-          image: "{{ .Values.import.image.repository }}:{{ .Values.import.image.tag }}"
-          imagePullPolicy: {{ .Values.import.image.pullPolicy }}
-          volumeMounts:
-          - name: source
-            mountPath: /mnt/source
-            subPath: {{ include "deploy.import.subPath" . }}
-          - name: drupal-private
-            mountPath: /mnt/target_private
-          - name: drupal-public
-            mountPath: /mnt/target_public
         {{- if not .Values.global.plain.dbExternal }}
         - name: wait-for-mariadb
           image: bitnami/kubectl
@@ -102,7 +90,6 @@ spec:
                 sleep 5
               done
         {{- end }}
-      {{- end }}
         - name: set-volume-permissions
           image: busybox
           command: 
@@ -137,8 +124,3 @@ spec:
       - name: drupal-private
         persistentVolumeClaim:
           claimName: {{ include "deploy.pvc.private" . }}
-      {{- if and .Release.IsInstall .Values.import.enabled }}
-      - name: source
-        persistentVolumeClaim:
-          claimName: {{ include "deploy.import.name" . }}
-      {{- end }}
