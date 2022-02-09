@@ -103,9 +103,9 @@ backup:
   schedule: "0 21 * * *"
 
   image:
-    repository: "elcom/drupal7"
+    repository: "elcom/drupal"
     pullPolicy: Always
-    tag: "backup"
+    tag: 7-"backup"
 
   resources: {}
   #  limits:
