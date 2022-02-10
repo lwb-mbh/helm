@@ -105,7 +105,7 @@ backup:
   image:
     repository: "elcom/drupal"
     pullPolicy: Always
-    tag: 7-"backup"
+    tag: "7-backup"
 
   resources: {}
   #  limits:
