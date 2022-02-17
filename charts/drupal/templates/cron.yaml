@@ -6,6 +6,9 @@ kind: CronJob
 metadata:
   name: {{ include "deploy.fullname" $ }}-cron-{{ $key }}
   namespace: {{ $.Release.Namespace }}
+  labels:
+    job-family: cron
+    job-name: cron-{{ $key }}
 spec:
   concurrencyPolicy: Forbid
   schedule: {{ $value.schedule | quote }}

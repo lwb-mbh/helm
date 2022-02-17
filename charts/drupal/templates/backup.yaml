@@ -4,6 +4,9 @@ kind: CronJob
 metadata:
   name: {{ include "deploy.backup.name" . }}
   namespace: {{ .Release.Namespace }}
+  labels:
+    job-family: cron
+    job-name: backup-drupal
 spec:
   concurrencyPolicy: Forbid
   schedule: {{ .Values.backup.schedule | quote }}
