@@ -49,16 +49,13 @@ podAnnotations: {}
 podSecurityContext: {}
   # fsGroup: 2000
 
-securityContext:
-  privileged: false
-  allowPrivilegeEscalation: false
-  capabilities:
-    drop:
-      - ALL
-#  readOnlyRootFilesystem: false
-#  runAsNonRoot: true
-#  runAsUser: 65533
-#  runAsGroup: 65533
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
 
 resources:
   limits:
