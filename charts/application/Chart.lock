@@ -1,24 +1,24 @@
 dependencies:
 - name: drupal
-  repository: file://../drupal
-  version: 0.1.0
+  repository: https://lwb-mbh.github.io/helm/
+  version: 0.1.1
 - name: drupal7
-  repository: file://../drupal7
-  version: 0.1.0
+  repository: https://lwb-mbh.github.io/helm/
+  version: 0.1.1
 - name: mariadb
-  repository: file://../mariadb
-  version: 0.1.0
+  repository: https://lwb-mbh.github.io/helm/
+  version: 0.1.1
 - name: node
-  repository: file://../node
-  version: 0.1.0
+  repository: https://lwb-mbh.github.io/helm/
+  version: 0.1.1
 - name: phpmyadmin
-  repository: file://../phpmyadmin
-  version: 0.1.0
+  repository: https://lwb-mbh.github.io/helm/
+  version: 0.1.1
 - name: solr
-  repository: file://../solr
-  version: 0.1.0
+  repository: https://lwb-mbh.github.io/helm/
+  version: 0.1.1
 - name: tomcat
-  repository: file://../tomcat
-  version: 0.1.0
-digest: sha256:0b1be29e145a5d8a78ccbc5e9b6397c36cd51caf6d4040b56f8417b0cd08cdab
-generated: "2022-03-09T11:21:26.4623498+01:00"
+  repository: https://lwb-mbh.github.io/helm/
+  version: 0.1.1
+digest: sha256:fd230cc3dcc9fcb25571d15d1289af33c78219d9f40bb9e94d339464b686b54e
+generated: "2022-03-09T11:45:53.1364254+01:00"
