@@ -35,14 +35,7 @@ spec:
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
-          volumeMounts:
-          - name: config
-            mountPath: /etc/apache2/sites-enabled/000-default.conf
-            subPath: 000-default.conf
-          - name: ports
-            mountPath: /etc/apache2/ports.conf
-            subPath: ports.conf         
+          imagePullPolicy: {{ .Values.image.pullPolicy }}       
           ports:
             - name: http
               containerPort: {{ .Values.app.port }}
@@ -85,10 +78,3 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      volumes:
-      - name: config
-        configMap:
-          name: {{ include "deploy.fullname" . }}
-      - name: ports
-        configMap:
-          name: {{ include "deploy.fullname" . }}

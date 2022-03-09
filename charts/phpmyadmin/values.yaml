@@ -16,7 +16,7 @@ global:
 imagePullSecrets: {}
 
 image:
-  repository: "phpmyadmin"
+  repository: "elcom/phpmyadmin"
   pullPolicy: IfNotPresent
   tag: "latest"
 
