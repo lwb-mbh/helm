@@ -12,7 +12,7 @@ metadata:
 spec:
   replicas: 1
   strategy: 
-    type: Recreate
+    type: RollingUpdate
   selector:
     matchLabels:
       {{- include "solr.deploy.selectorLabels" . | nindent 6 }}
