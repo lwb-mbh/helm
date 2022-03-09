@@ -9,28 +9,28 @@ dependencies:
 - condition: drupal.enabled
   name: drupal
   version: "0.1.*"
-  repository: "https://lwb-mbh.github.io/helm/"
+  repository: "file://../drupal"
 - condition: drupal7.enabled
   name: drupal7
   version: "0.1.*"
-  repository: "https://lwb-mbh.github.io/helm/"
+  repository: "file://../drupal7"
 - condition: mariadb.enabled
   name: mariadb
   version: "0.1.*"
-  repository: "https://lwb-mbh.github.io/helm/"
+  repository: "file://../mariadb"
 - condition: node.enabled
   name: node
   version: "0.1.*"
-  repository: "https://lwb-mbh.github.io/helm/"
+  repository: "file://../node"
 - condition: phpmyadmin.enabled
   name: phpmyadmin
   version: "0.1.*"
-  repository: "https://lwb-mbh.github.io/helm/"
+  repository: "file://../phpmyadmin"
 - condition: solr.enabled
   name: solr
   version: "0.1.*"
-  repository: "https://lwb-mbh.github.io/helm/"
+  repository: "file://../solr"
 - condition: tomcat.enabled
   name: tomcat
   version: "0.1.*"
-  repository: "https://lwb-mbh.github.io/helm/"
+  repository: "file://../tomcat"
