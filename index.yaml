@@ -3,6 +3,45 @@ entries:
   application:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-03-11T10:54:34.201095867Z"
+    dependencies:
+    - condition: drupal.enabled
+      name: drupal
+      repository: file://../drupal
+      version: 0.1.*
+    - condition: drupal7.enabled
+      name: drupal7
+      repository: file://../drupal7
+      version: 0.1.*
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: file://../mariadb
+      version: 0.1.*
+    - condition: node.enabled
+      name: node
+      repository: file://../node
+      version: 0.1.*
+    - condition: phpmyadmin.enabled
+      name: phpmyadmin
+      repository: file://../phpmyadmin
+      version: 0.1.*
+    - condition: solr.enabled
+      name: solr
+      repository: file://../solr
+      version: 0.1.*
+    - condition: tomcat.enabled
+      name: tomcat
+      repository: file://../tomcat
+      version: 0.1.*
+    description: Umrella Chart for Applications
+    digest: fdb9ab3d9bdfbf4693505bbf9029f6d9afe4a8c597361f721f546c438241ae01
+    name: application
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/application-0.1.24/application-0.1.24.tgz
+    version: 0.1.24
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-03-11T09:20:31.709862231Z"
     dependencies:
     - condition: drupal.enabled
@@ -972,6 +1011,16 @@ entries:
   node:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-03-11T10:54:34.321735986Z"
+    description: Chart for js applications
+    digest: 0a8c22ba3efa40bd9e006b5f6d483c888960a0172497b0410e51f3078d5434f2
+    name: node
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/node-0.1.2/node-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-03-09T10:44:00.561999815Z"
     description: Chart for js applications
     digest: ebe991267a841ebac28383774090d1f271c5b09b7f275774a99f901a7c667bea
@@ -1113,4 +1162,4 @@ entries:
     urls:
     - https://github.com/lwb-mbh/helm/releases/download/tomcat-0.1.0/tomcat-0.1.0.tgz
     version: 0.1.0
-generated: "2022-03-11T09:20:31.916670515Z"
+generated: "2022-03-11T10:54:34.32204259Z"
