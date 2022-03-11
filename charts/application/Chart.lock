@@ -16,9 +16,9 @@ dependencies:
   version: 0.1.5
 - name: solr
   repository: file://../solr
-  version: 0.1.1
+  version: 0.1.2
 - name: tomcat
   repository: file://../tomcat
   version: 0.1.1
-digest: sha256:996c657f5cab633868919eb2e4643e9197d6cbe0e9d253c57a9b633468f4e30c
-generated: "2022-03-11T09:19:15.0232177+01:00"
+digest: sha256:75d5fbf6a1513bdf6be491415f9116630f5e8d437662ade47ffe107508a4a0cb
+generated: "2022-03-11T10:05:45.0357772+01:00"
