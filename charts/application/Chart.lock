@@ -19,6 +19,6 @@ dependencies:
   version: 0.1.2
 - name: tomcat
   repository: file://../tomcat
-  version: 0.1.1
-digest: sha256:75d5fbf6a1513bdf6be491415f9116630f5e8d437662ade47ffe107508a4a0cb
-generated: "2022-03-11T10:05:45.0357772+01:00"
+  version: 0.1.2
+digest: sha256:f6fa98e9f40a775dec1530260c6e95206d2b4df2c1f8684b7aaf043862727e52
+generated: "2022-03-11T10:19:32.1642443+01:00"
