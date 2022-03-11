@@ -10,7 +10,7 @@ dependencies:
   version: 0.1.1
 - name: node
   repository: file://../node
-  version: 0.1.1
+  version: 0.1.2
 - name: phpmyadmin
   repository: file://../phpmyadmin
   version: 0.1.5
@@ -20,5 +20,5 @@ dependencies:
 - name: tomcat
   repository: file://../tomcat
   version: 0.1.2
-digest: sha256:f6fa98e9f40a775dec1530260c6e95206d2b4df2c1f8684b7aaf043862727e52
-generated: "2022-03-11T10:19:32.1642443+01:00"
+digest: sha256:59dd8aaeaafa841dec8291adbff65356133d22d3b0aa74378570baf05240ad27
+generated: "2022-03-11T11:53:46.0237427+01:00"
