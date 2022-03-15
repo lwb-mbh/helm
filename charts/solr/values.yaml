@@ -72,7 +72,9 @@ ingress:
     traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd
   }
 
-storage: 4Gi
+storage:
+  className: local-path
+  size: 4Gi
 
 resources:
   limits:

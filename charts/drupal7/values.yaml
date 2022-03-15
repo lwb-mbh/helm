@@ -29,7 +29,8 @@ fullnameOverride: ""
 app: 
   port: 80
 
-storage: 
+storage:
+  className: local-path
   public: 4Gi
   backup: 20Gi
 

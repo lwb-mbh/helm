@@ -31,7 +31,9 @@ image:
 nameOverride: ""
 fullnameOverride: ""
 
-storage: 4Gi
+storage:
+  className: local-path
+  size: 4Gi
 
 serviceAccount:
   # Specifies whether a service account should be created
