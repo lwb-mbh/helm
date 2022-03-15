@@ -73,7 +73,7 @@ ingress:
   }
 
 storage:
-  className: local-path
+  className: "local-path"
   size: 4Gi
 
 resources:

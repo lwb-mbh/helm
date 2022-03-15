@@ -32,7 +32,7 @@ nameOverride: ""
 fullnameOverride: ""
 
 storage:
-  className: local-path
+  className: "local-path"
   size: 4Gi
 
 serviceAccount:

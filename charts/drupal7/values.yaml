@@ -30,7 +30,7 @@ app:
   port: 80
 
 storage:
-  className: local-path
+  className: "local-path"
   public: 4Gi
   backup: 20Gi
 

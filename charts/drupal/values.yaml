@@ -41,7 +41,7 @@ app:
   port: 8080
 
 storage: 
-  className: local-path
+  className: "local-path"
   public: 4Gi
   private: 4Gi
   backup: 20Gi
