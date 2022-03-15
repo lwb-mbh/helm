@@ -61,9 +61,9 @@ podAnnotations: {}
 podSecurityContext: {}
   # fsGroup: 2000
 
-securityContext:
-  capabilities:
-    drop: ["ALL"]
+securityContext: {}
+#  capabilities:
+#    drop: ["ALL"]
 #  privileged: false
 #  allowPrivilegeEscalation: false
   # readOnlyRootFilesystem: true
