@@ -38,7 +38,7 @@ nameOverride: ""
 fullnameOverride: ""
 
 app: 
-  port: 80
+  port: 8080
 
 storage: 
   public: 4Gi
@@ -61,17 +61,18 @@ podAnnotations: {}
 podSecurityContext: {}
   # fsGroup: 2000
 
-securityContext: {}
-  # capabilities:
-  #   drop:
-  #   - ALL
+securityContext:
+  privileged: false
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop: ["ALL"]
   # readOnlyRootFilesystem: true
   # runAsNonRoot: true
   # runAsUser: 1000
 
 service:
   type: ClusterIP
-  port: 80
+  port: 8080
 
 ingress:
   enabled: true
