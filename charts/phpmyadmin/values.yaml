@@ -48,9 +48,6 @@ securityContext:
   capabilities:
     drop: ["ALL"]
 #  readOnlyRootFilesystem: true
-#  runAsNonRoot: true
-#  runAsUser: 65531
-#  runAsGroup: 65531
 
 service:
   type: ClusterIP
@@ -77,7 +74,7 @@ resources:
 livenessProbe:
   enabled: true
   path: /
-  initialDelaySeconds: 30
+  initialDelaySeconds: 10
   periodSeconds: 10
   timeoutSeconds: 30
   failureThreshold: 6
@@ -86,7 +83,7 @@ livenessProbe:
 readinessProbe:
   enabled: true
   path: /
-  initialDelaySeconds: 30
+  initialDelaySeconds: 10
   periodSeconds: 10
   timeoutSeconds: 30
   failureThreshold: 6

@@ -13,12 +13,12 @@ dependencies:
   version: 0.1.2
 - name: phpmyadmin
   repository: file://../phpmyadmin
-  version: 0.1.5
+  version: 0.1.6
 - name: solr
   repository: file://../solr
   version: 0.1.5
 - name: tomcat
   repository: file://../tomcat
   version: 0.1.3
-digest: sha256:b3d104b53aaea9dfbc14df2c8236db12207e59c00da870ed8484135e7ca362f6
-generated: "2022-03-22T10:35:18.4797373+01:00"
+digest: sha256:994cd7975f51a6576b1c3f8b55c82c9837c194bbb318fc980079b9ef8c96bb20
+generated: "2022-03-23T12:27:56.8056719+01:00"
