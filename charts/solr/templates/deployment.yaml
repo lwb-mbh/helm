@@ -44,11 +44,9 @@ spec:
           args:
           {{- toYaml .Values.args | nindent 12 }}
           {{- end }}
-          {{- if not .Values.command }}
           volumeMounts:
-          - name: solr
-            mountPath: /opt/solr/server/solr/core/data
-          {{- end }}
+            - name: solr
+              mountPath: /opt/solr/server/solr/core/data
           ports:
             - name: http
               containerPort: {{ .Values.app.port }}
@@ -91,9 +89,11 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- if not .Values.command }}
       volumes:
-      - name: solr
-        persistentVolumeClaim:
-          claimName: {{ include "deploy.fullname" . }}
-      {{- end }}
+        - name: solr
+        {{- if not .Values.command }}
+          persistentVolumeClaim:
+            claimName: {{ include "deploy.fullname" . }}
+        {{- else }}
+          emptyDir: {}
+        {{- end }}
