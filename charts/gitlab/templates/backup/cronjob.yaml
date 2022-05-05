@@ -25,5 +25,31 @@ spec:
               - POD_NAME=$(kubectl get pods -l tier=frontend -o=jsonpath='{.items[0].metadata.name}' -n {{ $.Release.Namespace }} --field-selector=status.phase=Running);
                 kubectl exec $POD_NAME -n {{ $.Release.Namespace }} -c {{ $.Chart.Name }} -- bash -c 'gitlab-backup';
                 exit 0;
-
+          - name: copy
+            image: alpine
+            command: ["/bin/sh", "-c"]
+            args:
+              - cp /mnt/data/backups/*.tar /mnt/target/;
+                cp /mnt/config/gitlab-secrets.json /mnt/target/;
+                exit 0;
+            volumeMounts:
+            - name: target
+              mountPath: /mnt/target
+              subPath: {{ include "deploy.backup.subPath" . }}
+            - name: config
+              mountPath: /mnt/config
+            - name: data
+              mountPath: /mnt/data
+          volumes:
+          - name: target
+            persistentVolumeClaim:
+              claimName: {{ include "deploy.backup.name" . }}
+          - name: config
+            hostPath:
+              path: /opt/gitlab/config
+              type: DirectoryOrCreate
+          - name: data
+            hostPath:
+              path: /opt/gitlab/data
+              type: DirectoryOrCreate
 {{- end }}
