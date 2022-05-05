@@ -1,0 +1,112 @@
+# Default values for deploy.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+global:
+  plain:
+    environment: stage # production
+    baseUrl: "gitlab.web.lwb.local"
+  secret: {}
+  createSecret: true
+  imageCredentials: {}
+
+env:
+  plain: 
+    ip: 0.0.0.0
+  secret: {}
+
+image:
+  repository: "gitlab/gitlab-ce"
+  pullPolicy: IfNotPresent
+  tag: "14.10.1-ce.0"
+
+imagePullSecrets:
+  - name: registry.gitlab.com
+
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: false
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+#  app.gitlab.com/app: ANNOTATION_APP
+#  app.gitlab.com/env: ANNOTATION_ENV 
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  tls: true
+  path: /
+  pathType: ImplementationSpecific
+  className: ""
+  annotations: {
+    cert-manager.io/cluster-issuer: ca-issuer
+  }
+
+resources:
+  limits:
+    cpu: 4000m
+    memory: 8Gi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+livenessProbe:
+  enabled: true
+  path: /users/sign_in
+  initialDelaySeconds: 10
+  periodSeconds: 10
+  timeoutSeconds: 30
+  failureThreshold: 30
+  successThreshold: 1
+
+readinessProbe:
+  enabled: true
+  path: /users/sign_in
+  initialDelaySeconds: 10
+  periodSeconds: 10
+  timeoutSeconds: 30
+  failureThreshold: 30
+  successThreshold: 1
+
+backup:
+  enabled: false
+  schedule: "0 21 * * *"
+  storage: 20Gi
+
+  resources: {}
+  #  limits:
+  #    cpu: 1
+  #    memory: 1Gi   
+  #  requests:
+  #    cpu: 100m
+  #    memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+settings: |-
+  # Test

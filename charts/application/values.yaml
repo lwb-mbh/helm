@@ -35,6 +35,9 @@ drupal:
 drupal7:
   enabled: false
 
+gitlab:
+  enabled: false
+
 mariadb:
   enabled: false
 

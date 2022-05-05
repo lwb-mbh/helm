@@ -1,0 +1,29 @@
+{{- if .Values.backup.enabled -}}
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ include "deploy.backup.name" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    job-family: cron
+    job-name: backup-gitlab
+spec:
+  concurrencyPolicy: Forbid
+  schedule: {{ .Values.backup.schedule | quote }}
+  failedJobsHistoryLimit: 5
+  successfulJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - name: backup
+            image: bitnami/kubectl
+            command: ["/bin/bash", "-c"]
+            args:
+              - POD_NAME=$(kubectl get pods -l tier=frontend -o=jsonpath='{.items[0].metadata.name}' -n {{ $.Release.Namespace }} --field-selector=status.phase=Running);
+                kubectl exec $POD_NAME -n {{ $.Release.Namespace }} -c {{ $.Chart.Name }} -- bash -c 'gitlab-backup';
+                exit 0;
+
+{{- end }}
