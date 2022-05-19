@@ -48,8 +48,6 @@ Selector labels
 {{- define "mariadb.deploy.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "deploy.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
-app: mariadb
-tier: backend
 {{- end }}
 
 {{/*
