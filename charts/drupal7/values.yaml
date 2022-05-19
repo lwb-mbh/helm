@@ -32,6 +32,7 @@ app:
 storage:
   className: "local-path"
   public: 4Gi
+  backupClassName: "backup.smb"
   backup: 20Gi
 
 serviceAccount:

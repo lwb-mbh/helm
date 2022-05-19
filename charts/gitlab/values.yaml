@@ -93,6 +93,7 @@ backup:
   enabled: false
   schedule: "0 21 * * *"
   storage: 20Gi
+  storageClassName: "backup.smb"
 
   resources: {}
   #  limits:

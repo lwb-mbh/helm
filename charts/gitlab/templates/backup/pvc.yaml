@@ -10,5 +10,5 @@ spec:
   resources:
     requests:
       storage: {{ .Values.backup.storage }}
-  storageClassName: "backup.smb"
+  storageClassName: {{ .Values.backup.storageClassName }}
 {{- end }}

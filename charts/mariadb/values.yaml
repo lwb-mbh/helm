@@ -34,6 +34,7 @@ fullnameOverride: ""
 storage:
   className: "local-path"
   size: 4Gi
+  backupClassName: "backup.smb"
 
 serviceAccount:
   # Specifies whether a service account should be created
