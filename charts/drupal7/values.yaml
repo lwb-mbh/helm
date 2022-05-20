@@ -120,7 +120,7 @@ backup:
 cron:
   morning:
     enabled: true
-    schedule: "0 6 * * *"
+    schedule: "45 6 * * *"
     jobs:
       - "up -y"
       - "variable-set user_mail_status_activated_notify 0 -y"

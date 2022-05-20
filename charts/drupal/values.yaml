@@ -133,7 +133,7 @@ backup:
 cron:
   morning:
     enabled: true
-    schedule: "0 6 * * *"
+    schedule: "45 6 * * *"
     jobs:
       - "cdi:core:import"
       - "locale:check -y"
