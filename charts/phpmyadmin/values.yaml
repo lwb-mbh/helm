@@ -17,7 +17,7 @@ imagePullSecrets: {}
 
 image:
   repository: "elcom/phpmyadmin"
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   tag: "latest"
 
 nameOverride: ""
