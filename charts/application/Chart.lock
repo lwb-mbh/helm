@@ -1,27 +1,27 @@
 dependencies:
 - name: drupal
   repository: file://../drupal
-  version: 0.1.9
+  version: 0.1.10
 - name: drupal7
   repository: file://../drupal7
-  version: 0.1.5
+  version: 0.1.6
 - name: gitlab
   repository: file://../gitlab
-  version: 0.1.2
+  version: 0.1.3
 - name: mariadb
   repository: file://../mariadb
-  version: 0.1.8
+  version: 0.1.9
 - name: node
   repository: file://../node
-  version: 0.1.2
+  version: 0.1.3
 - name: phpmyadmin
   repository: file://../phpmyadmin
-  version: 0.1.7
+  version: 0.1.8
 - name: solr
   repository: file://../solr
-  version: 0.1.6
+  version: 0.1.7
 - name: tomcat
   repository: file://../tomcat
-  version: 0.1.5
-digest: sha256:933a8d9d1e7ff33444f2e042f71001547cad9a52e950835e52479c2edfd5f245
-generated: "2022-06-17T08:54:57.371076+02:00"
+  version: 0.1.6
+digest: sha256:b77be2a48245198f00683693c755a4bdcb18b11ba37e6a926a51f832ecd8ac95
+generated: "2022-07-20T13:17:04.3205538+02:00"
