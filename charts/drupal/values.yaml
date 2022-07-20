@@ -168,7 +168,7 @@ upgrade:
   annotations: {
     "helm.sh/hook": post-upgrade,
     "helm.sh/hook-weight": "0",
-    "helm.sh/hook-delete-policy": hook-succeeded
+    "helm.sh/hook-delete-policy": before-hook-creation
   }
 
 nodeSelector: {}
