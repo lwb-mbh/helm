@@ -17,6 +17,7 @@ spec:
       template:
         spec:
           restartPolicy: OnFailure
+          serviceAccountName: {{ include "deploy.serviceAccountName" $ }}-backup
           containers:
           - name: backup
             image: bitnami/kubectl
