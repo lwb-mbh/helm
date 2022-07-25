@@ -12,7 +12,7 @@ spec:
   template:
     spec:
       restartPolicy: OnFailure
-      serviceAccountName: {{ include "deploy.serviceAccountName" $ }}-cron
+      serviceAccountName: {{ include "deploy.serviceAccountName" $ }}
       containers:
       - name: drupal-upgrade
         image: bitnami/kubectl
