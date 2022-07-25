@@ -76,7 +76,6 @@ spec:
         {{- if not .Values.global.plain.dbExternal }}
         - name: wait-for-mariadb
           image: bitnami/kubectl
-          serviceAccountName: {{ include "deploy.serviceAccountName" . }}-cron
           command: 
             - /bin/bash
             - -c

@@ -19,7 +19,7 @@ spec:
       template:
         spec: 
           restartPolicy: OnFailure
-          serviceAccountName: {{ include "deploy.serviceAccountName" $ }}-cron
+          serviceAccountName: {{ include "deploy.serviceAccountName" $ }}
           containers:
           - name: drupal-cron
             image: bitnami/kubectl

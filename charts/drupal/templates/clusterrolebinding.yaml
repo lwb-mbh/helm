@@ -2,13 +2,13 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: {{ include "deploy.fullname" . }}-cron
+  name: {{ include "deploy.fullname" . }}
 subjects:
 - kind: ServiceAccount
-  name: {{ include "deploy.serviceAccountName" . }}-cron
+  name: {{ include "deploy.serviceAccountName" . }}
   apiGroup: ""
   namespace: {{ .Release.Namespace }}
 roleRef:
   kind: ClusterRole
-  name: {{ include "deploy.fullname" . }}-cron
+  name: {{ include "deploy.fullname" . }}
   apiGroup: rbac.authorization.k8s.io
