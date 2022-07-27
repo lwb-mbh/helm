@@ -10,7 +10,7 @@ dependencies:
   version: 0.1.7
 - name: mariadb
   repository: file://../mariadb
-  version: 0.1.12
+  version: 0.1.13
 - name: node
   repository: file://../node
   version: 0.1.4
@@ -19,9 +19,9 @@ dependencies:
   version: 0.1.10
 - name: solr
   repository: file://../solr
-  version: 0.1.10
+  version: 0.1.11
 - name: tomcat
   repository: file://../tomcat
-  version: 0.1.9
-digest: sha256:fce500eb33bd277594b2e1f258447dd41227c03a875b06c0488b2f13759b3c60
-generated: "2022-07-27T09:41:27.9345209+02:00"
+  version: 0.1.10
+digest: sha256:3b04aea6bebb284af91ef0247386f96f8d148aae3b429ed8827281a638aa8a00
+generated: "2022-07-27T10:25:02.7778028+02:00"
