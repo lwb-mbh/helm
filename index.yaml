@@ -3,6 +3,49 @@ entries:
   application:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-07-27T07:35:40.378968146Z"
+    dependencies:
+    - condition: drupal.enabled
+      name: drupal
+      repository: file://../drupal
+      version: 0.1.*
+    - condition: drupal7.enabled
+      name: drupal7
+      repository: file://../drupal7
+      version: 0.1.*
+    - condition: gitlab.enabled
+      name: gitlab
+      repository: file://../gitlab
+      version: 0.1.*
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: file://../mariadb
+      version: 0.1.*
+    - condition: node.enabled
+      name: node
+      repository: file://../node
+      version: 0.1.*
+    - condition: phpmyadmin.enabled
+      name: phpmyadmin
+      repository: file://../phpmyadmin
+      version: 0.1.*
+    - condition: solr.enabled
+      name: solr
+      repository: file://../solr
+      version: 0.1.*
+    - condition: tomcat.enabled
+      name: tomcat
+      repository: file://../tomcat
+      version: 0.1.*
+    description: Umrella Chart for Applications
+    digest: 4fdcf593f144fee5a08c15700cf347f81f2b4cc30bba6895825af84e3b2f13f6
+    name: application
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/application-0.1.58/application-0.1.58.tgz
+    version: 0.1.58
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-07-27T07:28:13.744728976Z"
     dependencies:
     - condition: drupal.enabled
@@ -2505,6 +2548,16 @@ entries:
     version: 0.1.0
   drupal7:
   - apiVersion: v2
+    appVersion: 7.0.0
+    created: "2022-07-27T07:35:40.53371737Z"
+    description: Chart for Drupal7
+    digest: 357941eea0fa2063f396b831fe49be7120db9c34f913b745e791de36f23f99c8
+    name: drupal7
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/drupal7-0.1.13/drupal7-0.1.13.tgz
+    version: 0.1.13
+  - apiVersion: v2
     appVersion: 7.0.0.
     created: "2022-07-27T07:28:14.037003614Z"
     description: Chart for Drupal7
@@ -3200,4 +3253,4 @@ entries:
     urls:
     - https://github.com/lwb-mbh/helm/releases/download/tomcat-0.1.0/tomcat-0.1.0.tgz
     version: 0.1.0
-generated: "2022-07-27T07:28:14.631343041Z"
+generated: "2022-07-27T07:35:40.534706577Z"
