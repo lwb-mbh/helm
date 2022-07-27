@@ -3,6 +3,49 @@ entries:
   application:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-07-27T07:28:13.744728976Z"
+    dependencies:
+    - condition: drupal.enabled
+      name: drupal
+      repository: file://../drupal
+      version: 0.1.*
+    - condition: drupal7.enabled
+      name: drupal7
+      repository: file://../drupal7
+      version: 0.1.*
+    - condition: gitlab.enabled
+      name: gitlab
+      repository: file://../gitlab
+      version: 0.1.*
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: file://../mariadb
+      version: 0.1.*
+    - condition: node.enabled
+      name: node
+      repository: file://../node
+      version: 0.1.*
+    - condition: phpmyadmin.enabled
+      name: phpmyadmin
+      repository: file://../phpmyadmin
+      version: 0.1.*
+    - condition: solr.enabled
+      name: solr
+      repository: file://../solr
+      version: 0.1.*
+    - condition: tomcat.enabled
+      name: tomcat
+      repository: file://../tomcat
+      version: 0.1.*
+    description: Umrella Chart for Applications
+    digest: 43dc6dd847b89128b4fb6c4b52e2442007a29374463c2c8adec29ba6d04db9a5
+    name: application
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/application-0.1.57/application-0.1.57.tgz
+    version: 0.1.57
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-07-25T10:58:34.883141401Z"
     dependencies:
     - condition: drupal.enabled
@@ -2271,6 +2314,16 @@ entries:
     version: 0.1.0
   drupal:
   - apiVersion: v2
+    appVersion: 9.4.0
+    created: "2022-07-27T07:28:13.894522264Z"
+    description: Chart for Drupal
+    digest: 1ee1300d620eb7d026f009927f3e53497835ddf7873fb24f826e5df6c87827a3
+    name: drupal
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/drupal-0.1.18/drupal-0.1.18.tgz
+    version: 0.1.18
+  - apiVersion: v2
     appVersion: 0.1.0
     created: "2022-07-25T10:58:35.042156564Z"
     description: Chart for Drupal
@@ -2451,6 +2504,16 @@ entries:
     - https://github.com/lwb-mbh/helm/releases/download/drupal-0.1.0/drupal-0.1.0.tgz
     version: 0.1.0
   drupal7:
+  - apiVersion: v2
+    appVersion: 7.0.0.
+    created: "2022-07-27T07:28:14.037003614Z"
+    description: Chart for Drupal7
+    digest: c301da8808b87b15bdfd81903e09659fd11ac82876b80a9068a4b7938ceb03b5
+    name: drupal7
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/drupal7-0.1.12/drupal7-0.1.12.tgz
+    version: 0.1.12
   - apiVersion: v2
     appVersion: 0.1.0
     created: "2022-07-25T10:37:52.120344484Z"
@@ -2655,6 +2718,16 @@ entries:
   mariadb:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-07-27T07:28:14.181586275Z"
+    description: Chart for mariadb
+    digest: a720cd62311e1fbaf5530d7a59d9205571d7cc9c4fe3709c90b1633a8735a5bd
+    name: mariadb
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/mariadb-0.1.12/mariadb-0.1.12.tgz
+    version: 0.1.12
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-07-22T07:07:20.331745603Z"
     description: Chart for mariadb
     digest: 46396167cc131e37d9b52c0fd06af36e6a82f829cd041bc0e97ecc37623a5b27
@@ -2827,6 +2900,16 @@ entries:
   phpmyadmin:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-07-27T07:28:14.317719391Z"
+    description: Chart for phpMyAdmin
+    digest: 6059a2e6f062acdd29775eea1415b63ebb6fd11ce42409e8d941376da24ab645
+    name: phpmyadmin
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/phpmyadmin-0.1.10/phpmyadmin-0.1.10.tgz
+    version: 0.1.10
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-07-22T07:07:20.606568056Z"
     description: Chart for phpMyAdmin
     digest: 75b6ce332e380b4650a84467070c76f5911be85edf1092158c60eb3e49c73e12
@@ -2928,6 +3011,16 @@ entries:
   solr:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-07-27T07:28:14.490916202Z"
+    description: Chart for Apache Solr
+    digest: cd1713f8e61c64969284e6deaa85c5e74e783cc46a67cd067518407e6dc9e846
+    name: solr
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/solr-0.1.9/solr-0.1.9.tgz
+    version: 0.1.9
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-07-22T07:07:20.72728448Z"
     description: Chart for Apache Solr
     digest: d9eec26f93cab48998ed9c1b3f70444c402af6b6373af78ec0b64cf84c21bc57
@@ -3019,6 +3112,16 @@ entries:
   tomcat:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-07-27T07:28:14.630558037Z"
+    description: Chart for Apache Tomcat
+    digest: 5dd7318b376c90672a0a9cdfaea9a4c11878f55dfb007459a5fa876fd8a4bbd0
+    name: tomcat
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/tomcat-0.1.8/tomcat-0.1.8.tgz
+    version: 0.1.8
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-07-22T07:07:20.859957086Z"
     description: Chart for Apache Tomcat
     digest: 232a199b57968084e5df43b90770f7a44d8cd9eb52088386146f1d5a524f0d77
@@ -3097,4 +3200,4 @@ entries:
     urls:
     - https://github.com/lwb-mbh/helm/releases/download/tomcat-0.1.0/tomcat-0.1.0.tgz
     version: 0.1.0
-generated: "2022-07-25T10:58:35.042924571Z"
+generated: "2022-07-27T07:28:14.631343041Z"
