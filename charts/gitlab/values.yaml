@@ -96,12 +96,6 @@ backup:
   storageClassName: "backup.smb"
 
   resources: {}
-  #  limits:
-  #    cpu: 1
-  #    memory: 1Gi   
-  #  requests:
-  #    cpu: 100m
-  #    memory: 128Mi
 
 nodeSelector: {}
 
