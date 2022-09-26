@@ -2,7 +2,7 @@ apiVersion: v2
 name: application
 description: Umrella Chart for Applications
 type: application
-version: 0.2.2
+version: 0.2.3
 appVersion: "0.2.0"
 
 dependencies:
@@ -34,6 +34,10 @@ dependencies:
   name: solr
   version: "0.2.*"
   repository: "file://../solr"
+- condition: tika.enabled
+  name: tika
+  version: "0.2.*"
+  repository: "file://../tika"
 - condition: tomcat.enabled
   name: tomcat
   version: "0.2.*"

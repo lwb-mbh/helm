@@ -1,0 +1,106 @@
+# Default values for deploy.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+global:
+  plain:
+    environment: stage # production
+    baseUrl: "tika.web.lwb.local"
+  secrets: {}
+  imageCredentials: {}
+  createSecret: true
+
+env:
+  plain: {}
+  secrets: {}
+
+command: []
+args: []
+
+image:
+  repository: "apache/tika"
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+imagePullSecrets:
+  - name: registry.gitlab.com
+
+nameOverride: ""
+fullnameOverride: ""
+
+app: 
+  port: 9998
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+#  app.gitlab.com/app: ANNOTATION_APP
+#  app.gitlab.com/env: ANNOTATION_ENV 
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext:
+  privileged: false
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop: ["ALL"]
+#  runAsNonRoot: true
+#  readOnlyRootFilesystem: false
+#  runAsNonRoot: true
+#  runAsUser: 65532
+#  runAsGroup: 65532
+
+service:
+  type: ClusterIP
+  port: 9998
+
+ingress:
+  enabled: false
+  tls: true
+  path: /
+  pathType: ImplementationSpecific
+  className: ""
+  annotations: {
+    cert-manager.io/cluster-issuer: ca-issuer,
+    traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd
+  }
+
+resources:
+  limits:
+    cpu: 1
+    memory: 2Gi
+  requests:
+    cpu: '100m'
+    memory: 512Mi
+
+livenessProbe:
+  enabled: true
+  path: /
+  initialDelaySeconds: 10
+  periodSeconds: 10
+  timeoutSeconds: 10
+  failureThreshold: 3
+  successThreshold: 1
+
+readinessProbe:
+  enabled: true
+  path: /
+  initialDelaySeconds: 10
+  periodSeconds: 10
+  timeoutSeconds: 10
+  failureThreshold: 3
+  successThreshold: 1
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

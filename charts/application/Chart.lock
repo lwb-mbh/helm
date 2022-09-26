@@ -20,8 +20,11 @@ dependencies:
 - name: solr
   repository: file://../solr
   version: 0.2.1
+- name: tika
+  repository: file://../tika
+  version: 0.2.0
 - name: tomcat
   repository: file://../tomcat
   version: 0.2.1
-digest: sha256:3e879a635db02380118e692e5dad7bed1cb36fc3d4231de19a6c1446d2e97a08
-generated: "2022-08-08T16:39:39.3927609+02:00"
+digest: sha256:9c0f64034f446beafc4ecf01491225cc21f1dbbb2eb0b7e34591e205f7347a06
+generated: "2022-09-26T13:22:28.4373232+02:00"
