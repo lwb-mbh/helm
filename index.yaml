@@ -3,6 +3,53 @@ entries:
   application:
   - apiVersion: v2
     appVersion: 0.2.0
+    created: "2022-09-26T11:23:22.033581701Z"
+    dependencies:
+    - condition: drupal.enabled
+      name: drupal
+      repository: file://../drupal
+      version: 0.2.*
+    - condition: drupal7.enabled
+      name: drupal7
+      repository: file://../drupal7
+      version: 0.2.*
+    - condition: gitlab.enabled
+      name: gitlab
+      repository: file://../gitlab
+      version: 0.2.*
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: file://../mariadb
+      version: 0.2.*
+    - condition: node.enabled
+      name: node
+      repository: file://../node
+      version: 0.2.*
+    - condition: phpmyadmin.enabled
+      name: phpmyadmin
+      repository: file://../phpmyadmin
+      version: 0.2.*
+    - condition: solr.enabled
+      name: solr
+      repository: file://../solr
+      version: 0.2.*
+    - condition: tika.enabled
+      name: tika
+      repository: file://../tika
+      version: 0.2.*
+    - condition: tomcat.enabled
+      name: tomcat
+      repository: file://../tomcat
+      version: 0.2.*
+    description: Umrella Chart for Applications
+    digest: 5bcaa5dcbb44ef890df363188d1fa08abfe471ba13d36e2d3fe35fc133dee18d
+    name: application
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/application-0.2.3/application-0.2.3.tgz
+    version: 0.2.3
+  - apiVersion: v2
+    appVersion: 0.2.0
     created: "2022-08-08T14:40:55.043533903Z"
     dependencies:
     - condition: drupal.enabled
@@ -3484,6 +3531,17 @@ entries:
     urls:
     - https://github.com/lwb-mbh/helm/releases/download/solr-0.1.0/solr-0.1.0.tgz
     version: 0.1.0
+  tika:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2022-09-26T11:23:22.150088388Z"
+    description: Chart for Apache Tika
+    digest: a2c8703a7fa4492b04e103c3d30529d6d0b1e917df703eae355ee61e3d40e73b
+    name: tika
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/tika-0.2.0/tika-0.2.0.tgz
+    version: 0.2.0
   tomcat:
   - apiVersion: v2
     appVersion: 0.1.0
@@ -3615,4 +3673,4 @@ entries:
     urls:
     - https://github.com/lwb-mbh/helm/releases/download/tomcat-0.1.0/tomcat-0.1.0.tgz
     version: 0.1.0
-generated: "2022-08-08T14:40:56.017539264Z"
+generated: "2022-09-26T11:23:22.151532796Z"
