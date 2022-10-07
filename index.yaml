@@ -3,6 +3,53 @@ entries:
   application:
   - apiVersion: v2
     appVersion: 0.2.0
+    created: "2022-10-07T08:21:58.271200567Z"
+    dependencies:
+    - condition: drupal.enabled
+      name: drupal
+      repository: file://../drupal
+      version: 0.2.*
+    - condition: drupal7.enabled
+      name: drupal7
+      repository: file://../drupal7
+      version: 0.2.*
+    - condition: gitlab.enabled
+      name: gitlab
+      repository: file://../gitlab
+      version: 0.2.*
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: file://../mariadb
+      version: 0.2.*
+    - condition: node.enabled
+      name: node
+      repository: file://../node
+      version: 0.2.*
+    - condition: phpmyadmin.enabled
+      name: phpmyadmin
+      repository: file://../phpmyadmin
+      version: 0.2.*
+    - condition: solr.enabled
+      name: solr
+      repository: file://../solr
+      version: 0.2.*
+    - condition: tika.enabled
+      name: tika
+      repository: file://../tika
+      version: 0.2.*
+    - condition: tomcat.enabled
+      name: tomcat
+      repository: file://../tomcat
+      version: 0.2.*
+    description: Umrella Chart for Applications
+    digest: e303d754dfa379af690fbd6fde9091706895bd4ce25759375f09557d401a2e3a
+    name: application
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/application-0.2.4/application-0.2.4.tgz
+    version: 0.2.4
+  - apiVersion: v2
+    appVersion: 0.2.0
     created: "2022-09-26T11:23:22.033581701Z"
     dependencies:
     - condition: drupal.enabled
@@ -2577,6 +2624,16 @@ entries:
   drupal:
   - apiVersion: v2
     appVersion: 9.4.0
+    created: "2022-10-07T08:21:58.382710081Z"
+    description: Chart for Drupal
+    digest: df6638eb11547830e19f257c5626e4d7b3eeeb74b43aa8e8b15fb131aa0426d5
+    name: drupal
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/drupal-0.2.2/drupal-0.2.2.tgz
+    version: 0.2.2
+  - apiVersion: v2
+    appVersion: 9.4.0
     created: "2022-08-08T14:40:55.203289109Z"
     description: Chart for Drupal
     digest: 7c958e53890883259b03c165ff741dc5fd06a4add510222e68526f987f158cf5
@@ -3040,6 +3097,16 @@ entries:
   mariadb:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-10-07T08:21:58.493705489Z"
+    description: Chart for mariadb
+    digest: 7ddc91bd36b0951947e8de3d30f0a57158d4d4741e0fb994549892dfbac9d353
+    name: mariadb
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/mariadb-0.2.2/mariadb-0.2.2.tgz
+    version: 0.2.2
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-08-08T14:40:55.512942171Z"
     description: Chart for mariadb
     digest: a820e71dfe580163250667f8557c3779d41074a0141cf6d878d1722ee2862b3a
@@ -3393,6 +3460,16 @@ entries:
   solr:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-10-07T08:21:58.637725358Z"
+    description: Chart for Apache Solr
+    digest: 94f8ac8b7af1cfa0808afc0720061a93676e30a4b8964b5db8ef2f3ac48c9199
+    name: solr
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/solr-0.2.2/solr-0.2.2.tgz
+    version: 0.2.2
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-08-08T14:40:55.843966226Z"
     description: Chart for Apache Solr
     digest: 6e6b6f7c4b7aa7432d7b250a1648410d44fcf1d91e26debd94d863f53d8ce6b1
@@ -3534,6 +3611,16 @@ entries:
   tika:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-10-07T08:21:58.763468727Z"
+    description: Chart for Apache Tika
+    digest: a62c3bb144b562ff320e89a1d345d0894096ea78e349b8fc018fbebdb65085e3
+    name: tika
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/tika-0.2.1/tika-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-09-26T11:23:22.150088388Z"
     description: Chart for Apache Tika
     digest: a2c8703a7fa4492b04e103c3d30529d6d0b1e917df703eae355ee61e3d40e73b
@@ -3673,4 +3760,4 @@ entries:
     urls:
     - https://github.com/lwb-mbh/helm/releases/download/tomcat-0.1.0/tomcat-0.1.0.tgz
     version: 0.1.0
-generated: "2022-09-26T11:23:22.151532796Z"
+generated: "2022-10-07T08:21:58.764538138Z"
