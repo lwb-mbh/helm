@@ -1,7 +1,7 @@
 dependencies:
 - name: drupal
   repository: file://../drupal
-  version: 0.2.1
+  version: 0.2.2
 - name: drupal7
   repository: file://../drupal7
   version: 0.2.1
@@ -10,7 +10,7 @@ dependencies:
   version: 0.2.0
 - name: mariadb
   repository: file://../mariadb
-  version: 0.2.1
+  version: 0.2.2
 - name: node
   repository: file://../node
   version: 0.2.0
@@ -19,12 +19,12 @@ dependencies:
   version: 0.2.1
 - name: solr
   repository: file://../solr
-  version: 0.2.1
+  version: 0.2.2
 - name: tika
   repository: file://../tika
-  version: 0.2.0
+  version: 0.2.1
 - name: tomcat
   repository: file://../tomcat
   version: 0.2.1
-digest: sha256:9c0f64034f446beafc4ecf01491225cc21f1dbbb2eb0b7e34591e205f7347a06
-generated: "2022-09-26T13:22:28.4373232+02:00"
+digest: sha256:91ee7d67636505699b2e09553b26b06cfae4d9190e2886787a8ae7d9a07f2305
+generated: "2022-10-07T10:20:41.3934066+02:00"
