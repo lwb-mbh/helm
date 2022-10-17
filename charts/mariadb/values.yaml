@@ -20,9 +20,6 @@ global:
   imageCredentials: {}
   createSecret: true
 
-imagePullSecrets:
-  - name: registry.gitlab.com
-
 image:
   repository: "mariadb"
   pullPolicy: IfNotPresent

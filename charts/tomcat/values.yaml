@@ -19,9 +19,6 @@ image:
   pullPolicy: IfNotPresent
   tag: "latest"
 
-imagePullSecrets:
-  - name: registry.gitlab.com
-
 autoscaling:
   enabled: false
   minReplicas: 1

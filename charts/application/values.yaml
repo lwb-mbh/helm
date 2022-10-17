@@ -21,8 +21,8 @@ global:
 
 ## @param imagePullSecrets.name Global image pull secrets
 ##
-imagePullSecrets:
-  - name: registry.gitlab.com
+# imagePullSecrets:
+#   - name: registry.gitlab.com
 
 fullnameOverride: ""
 nameOverride: ""

@@ -12,9 +12,6 @@ global:
   secret: {}
   imageCredentials: {}
 
-imagePullSecrets:
-  - name: registry.gitlab.com
-
 image:
   repository: "node"
   pullPolicy: IfNotPresent

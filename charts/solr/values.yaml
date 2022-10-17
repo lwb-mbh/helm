@@ -22,9 +22,6 @@ image:
   pullPolicy: IfNotPresent
   tag: "latest"
 
-imagePullSecrets:
-  - name: registry.gitlab.com
-
 nameOverride: ""
 fullnameOverride: ""
 

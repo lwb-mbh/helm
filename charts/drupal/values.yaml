@@ -31,9 +31,6 @@ image:
   pullPolicy: IfNotPresent
   tag: "9"
 
-imagePullSecrets:
-  - name: registry.gitlab.com
-
 nameOverride: ""
 fullnameOverride: ""
 
