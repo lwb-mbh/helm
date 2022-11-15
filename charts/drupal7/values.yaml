@@ -16,9 +16,9 @@ global:
   createSecret: true
 
 image:
-  repository: "drupal"
-  pullPolicy: IfNotPresent
-  tag: "7"
+  repository: "elcom/drupal7"
+  pullPolicy: Always
+  tag: "latest"
 
 nameOverride: ""
 fullnameOverride: ""
@@ -71,13 +71,13 @@ ingress:
     traefik.ingress.kubernetes.io/router.middlewares: "default-redirect-https@kubernetescrd, kube-system-traefik-forward-auth@kubernetescrd"
   }
 
-resources:
-  limits:
-    cpu: 500m
-    memory: 1Gi
-  requests:
-    cpu: 100m
-    memory: 128Mi
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 2Gi
+    requests:
+      cpu: 100m
+      memory: 128Mi
 
 livenessProbe:
   enabled: true
