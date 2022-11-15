@@ -3,6 +3,53 @@ entries:
   application:
   - apiVersion: v2
     appVersion: 0.3.0
+    created: "2022-11-15T09:58:05.178061308Z"
+    dependencies:
+    - condition: drupal.enabled
+      name: drupal
+      repository: file://../drupal
+      version: 0.3.*
+    - condition: drupal7.enabled
+      name: drupal7
+      repository: file://../drupal7
+      version: 0.3.*
+    - condition: gitlab.enabled
+      name: gitlab
+      repository: file://../gitlab
+      version: 0.3.*
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: file://../mariadb
+      version: 0.3.*
+    - condition: node.enabled
+      name: node
+      repository: file://../node
+      version: 0.3.*
+    - condition: phpmyadmin.enabled
+      name: phpmyadmin
+      repository: file://../phpmyadmin
+      version: 0.3.*
+    - condition: solr.enabled
+      name: solr
+      repository: file://../solr
+      version: 0.3.*
+    - condition: tika.enabled
+      name: tika
+      repository: file://../tika
+      version: 0.3.*
+    - condition: tomcat.enabled
+      name: tomcat
+      repository: file://../tomcat
+      version: 0.3.*
+    description: Umrella Chart for Applications
+    digest: a53ffdd12e0525274a1fd54e235ab841a5c52feb1138b5c927d4dbc06a927fd9
+    name: application
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/application-0.3.1/application-0.3.1.tgz
+    version: 0.3.1
+  - apiVersion: v2
+    appVersion: 0.3.0
     created: "2022-10-17T14:19:01.439343215Z"
     dependencies:
     - condition: drupal.enabled
@@ -3100,6 +3147,16 @@ entries:
   drupal7:
   - apiVersion: v2
     appVersion: 7.0.0
+    created: "2022-11-15T09:58:05.485464245Z"
+    description: Chart for Drupal7
+    digest: 1d8035accfdd8539efbc22637dd5564f9fb51fd7258dfa4ef42b6a2b0e92f231
+    name: drupal7
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/drupal7-0.3.1/drupal7-0.3.1.tgz
+    version: 0.3.1
+  - apiVersion: v2
+    appVersion: 7.0.0
     created: "2022-10-17T14:19:01.985114443Z"
     description: Chart for Drupal7
     digest: d2802b351e927b875d126ff7e772b5496fd68a1bad34182b2171f43215376dd9
@@ -4165,4 +4222,4 @@ entries:
     urls:
     - https://github.com/lwb-mbh/helm/releases/download/tomcat-0.1.0/tomcat-0.1.0.tgz
     version: 0.1.0
-generated: "2022-10-17T14:19:03.809250318Z"
+generated: "2022-11-15T09:58:05.486193648Z"
