@@ -17,6 +17,13 @@ global:
     email: ''
   createSecret: true
 
+  externalSecret:
+    projectID: ''
+    accessToken:
+      name: gitlab-secret
+      key: token
+      namespace: kube-system
+
 ## @section Common parameters
 
 ## @param imagePullSecrets.name Global image pull secrets
