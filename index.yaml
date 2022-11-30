@@ -3,6 +3,53 @@ entries:
   application:
   - apiVersion: v2
     appVersion: 0.3.0
+    created: "2022-11-30T15:06:15.628075002Z"
+    dependencies:
+    - condition: drupal.enabled
+      name: drupal
+      repository: file://../drupal
+      version: 0.3.*
+    - condition: drupal7.enabled
+      name: drupal7
+      repository: file://../drupal7
+      version: 0.3.*
+    - condition: gitlab.enabled
+      name: gitlab
+      repository: file://../gitlab
+      version: 0.3.*
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: file://../mariadb
+      version: 0.3.*
+    - condition: node.enabled
+      name: node
+      repository: file://../node
+      version: 0.3.*
+    - condition: phpmyadmin.enabled
+      name: phpmyadmin
+      repository: file://../phpmyadmin
+      version: 0.3.*
+    - condition: solr.enabled
+      name: solr
+      repository: file://../solr
+      version: 0.3.*
+    - condition: tika.enabled
+      name: tika
+      repository: file://../tika
+      version: 0.3.*
+    - condition: tomcat.enabled
+      name: tomcat
+      repository: file://../tomcat
+      version: 0.3.*
+    description: Umrella Chart for Applications
+    digest: d46734f9ac1d25cc7a473b1b8a05fec19c492b27c5c81ec017d9d88c8b9456a3
+    name: application
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/application-0.3.6/application-0.3.6.tgz
+    version: 0.3.6
+  - apiVersion: v2
+    appVersion: 0.3.0
     created: "2022-11-30T13:22:04.501229793Z"
     dependencies:
     - condition: drupal.enabled
@@ -4215,6 +4262,16 @@ entries:
   tomcat:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-11-30T15:06:15.781388904Z"
+    description: Chart for Apache Tomcat
+    digest: 3ac5ac2b7ffb5e01d27b7b727d0becc2300da865a2c1ba26993d1e6551d07546
+    name: tomcat
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/tomcat-0.3.3/tomcat-0.3.3.tgz
+    version: 0.3.3
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-11-30T13:22:04.868890804Z"
     description: Chart for Apache Tomcat
     digest: 24ffc487ca95c06213ea946637c13fd30fe73dc1c1ad169c59850baee0305ee1
@@ -4383,4 +4440,4 @@ entries:
     urls:
     - https://github.com/lwb-mbh/helm/releases/download/tomcat-0.1.0/tomcat-0.1.0.tgz
     version: 0.1.0
-generated: "2022-11-30T13:22:04.869463815Z"
+generated: "2022-11-30T15:06:15.78195881Z"
