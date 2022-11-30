@@ -18,7 +18,7 @@ global:
   createSecret: true
 
   externalSecret:
-    projectID: ''
+    projectID: '0'
     accessToken:
       name: gitlab-secret
       key: token
