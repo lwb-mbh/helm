@@ -77,13 +77,6 @@ Create the name of the service account to use
 {{- end }}
 
 {{/*
-Name of env secrets
-*/}}
-{{- define "deploy.env.secrets" -}}
-{{- printf "%s-%s-%s" (include "deploy.fullname" .) "env" "secrets" | trunc 63 | trimSuffix "-" }}
-{{- end }}
-
-{{/*
 Name of secrets
 */}}
 {{- define "deploy.secrets" -}}
