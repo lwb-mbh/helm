@@ -82,3 +82,24 @@ Name of env secrets
 {{- define "deploy.env.secrets" -}}
 {{- printf "%s-%s-%s" (include "deploy.fullname" .) "env" "secrets" | trunc 63 | trimSuffix "-" }}
 {{- end }}
+
+{{/*
+Name of secrets
+*/}}
+{{- define "deploy.secrets" -}}
+{{- printf "%s-%s" .Chart.Name "secrets" | trunc 63 | trimSuffix "-" }}
+{{- end }}
+
+{{/*
+Name of secrets
+*/}}
+{{- define "deploy.externalsecrets" -}}
+{{- printf "%s_%s" .Chart.Name "secrets" | trunc 63 | trimSuffix "-" }}
+{{- end }}
+
+{{/*
+Create name of secretstore.
+*/}}
+{{- define "deploy.secretstore" -}}
+{{- printf "%s" .Release.Name | replace "+" "_" | trunc 63 | trimSuffix "-" }}
+{{- end }}
