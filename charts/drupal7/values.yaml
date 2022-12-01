@@ -71,13 +71,13 @@ ingress:
     traefik.ingress.kubernetes.io/router.middlewares: "default-redirect-https@kubernetescrd, kube-system-traefik-forward-auth@kubernetescrd"
   }
 
-  resources:
-    limits:
-      cpu: 1000m
-      memory: 2Gi
-    requests:
-      cpu: 100m
-      memory: 128Mi
+resources:
+  limits:
+    cpu: 1000m
+    memory: 2Gi
+  requests:
+    cpu: 100m
+    memory: 128Mi
 
 livenessProbe:
   enabled: true
