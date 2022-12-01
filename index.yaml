@@ -3,6 +3,53 @@ entries:
   application:
   - apiVersion: v2
     appVersion: 0.3.0
+    created: "2022-12-01T11:42:40.444536131Z"
+    dependencies:
+    - condition: drupal.enabled
+      name: drupal
+      repository: file://../drupal
+      version: 0.3.*
+    - condition: drupal7.enabled
+      name: drupal7
+      repository: file://../drupal7
+      version: 0.3.*
+    - condition: gitlab.enabled
+      name: gitlab
+      repository: file://../gitlab
+      version: 0.3.*
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: file://../mariadb
+      version: 0.3.*
+    - condition: node.enabled
+      name: node
+      repository: file://../node
+      version: 0.3.*
+    - condition: phpmyadmin.enabled
+      name: phpmyadmin
+      repository: file://../phpmyadmin
+      version: 0.3.*
+    - condition: solr.enabled
+      name: solr
+      repository: file://../solr
+      version: 0.3.*
+    - condition: tika.enabled
+      name: tika
+      repository: file://../tika
+      version: 0.3.*
+    - condition: tomcat.enabled
+      name: tomcat
+      repository: file://../tomcat
+      version: 0.3.*
+    description: Umrella Chart for Applications
+    digest: dc5a91796beab15b8015872df559d6a61772d5d0f5e9606590dfb95e193ba3d1
+    name: application
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/application-0.3.10/application-0.3.10.tgz
+    version: 0.3.10
+  - apiVersion: v2
+    appVersion: 0.3.0
     created: "2022-12-01T11:26:51.345458069Z"
     dependencies:
     - condition: drupal.enabled
@@ -3808,6 +3855,16 @@ entries:
   mariadb:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-12-01T11:42:40.674355093Z"
+    description: Chart for mariadb
+    digest: c824d0b0301841911c30c89ea1969a6497aeb477ba4a66cb67ab8b757f936cd0
+    name: mariadb
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/mariadb-0.3.3/mariadb-0.3.3.tgz
+    version: 0.3.3
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-12-01T11:26:51.518784046Z"
     description: Chart for mariadb
     digest: 41d38dfc483cfb2295381cdd486f3ea15b60687c6dcda3dff743053063fb6c3c
@@ -4621,4 +4678,4 @@ entries:
     urls:
     - https://github.com/lwb-mbh/helm/releases/download/tomcat-0.1.0/tomcat-0.1.0.tgz
     version: 0.1.0
-generated: "2022-12-01T11:26:51.519397255Z"
+generated: "2022-12-01T11:42:40.675352414Z"
