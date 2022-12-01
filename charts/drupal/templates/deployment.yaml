@@ -25,10 +25,6 @@ spec:
       labels:
         {{- include "drupal.deploy.selectorLabels" . | nindent 8 }}
     spec:
-      {{- with .Values.imagePullSecrets }}
-      imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
       serviceAccountName: {{ include "deploy.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
@@ -75,7 +71,7 @@ spec:
           {{- include "helpers.list-drupal-env-variables" . | indent 12 }}
           envFrom:
           - secretRef:
-              name: {{ include "deploy.env.secrets" . }}
+              name: {{ include "deploy.secrets" . }}
       initContainers:
         {{- if not .Values.global.plain.dbExternal }}
         - name: wait-for-mariadb
