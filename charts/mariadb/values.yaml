@@ -42,9 +42,8 @@ serviceAccount:
   # If not set and create is true, a name is generated using the fullname template
   name: ""
 
-podAnnotations: {}
-#  app.gitlab.com/app: ANNOTATION_APP
-#  app.gitlab.com/env: ANNOTATION_ENV 
+podAnnotations:
+  argocd.argoproj.io/sync-wave: "4"
 
 podSecurityContext: {}
   # fsGroup: 2000
