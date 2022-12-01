@@ -106,8 +106,8 @@ Backup path name
 {{/*
 Name of backup env secrets
 */}}
-{{- define "deploy.backup.secrets" -}}
-{{- printf "%s-%s-%s" (include "deploy.fullname" .) "backup" "secrets" | trunc 63 }}
+{{- define "deploy.backup.env.secrets" -}}
+{{- printf "%s-%s-%s-%s" (include "deploy.fullname" .) "backup" "env" "secrets" | trunc 63 }}
 {{- end }}
 
 {{/*

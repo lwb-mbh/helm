@@ -10,7 +10,7 @@ dependencies:
   version: 0.3.0
 - name: mariadb
   repository: file://../mariadb
-  version: 0.3.4
+  version: 0.3.5
 - name: node
   repository: file://../node
   version: 0.3.0
@@ -26,5 +26,5 @@ dependencies:
 - name: tomcat
   repository: file://../tomcat
   version: 0.3.3
-digest: sha256:3ef926d1708029c0179c123c5f9b2c5769aec211a3eae6a5ce80b43134b96ca4
-generated: "2022-12-01T14:06:25.1031113+01:00"
+digest: sha256:82eede35f14952036f5fb6b82533af231c4505ed381a5aadb73cf63fc920c2ae
+generated: "2022-12-01T14:21:30.2879408+01:00"
