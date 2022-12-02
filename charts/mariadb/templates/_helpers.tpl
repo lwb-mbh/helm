@@ -104,13 +104,6 @@ Backup path name
 {{- end }}
 
 {{/*
-Name of backup env secrets
-*/}}
-{{- define "deploy.backup.env.secrets" -}}
-{{- printf "%s-%s-%s-%s" (include "deploy.fullname" .) "backup" "env" "secrets" | trunc 63 }}
-{{- end }}
-
-{{/*
 host of mariadb
 */}}
 {{- define "deploy.mariadb.host"}}

@@ -30,9 +30,16 @@ spec:
               subPath: {{ include "deploy.backup.subPath" . }}
             env:
             {{- include "helpers.list-backup-env-variables" . | indent 12 }}
-            envFrom:
-            - secretRef:
-                name: {{ include "deploy.backup.env.secrets" . }}
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "deploy.secrets" . }}
+                  key: MYSQL_PASSWORD
+            - name: LOG_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "deploy.secrets" . }}
+                  key: LOG_PASSWORD
           volumes:
           - name: backup
             persistentVolumeClaim:
