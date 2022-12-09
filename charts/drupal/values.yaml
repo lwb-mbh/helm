@@ -26,6 +26,15 @@ env:
     hashSalt: ""
     dbCorePassword: "changeme"
 
+replicaCount: 1
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
 image:
   repository: "drupal"
   pullPolicy: IfNotPresent
