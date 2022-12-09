@@ -1,10 +1,10 @@
 dependencies:
 - name: drupal
   repository: file://../drupal
-  version: 0.3.1
+  version: 0.3.2
 - name: drupal7
   repository: file://../drupal7
-  version: 0.3.2
+  version: 0.3.3
 - name: gitlab
   repository: file://../gitlab
   version: 0.3.0
@@ -26,5 +26,5 @@ dependencies:
 - name: tomcat
   repository: file://../tomcat
   version: 0.3.3
-digest: sha256:3b1378e52d2eb97427f85652fc56eacc14a6e6cf38344c9b0c8b71ea8531a3df
-generated: "2022-12-02T07:55:14.6699373+01:00"
+digest: sha256:0aceb0ec29ca8839de9803e0975a3a17dc218cf23ec6a1403b0e815778456a84
+generated: "2022-12-09T10:29:44.3319035+01:00"
