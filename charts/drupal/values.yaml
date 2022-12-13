@@ -36,7 +36,7 @@ autoscaling:
   # targetMemoryUtilizationPercentage: 80
 
 image:
-  repository: "registry.gitlab.com/lwb-web/docker/base/drupal"
+  repository: "registry.gitlab.com/lwb-web/docker/library/base/drupal"
   pullPolicy: Always
   tag: "9-php8.1-apache"
 
