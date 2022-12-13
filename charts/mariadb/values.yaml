@@ -91,9 +91,9 @@ backup:
   schedule: "0 21 * * *"
 
   image:
-    repository: "elcom/mariadb"
+    repository: "registry.gitlab.com/lwb-web/docker/library/extend/mariadb-backup"
     pullPolicy: Always
-    tag: "backup"
+    tag: "3.16"
 
   resources: {}
   #  limits:
