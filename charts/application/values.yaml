@@ -54,6 +54,20 @@ node:
 phpmyadmin:
   enabled: false
 
+  db:
+    host: mariadb
+    allowArbitraryServer: false
+
+  ingress:
+    enabled: true
+    hostname: pma.lwb.local
+    certManager: true
+    tls: true
+
+    annotations:
+      cert-manager.io/cluster-issuer: ca-issuer
+      traefik.ingress.kubernetes.io/router.middlewares: "default-redirect-https@kubernetescrd"
+
 solr:
   enabled: false
 
