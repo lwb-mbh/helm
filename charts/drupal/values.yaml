@@ -123,9 +123,9 @@ backup:
   schedule: "0 21 * * *"
 
   image:
-    repository: "elcom/drupal"
+    repository: "registry.gitlab.com/lwb-web/docker/library/extend/drupal-backup"
     pullPolicy: Always
-    tag: "9-backup"
+    tag: "3.16"
 
   resources: {}
   #  limits:
