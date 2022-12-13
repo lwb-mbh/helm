@@ -2,8 +2,8 @@ apiVersion: v2
 name: application
 description: Umrella Chart for Applications
 type: application
-version: 0.3.21
-appVersion: "0.3.0"
+version: 0.4.0
+appVersion: "0.4.0"
 
 dependencies:
 - condition: drupal.enabled
@@ -26,10 +26,10 @@ dependencies:
   name: node
   version: "0.3.*"
   repository: "file://../node"
-- condition: phpmyadmin.enabled
+- condition: phpmyadmin.enable
   name: phpmyadmin
-  version: "0.3.*"
-  repository: "file://../phpmyadmin"
+  version: 10.3.*
+  repository: https://charts.bitnami.com/bitnami
 - condition: solr.enabled
   name: solr
   version: "0.3.*"
