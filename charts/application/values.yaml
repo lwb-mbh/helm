@@ -65,9 +65,16 @@ phpmyadmin:
     tls: true
 
     annotations:
-      cert-manager.io/issuer: ca-issuer
-      cert-manager.io/issuer-kind: ClusterIssuer
+      cert-manager.io/cluster-issuer: ca-issuer
       traefik.ingress.kubernetes.io/router.middlewares: "default-redirect-https@kubernetescrd"
+
+  resources:
+    limits:
+      cpu: 250m
+      memory: 512Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
 
 solr:
   enabled: false
