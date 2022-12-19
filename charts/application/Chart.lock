@@ -1,7 +1,7 @@
 dependencies:
 - name: drupal
   repository: file://../drupal
-  version: 0.3.9
+  version: 0.3.10
 - name: drupal7
   repository: file://../drupal7
   version: 0.3.10
@@ -26,5 +26,5 @@ dependencies:
 - name: tomcat
   repository: file://../tomcat
   version: 0.3.5
-digest: sha256:f60b7dfa66b4186851fed9d20d0843a15d107640d427f11dd6bc3bf1594e4531
-generated: "2022-12-19T11:10:38.7470822+01:00"
+digest: sha256:fff470157ba4e9fdf7534aef8d56f58cf2a48569307b4159ab93e4dbfd0c466e
+generated: "2022-12-19T11:17:31.987415+01:00"
