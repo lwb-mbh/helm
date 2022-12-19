@@ -2,7 +2,7 @@ apiVersion: v2
 name: application
 description: Umrella Chart for Applications
 type: application
-version: 0.4.6
+version: 0.4.7
 appVersion: "0.4.0"
 
 dependencies:
@@ -26,7 +26,7 @@ dependencies:
   name: node
   version: "0.3.*"
   repository: "file://../node"
-- condition: phpmyadmin.enable
+- condition: phpmyadmin.enabled
   name: phpmyadmin
   version: 10.3.*
   repository: https://charts.bitnami.com/bitnami
