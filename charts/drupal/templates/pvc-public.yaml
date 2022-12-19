@@ -3,8 +3,6 @@ kind: PersistentVolumeClaim
 metadata:
   name: {{ include "deploy.pvc.public" . }}
   namespace: {{ .Release.Namespace }}
-  annotations:
-    argocd.argoproj.io/sync-wave: "-60"
 spec:
   accessModes:
     - ReadWriteOnce
