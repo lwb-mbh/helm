@@ -19,6 +19,11 @@ image:
   pullPolicy: IfNotPresent
   tag: "latest"
 
+command: {}
+
+args: {}
+#  - "start --proxy edge --hostname-strict=false"
+
 autoscaling:
   enabled: false
   minReplicas: 1
