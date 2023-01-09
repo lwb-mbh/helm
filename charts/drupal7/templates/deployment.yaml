@@ -84,18 +84,6 @@ spec:
                 sleep 5
               done
         {{- end }}
-        - name: set-volume-permissions
-          image: busybox
-          command: 
-            - /bin/sh
-            - -ec
-            - |
-              chown -R 33:33 /opt/drupal/web
-          securityContext:
-            runAsUser: 0
-          volumeMounts:
-            - name: drupal
-              mountPath: /opt/drupal/web
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
