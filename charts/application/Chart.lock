@@ -16,7 +16,7 @@ dependencies:
   version: 0.3.0
 - name: phpmyadmin
   repository: https://charts.bitnami.com/bitnami
-  version: 10.3.8
+  version: 10.3.10
 - name: solr
   repository: file://../solr
   version: 0.3.2
@@ -26,5 +26,5 @@ dependencies:
 - name: tomcat
   repository: file://../tomcat
   version: 0.3.6
-digest: sha256:56c49790dc1183bb68a451f2fc858d41ca5182ae18f485974769a1187e551979
-generated: "2023-01-09T09:52:09.0542476+01:00"
+digest: sha256:72e2b196a0f68e1a1dc980df09467e280fc7df9c9797b62cacec8b0a9ad73a13
+generated: "2023-01-16T16:38:07.3474638+01:00"

@@ -76,6 +76,18 @@ phpmyadmin:
       cpu: 100m
       memory: 128Mi
 
+  containerSecurityContext:
+    enabled: true
+    runAsUser: 1001
+    runAsNonRoot: true
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop: ['ALL']
+    seccompProfile:
+      type: RuntimeDefault
+
+
+
 solr:
   enabled: false
 
