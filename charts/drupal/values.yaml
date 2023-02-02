@@ -124,7 +124,7 @@ backup:
   image:
     repository: "registry.gitlab.com/lwb-web/docker/library/extend/drupal-backup"
     pullPolicy: Always
-    tag: "3.16"
+    tag: "3.17"
 
   resources: {}
   #  limits:

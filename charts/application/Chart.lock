@@ -1,16 +1,16 @@
 dependencies:
 - name: drupal
   repository: file://../drupal
-  version: 0.3.11
+  version: 0.3.12
 - name: drupal7
   repository: file://../drupal7
-  version: 0.3.12
+  version: 0.3.13
 - name: gitlab
   repository: file://../gitlab
   version: 0.3.1
 - name: mariadb
   repository: file://../mariadb
-  version: 0.3.11
+  version: 0.3.12
 - name: node
   repository: file://../node
   version: 0.3.0
@@ -26,5 +26,5 @@ dependencies:
 - name: tomcat
   repository: file://../tomcat
   version: 0.3.6
-digest: sha256:a09a719309b1268a57b1d40377dd01a8ddd149795159fc3f78f3b42643b88bcf
-generated: "2023-01-20T07:44:47.3110246+01:00"
+digest: sha256:35bd66ca78da1402516b339c1b01dde1851477b3f5837940e329a5014860927b
+generated: "2023-02-02T08:26:35.9857203+01:00"
