@@ -7,7 +7,7 @@ dependencies:
   version: 0.3.13
 - name: gitlab
   repository: file://../gitlab
-  version: 0.3.1
+  version: 0.3.2
 - name: mariadb
   repository: file://../mariadb
   version: 0.3.12
@@ -16,7 +16,7 @@ dependencies:
   version: 0.3.0
 - name: phpmyadmin
   repository: https://charts.bitnami.com/bitnami
-  version: 10.4.0
+  version: 10.4.2
 - name: solr
   repository: file://../solr
   version: 0.3.2
@@ -26,5 +26,5 @@ dependencies:
 - name: tomcat
   repository: file://../tomcat
   version: 0.3.6
-digest: sha256:35bd66ca78da1402516b339c1b01dde1851477b3f5837940e329a5014860927b
-generated: "2023-02-02T08:26:35.9857203+01:00"
+digest: sha256:b715d5d63b01de9cf5f3cf0e1861bc9ddd98094c67bfef80b8ad42f79b5c31c9
+generated: "2023-02-09T16:08:19.0627001+01:00"
