@@ -3,6 +3,53 @@ entries:
   application:
   - apiVersion: v2
     appVersion: 0.4.0
+    created: "2023-02-10T07:05:02.323974239Z"
+    dependencies:
+    - condition: drupal.enabled
+      name: drupal
+      repository: file://../drupal
+      version: 0.3.*
+    - condition: drupal7.enabled
+      name: drupal7
+      repository: file://../drupal7
+      version: 0.3.*
+    - condition: gitlab.enabled
+      name: gitlab
+      repository: file://../gitlab
+      version: 0.3.*
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: file://../mariadb
+      version: 0.3.*
+    - condition: node.enabled
+      name: node
+      repository: file://../node
+      version: 0.3.*
+    - condition: phpmyadmin.enabled
+      name: phpmyadmin
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.4.*
+    - condition: solr.enabled
+      name: solr
+      repository: file://../solr
+      version: 0.3.*
+    - condition: tika.enabled
+      name: tika
+      repository: file://../tika
+      version: 0.3.*
+    - condition: tomcat.enabled
+      name: tomcat
+      repository: file://../tomcat
+      version: 0.3.*
+    description: Umrella Chart for Applications
+    digest: 6b83cf1b67b2bfaf49b67c038efe4165f5b3d0b62f7f8c5d7453c92f86517487
+    name: application
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/application-0.4.14/application-0.4.14.tgz
+    version: 0.4.14
+  - apiVersion: v2
+    appVersion: 0.4.0
     created: "2023-02-09T15:09:13.368601134Z"
     dependencies:
     - condition: drupal.enabled
@@ -5092,6 +5139,16 @@ entries:
   gitlab:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2023-02-10T07:05:02.516523055Z"
+    description: Chart for Gitlab
+    digest: 48372771e765d748c754442518bb9cc62ce47bb43efe125efb60510660f9bee1
+    name: gitlab
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/gitlab-0.3.3/gitlab-0.3.3.tgz
+    version: 0.3.3
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2023-02-09T15:09:13.620753093Z"
     description: Chart for Gitlab
     digest: ba9759deb134265cec4f46a99eb385fd9acdd3b66ada519a979e35fc01f30ec4
@@ -6176,4 +6233,4 @@ entries:
     urls:
     - https://github.com/lwb-mbh/helm/releases/download/tomcat-0.1.0/tomcat-0.1.0.tgz
     version: 0.1.0
-generated: "2023-02-09T15:09:13.621331293Z"
+generated: "2023-02-10T07:05:02.517379632Z"
