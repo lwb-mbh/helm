@@ -59,7 +59,7 @@ spec:
           livenessProbe:
             httpGet:
               path: {{ .Values.livenessProbe.path }}
-              port: http
+              port: https
               scheme: HTTPS
             initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
             periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
@@ -71,7 +71,7 @@ spec:
           readinessProbe:
             httpGet:
               path: {{ .Values.readinessProbe.path }}
-              port: http
+              port: https
               scheme: HTTPS
             initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}
             periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
