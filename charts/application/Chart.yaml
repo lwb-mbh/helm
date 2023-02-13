@@ -2,7 +2,7 @@ apiVersion: v2
 name: application
 description: Umrella Chart for Applications
 type: application
-version: 0.4.20
+version: 0.4.21
 appVersion: "0.4.0"
 
 dependencies:
@@ -26,6 +26,10 @@ dependencies:
   name: mariadb
   version: "0.3.*"
   repository: "file://../mariadb"
+- condition: mysql.enabled
+  name: mysql
+  version: 9.4.*
+  repository: https://charts.bitnami.com/bitnami
 - condition: node.enabled
   name: node
   version: "0.3.*"

@@ -51,6 +51,42 @@ gitlab:
 mariadb:
   enabled: false
 
+mysql:
+  enabled: false
+
+  auth:
+    existingSecret: mysql_secrets
+    database: "app"
+
+  image:
+    repository: bitnami/mysql
+    tag: 5.7
+    pullPolicy: Always
+
+  architecture: standalone
+
+  primary:
+    resources:
+      limits:
+        cpu: 500m
+        memory: 1Gi
+      requests:
+        cpu: 100m
+        memory: 256Mi
+
+    # configuration: |- 
+
+  secondary:
+    replicaCount: 2
+
+    resources:
+      limits:
+        cpu: 500m
+        memory: 1Gi
+      requests:
+        cpu: 100m
+        memory: 256Mi
+
 node:
   enabled: false
 
