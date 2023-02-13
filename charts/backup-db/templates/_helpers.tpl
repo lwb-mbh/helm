@@ -71,7 +71,7 @@ Create the name of the service account to use
 - name: DB_USERNAME
   value: {{ .Values.global.plain.dbUser | quote }}
 - name: DB_HOST
-  value: {{ (include "deploy.mariadb.host" .) | quote }}
+  value: {{ (include "deploy.backupDB.host" .) | quote }}
 - name: DB_PORT
   value: {{ .Values.global.plain.dbPort | quote }}
 - name: LOG_USERNAME
@@ -90,7 +90,7 @@ Backup path name
 {{/*
 host of mariadb
 */}}
-{{- define "deploy.mariadb.host"}}
+{{- define "deploy.backupDB.host"}}
 {{- if .Values.global.plain.dbExternal }}
 {{- .Values.global.plain.dbIP }}
 {{- else }}
