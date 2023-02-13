@@ -28,7 +28,7 @@ spec:
             volumeMounts:
             - name: backup
               mountPath: /mnt/backup
-              subPath: {{ include "deploy.backup.subPath" . }}
+              subPath: {{ include "deploy.backupDB.subPath" . }}
             env:
             {{- include "helpers.list-backup-env-variables" . | indent 12 }}
             - name: DB_PASSWORD

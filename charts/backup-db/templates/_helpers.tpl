@@ -83,7 +83,7 @@ Create the name of the service account to use
 {{/*
 Backup path name
 */}}
-{{- define "deploy.backup.subPath" -}}
+{{- define "deploy.backupDB.subPath" -}}
 {{- printf "%s/%s/%s" .Values.backup.system ( default "stage" .Values.global.plain.environment ) .Release.Name | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
