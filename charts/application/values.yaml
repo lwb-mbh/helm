@@ -74,7 +74,11 @@ mysql:
         cpu: 100m
         memory: 256Mi
 
+    persistence:
+      existingClaim: mysql
+
     # configuration: |- 
+    # existingConfigmap: ""
 
   secondary:
     replicaCount: 2
@@ -87,6 +91,8 @@ mysql:
         cpu: 100m
         memory: 256Mi
 
+    # configuration: |- 
+    # existingConfigmap: ""
 node:
   enabled: false
 
