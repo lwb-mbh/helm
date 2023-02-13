@@ -2,10 +2,14 @@ apiVersion: v2
 name: application
 description: Umrella Chart for Applications
 type: application
-version: 0.4.16
+version: 0.4.17
 appVersion: "0.4.0"
 
 dependencies:
+- condition: backup-db.enabled
+  name: backup-db
+  version: "0.1.*"
+  repository: "file://../backup-db"
 - condition: drupal.enabled
   name: drupal
   version: "0.3.*"

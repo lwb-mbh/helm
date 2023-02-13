@@ -36,6 +36,9 @@ nameOverride: ""
 
 ## Application enable subcharts parameters
 ##
+backup-db:
+  enabled: false
+
 drupal:
   enabled: false
 
@@ -85,8 +88,6 @@ phpmyadmin:
       drop: ['ALL']
     seccompProfile:
       type: RuntimeDefault
-
-
 
 solr:
   enabled: false
