@@ -3,6 +3,61 @@ entries:
   application:
   - apiVersion: v2
     appVersion: 0.4.0
+    created: "2023-02-14T06:48:51.228746905Z"
+    dependencies:
+    - condition: backup-db.enabled
+      name: backup-db
+      repository: file://../backup-db
+      version: 0.1.*
+    - condition: drupal.enabled
+      name: drupal
+      repository: file://../drupal
+      version: 0.3.*
+    - condition: drupal7.enabled
+      name: drupal7
+      repository: file://../drupal7
+      version: 0.3.*
+    - condition: gitlab.enabled
+      name: gitlab
+      repository: file://../gitlab
+      version: 0.3.*
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: file://../mariadb
+      version: 0.3.*
+    - condition: mysql.enabled
+      name: mysql
+      repository: https://charts.bitnami.com/bitnami
+      version: 9.4.*
+    - condition: node.enabled
+      name: node
+      repository: file://../node
+      version: 0.3.*
+    - condition: phpmyadmin.enabled
+      name: phpmyadmin
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.4.*
+    - condition: solr.enabled
+      name: solr
+      repository: file://../solr
+      version: 0.3.*
+    - condition: tika.enabled
+      name: tika
+      repository: file://../tika
+      version: 0.3.*
+    - condition: tomcat.enabled
+      name: tomcat
+      repository: file://../tomcat
+      version: 0.3.*
+    description: Umrella Chart for Applications
+    digest: 8db5a094ab1285b9844ef5958215a176500cd515c4f6cd62fb5ac5762c9cd490
+    name: application
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/application-0.4.22/application-0.4.22.tgz
+    version: 0.4.22
+  - apiVersion: v2
+    appVersion: 0.4.0
     created: "2023-02-13T15:21:26.168343841Z"
     dependencies:
     - condition: backup-db.enabled
@@ -4810,6 +4865,16 @@ entries:
   backup-db:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2023-02-14T06:48:51.366008531Z"
+    description: Chart for backup mariadb or mysql
+    digest: fdbbf5a45eaecbaba467a527d9c6a960fc364aa62a9af801c8fcc8adccf2c2d5
+    name: backup-db
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/backup-db-0.1.4/backup-db-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2023-02-13T14:09:23.287612912Z"
     description: Chart for backup mariadb or mysql
     digest: b7f95e0e6edd25f186656660f500af37ec5388a8fded5689b7d3e91fa9206f86
@@ -6647,4 +6712,4 @@ entries:
     urls:
     - https://github.com/lwb-mbh/helm/releases/download/tomcat-0.1.0/tomcat-0.1.0.tgz
     version: 0.1.0
-generated: "2023-02-13T15:21:26.169032251Z"
+generated: "2023-02-14T06:48:51.366691338Z"
