@@ -17,8 +17,6 @@ spec:
         spec:
           restartPolicy: OnFailure
           serviceAccountName: {{ include "deploy.serviceAccountName" $ }}
-          securityContext:
-            {{- toYaml .Values.podSecurityContext | nindent 10 }}
           containers:
           - name: backup
             securityContext:
