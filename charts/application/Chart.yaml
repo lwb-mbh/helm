@@ -7,11 +7,11 @@ appVersion: "0.4.0"
 
 dependencies:
 - condition: dbBackup.enabled
-  name: dbBackup
+  name: db-backup
   version: "0.1.*"
   repository: "file://../db-backup"
 - condition: dbRestApi.enabled
-  name: dbRestApi
+  name: db-rest-api
   version: "0.1.*"
   repository: "file://../db-rest-api"
 - condition: drupal.enabled
