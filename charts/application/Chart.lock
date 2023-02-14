@@ -1,7 +1,7 @@
 dependencies:
 - name: backup-db
   repository: file://../backup-db
-  version: 0.1.3
+  version: 0.1.4
 - name: drupal
   repository: file://../drupal
   version: 0.3.12
@@ -32,5 +32,5 @@ dependencies:
 - name: tomcat
   repository: file://../tomcat
   version: 0.3.6
-digest: sha256:fa7bf7fe7ba2266aca459b839fe0ca02d622f95f2b23d1c2092a3cd771924fad
-generated: "2023-02-13T16:08:10.5548954+01:00"
+digest: sha256:0477c5f18f751738597c91f11449e1e813ce55578c7bbba1e6e739750b395b13
+generated: "2023-02-14T07:47:52.0838539+01:00"

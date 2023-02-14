@@ -52,11 +52,12 @@ podSecurityContext: {}
   # fsGroup: 2000
 
 securityContext:
+  privileged: false
   allowPrivilegeEscalation: false
   capabilities:
-    drop:
-      - ALL
-  privileged: false
+    drop: ["ALL"]
+  runAsNonRoot: true
+  runAsUser: 1000
   seccompProfile:
     type: RuntimeDefault
 
