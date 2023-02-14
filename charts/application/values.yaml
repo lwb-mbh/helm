@@ -9,6 +9,7 @@ global:
   plain:
     baseUrl: web.lwb.local
     environment: stage #production
+    dbSystem: mariadb
   secret: {}
   imageCredentials:
     registry: ''
@@ -36,7 +37,10 @@ nameOverride: ""
 
 ## Application enable subcharts parameters
 ##
-backup-db:
+dbBackup:
+  enabled: false
+
+dbRestApi:
   enabled: false
 
 drupal:

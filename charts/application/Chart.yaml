@@ -2,14 +2,18 @@ apiVersion: v2
 name: application
 description: Umrella Chart for Applications
 type: application
-version: 0.4.26
+version: 0.4.28
 appVersion: "0.4.0"
 
 dependencies:
-- condition: backup-db.enabled
-  name: backup-db
+- condition: dbBackup.enabled
+  name: dbBackup
   version: "0.1.*"
-  repository: "file://../backup-db"
+  repository: "file://../db-backup"
+- condition: dbRestApi.enabled
+  name: dbRestApi
+  version: "0.1.*"
+  repository: "file://../db-rest-api"
 - condition: drupal.enabled
   name: drupal
   version: "0.3.*"
@@ -24,7 +28,7 @@ dependencies:
   repository: "file://../gitlab"  
 - condition: mariadb.enabled
   name: mariadb
-  version: "0.3.*"
+  version: "0.4.*"
   repository: "file://../mariadb"
 - condition: mysql.enabled
   name: mysql

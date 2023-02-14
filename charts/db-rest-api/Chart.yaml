@@ -1,0 +1,6 @@
+apiVersion: v2
+name: db-rest-api
+description: Chart for rest api of mariadb or mysql
+type: application
+version: 0.1.0
+appVersion: "0.1.0"

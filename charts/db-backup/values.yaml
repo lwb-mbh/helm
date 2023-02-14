@@ -13,6 +13,7 @@ global:
     dbDatabase: "db"
     dbLogHost: "wolf.lwb.local"
     dbLogUser: "logger"
+    dbSystem: "mariadb"
   secret:
     dbRootPassword: "changeme"
     dbPassword: "changeme"
@@ -54,7 +55,7 @@ securityContext:
   capabilities:
     drop: ["ALL"]
   runAsNonRoot: true
-  runAsUser: 1000
+  runAsUser: 1001
   seccompProfile:
     type: RuntimeDefault
 
@@ -66,4 +67,3 @@ affinity: {}
 
 backup:
   schedule: "0 21 * * *"
-  system: "mariadb"

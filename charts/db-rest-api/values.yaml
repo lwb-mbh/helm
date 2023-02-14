@@ -1,0 +1,107 @@
+# Default values for deploy.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+global:
+  plain:
+    environment: stage # production
+    baseUrl: "mariadb.web3.lwb.local"
+    dbExternal: true
+    dbIP: "127.0.0.1" # setzen, wenn dbExternal: true
+    dbPort: "3306"
+    dbUser: "user"
+    dbDatabase: "db"
+    dbLogHost: "wolf.lwb.local"
+    dbLogUser: "logger"
+    dbSystem: "mariadb"
+  secret:
+    dbRootPassword: "changeme"
+    dbPassword: "changeme"
+    dbLogPassword: "changeme"
+  imageCredentials: {}
+  createSecret: true
+
+nameOverride: ""
+fullnameOverride: ""
+
+services: {}
+#    test: 
+#      dbUser: "test"
+#      dbPassword: "test"
+#      dbDatabase: "test"
+
+ingress:
+  enabled: false
+  tls: true
+  path: /
+  pathType: ImplementationSpecific
+  className: ""
+  annotations: {
+    cert-manager.io/cluster-issuer: ca-issuer,
+    traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd
+  }
+
+service:
+  type: ClusterIP
+  port: 80
+
+app: 
+  port: 3000
+
+image:
+  repository: "registry.gitlab.com/lwb-web/docker/library/extend/mariadb-rest"
+  tag: "1.0.0"
+  pullPolicy: IfNotPresent
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+livenessProbe:
+  enabled: false
+  path: /api
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  timeoutSeconds: 30
+  failureThreshold: 6
+  successThreshold: 1
+
+readinessProbe:
+  enabled: false
+  path: /api
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  timeoutSeconds: 30
+  failureThreshold: 6
+  successThreshold: 1
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+securityContext:
+  privileged: false
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop: ["ALL"]
+#  runAsNonRoot: true
+#  runAsUser: 1000
+#  seccompProfile:
+#    type: RuntimeDefault
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

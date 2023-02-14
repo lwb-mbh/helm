@@ -35,7 +35,7 @@ Common labels
 */}}
 {{- define "deploy.labels" -}}
 helm.sh/chart: {{ include "deploy.chart" . }}
-{{ include "backup-db.deploy.selectorLabels" . }}
+{{ include "dbBackup.deploy.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,7 +45,7 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "backup-db.deploy.selectorLabels" -}}
+{{- define "dbBackup.deploy.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "deploy.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
@@ -67,11 +67,11 @@ Create the name of the service account to use
 {{- end }}
 {{- end }}
 
-{{- define "helpers.list-backup-env-variables"}}
+{{- define "helpers.listDbBackupEnvVariables"}}
 - name: DB_USERNAME
   value: {{ .Values.global.plain.dbUser | quote }}
 - name: DB_HOST
-  value: {{ (include "deploy.backupDB.host" .) | quote }}
+  value: {{ (include "deploy.dbBackup.host" .) | quote }}
 - name: DB_PORT
   value: {{ .Values.global.plain.dbPort | quote }}
 - name: LOG_USERNAME
@@ -83,21 +83,21 @@ Create the name of the service account to use
 {{/*
 Backup path name
 */}}
-{{- define "deploy.backupDB.subPath" -}}
-{{- printf "%s/%s/%s" .Values.backup.system ( default "stage" .Values.global.plain.environment ) .Release.Name | trunc 63 | trimSuffix "-" }}
+{{- define "deploy.dbBackup.subPath" -}}
+{{- printf "%s/%s/%s" .Values.global.plain.dbSystem ( default "stage" .Values.global.plain.environment ) .Release.Name | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
-host of mariadb
+host of db
 */}}
-{{- define "deploy.backupDB.host"}}
+{{- define "deploy.dbBackup.host"}}
 {{- if .Values.global.plain.dbExternal }}
 {{- .Values.global.plain.dbIP }}
 {{- else }}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
-{{- $name := default .Values.backup.system .Values.nameOverride }}
+{{- $name := default .Values.global.plain.dbSystem .Values.nameOverride }}
 {{- if contains $name .Release.Name }}
 {{- .Release.Name | trunc 63 | trimSuffix "-" }}
 {{- else }}

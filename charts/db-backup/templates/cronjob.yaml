@@ -1,12 +1,11 @@
-{{- if .Values.backup.enabled -}}
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: {{ include "deploy.backup.name" . }}
+  name: {{ include "deploy.name" . }}
   namespace: {{ .Release.Namespace }}
   labels:
     job-family: cron
-    job-name: backup-mariadb
+    job-name: db-backup
 spec:
   concurrencyPolicy: Forbid
   schedule: {{ .Values.backup.schedule | quote }}
@@ -17,19 +16,21 @@ spec:
       template:
         spec:
           restartPolicy: OnFailure
-          serviceAccountName: {{ include "deploy.serviceAccountName" $ }}-backup
+          serviceAccountName: {{ include "deploy.serviceAccountName" $ }}
           containers:
           - name: backup
-            image: "{{ .Values.backup.image.repository }}:{{ .Values.backup.image.tag }}"
-            imagePullPolicy: {{ .Values.backup.image.pullPolicy }}
+            securityContext:
+              {{- toYaml .Values.securityContext | nindent 14 }}
+            image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+            imagePullPolicy: {{ .Values.image.pullPolicy }}
             resources:
-              {{- toYaml .Values.backup.resources | nindent 14 }}
+              {{- toYaml .Values.resources | nindent 14 }}
             volumeMounts:
             - name: backup
               mountPath: /mnt/backup
-              subPath: {{ include "deploy.backup.subPath" . }}
+              subPath: {{ include "deploy.dbBackup.subPath" . }}
             env:
-            {{- include "helpers.list-backup-env-variables" . | indent 12 }}
+            {{- include "helpers.listDbBackupEnvVariables" . | indent 12 }}
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -43,5 +44,4 @@ spec:
           volumes:
           - name: backup
             persistentVolumeClaim:
-              claimName: {{ include "deploy.backup.name" . }}
-{{- end }}
+              claimName: {{ include "deploy.name" . }}

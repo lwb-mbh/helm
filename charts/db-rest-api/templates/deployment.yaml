@@ -1,0 +1,90 @@
+{{- range $key, $value := .Values.services }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "deploy.fullname" $ }}-rest-{{ $key }}
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    rest: {{ $key }}
+    {{- include "deploy.labels" $ | nindent 4 }}
+  {{- with $.Values.podAnnotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      rest: {{ $key }}
+      {{- include "dbRestApi.deploy.selectorLabels" $ | nindent 6 }}
+  template:
+    metadata:
+      {{- with $.Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        rest: {{ $key }}
+        {{- include "dbRestApi.deploy.selectorLabels" $ | nindent 8 }}
+    spec:
+      serviceAccountName: {{ include "deploy.serviceAccountName" $ }}
+      securityContext:
+        {{- toYaml $.Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: "rest"
+          securityContext:
+            {{- toYaml $.Values.securityContext | nindent 12 }}
+          image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"
+          imagePullPolicy: {{ $.Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ $.Values.app.port }}
+              protocol: TCP           
+          {{- if $.Values.livenessProbe.enabled }}
+          livenessProbe:
+            httpGet:
+              path: {{ $.Values.livenessProbe.path }}/{{ $value.dbDatabase }}
+              port: http
+            initialDelaySeconds: {{ $.Values.livenessProbe.initialDelaySeconds }}
+            periodSeconds: {{ $.Values.livenessProbe.periodSeconds }}
+            timeoutSeconds: {{ $.Values.livenessProbe.timeoutSeconds }}
+            successThreshold: {{ $.Values.livenessProbe.successThreshold }}
+            failureThreshold: {{ $.Values.livenessProbe.failureThreshold }}
+          {{- end }}
+          {{- if $.Values.readinessProbe.enabled }}
+          readinessProbe:
+            httpGet:
+              path: {{ $.Values.readinessProbe.path }}/{{ $value.dbDatabase }}
+              port: http
+            initialDelaySeconds: {{ $.Values.readinessProbe.initialDelaySeconds }}
+            periodSeconds: {{ $.Values.readinessProbe.periodSeconds }}
+            timeoutSeconds: {{ $.Values.readinessProbe.timeoutSeconds }}
+            successThreshold: {{ $.Values.readinessProbe.successThreshold }}
+            failureThreshold: {{ $.Values.readinessProbe.failureThreshold }}
+          {{- end }}
+          resources:
+            {{- toYaml $.Values.resources | nindent 12 }}
+          env:
+            - name: DB_HOST
+              value: {{ include "deploy.mariadb.host" $ }}
+            - name: DB_USER
+              value: {{ $value.dbUser }}
+            - name: DB_DATABASE
+              value: {{ $value.dbDatabase }}
+          envFrom:
+          - secretRef:
+              name: {{ include "deploy.secrets" $ }}-{{ $key }}
+      {{- with $.Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with $.Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with $.Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+{{- end }}

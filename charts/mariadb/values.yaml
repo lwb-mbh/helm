@@ -85,20 +85,6 @@ tolerations: []
 
 affinity: {}
 
-backup:
-  enabled: false
-  schedule: "0 21 * * *"
-
-  image:
-    repository: "registry.gitlab.com/lwb-web/docker/library/extend/mariadb-backup"
-    pullPolicy: Always
-    tag: "3.17"
-
-  resources: {}
-  #  limits:
-  #    cpu: 1
-  #    memory: 1Gi
-
 configuration: |-
   [mysqld]
   slow_query_log = 1
