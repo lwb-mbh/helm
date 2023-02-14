@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: {{ include "deploy.name" . }}
+  name: {{ include "deploy.fullname" . }}
   namespace: {{ .Release.Namespace }}
   labels:
     job-family: cron
@@ -44,4 +44,4 @@ spec:
           volumes:
           - name: backup
             persistentVolumeClaim:
-              claimName: {{ include "deploy.name" . }}
+              claimName: {{ include "deploy.fullname" . }}
