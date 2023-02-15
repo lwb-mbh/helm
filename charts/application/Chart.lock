@@ -4,7 +4,7 @@ dependencies:
   version: 1.0.0
 - name: db-rest-api
   repository: file://../db-rest-api
-  version: 0.1.1
+  version: 0.1.2
 - name: drupal
   repository: file://../drupal
   version: 0.3.12
@@ -35,5 +35,5 @@ dependencies:
 - name: tomcat
   repository: file://../tomcat
   version: 0.3.6
-digest: sha256:3cda4cecaf1d58b53f92f3cd308d98ef65fe70f1dd0863ac228248cd6e203faa
-generated: "2023-02-15T10:43:18.2201456+01:00"
+digest: sha256:0203cde8be96309c72abc617290a912ab40652fb287dc9a207b0df33c5984565
+generated: "2023-02-15T10:52:45.9587693+01:00"
