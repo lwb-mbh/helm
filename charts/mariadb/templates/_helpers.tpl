@@ -76,33 +76,6 @@ Create the name of the service account to use
   value: {{ .Values.global.plain.dbDatabase | quote }}
 {{- end }}
 
-{{- define "helpers.list-backup-env-variables"}}
-- name: DB_USERNAME
-  value: {{ .Values.global.plain.dbUser | quote }}
-- name: DB_HOST
-  value: {{ (include "deploy.mariadb.host" .) | quote }}
-- name: DB_PORT
-  value: {{ .Values.global.plain.dbPort | quote }}
-- name: LOG_USERNAME
-  value: {{ .Values.global.plain.dbLogUser | quote }}
-- name: LOG_HOST
-  value: {{ .Values.global.plain.dbLogHost | quote }}
-{{- end }}
-
-{{/*
-Name of backup
-*/}}
-{{- define "deploy.backup.name" -}}
-{{- printf "%s-%s" (include "deploy.fullname" .) "backup" | trunc 63 }}
-{{- end }}
-
-{{/*
-Backup path name
-*/}}
-{{- define "deploy.backup.subPath" -}}
-{{- printf "%s/%s/%s" .Chart.Name ( default "stage" .Values.global.plain.environment ) .Release.Name | trunc 63 | trimSuffix "-" }}
-{{- end }}
-
 {{/*
 host of mariadb
 */}}

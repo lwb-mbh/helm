@@ -2,15 +2,15 @@ apiVersion: v2
 name: application
 description: Umrella Chart for Applications
 type: application
-version: 0.4.29
+version: 0.4.30
 appVersion: "0.4.0"
 
 dependencies:
-- condition: dbBackup.enabled
+- condition: db-backup.enabled
   name: db-backup
-  version: "0.1.*"
+  version: "1.0.*"
   repository: "file://../db-backup"
-- condition: dbRestApi.enabled
+- condition: db-rest-api.enabled
   name: db-rest-api
   version: "0.1.*"
   repository: "file://../db-rest-api"

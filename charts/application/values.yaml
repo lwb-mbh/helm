@@ -37,10 +37,10 @@ nameOverride: ""
 
 ## Application enable subcharts parameters
 ##
-dbBackup:
+db-backup:
   enabled: false
 
-dbRestApi:
+db-rest-api:
   enabled: false
 
 drupal:
@@ -97,6 +97,7 @@ mysql:
 
     # configuration: |- 
     # existingConfigmap: ""
+
 node:
   enabled: false
 

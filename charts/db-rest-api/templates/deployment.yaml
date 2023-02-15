@@ -1,4 +1,4 @@
-{{- range $key, $value := .Values.services }}
+{{- range $key, $value := .Values.db }}
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -67,7 +67,7 @@ spec:
             {{- toYaml $.Values.resources | nindent 12 }}
           env:
             - name: DB_HOST
-              value: {{ include "deploy.mariadb.host" $ }}
+              value: {{ include "deploy.dbRestApi.host" $ }}
             - name: DB_USER
               value: {{ $value.dbUser }}
             - name: DB_DATABASE

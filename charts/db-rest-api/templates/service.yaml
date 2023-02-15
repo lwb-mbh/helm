@@ -16,5 +16,5 @@ spec:
       name: http
   selector:
     rest: {{ $key }}
-    {{- include "mariadb.deploy.selectorLabels" $ | nindent 4 }}
+    {{- include "dbRestApi.deploy.selectorLabels" $ | nindent 4 }}
 {{- end }}

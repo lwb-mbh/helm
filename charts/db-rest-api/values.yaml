@@ -24,11 +24,11 @@ global:
 nameOverride: ""
 fullnameOverride: ""
 
-services: {}
-#    test: 
-#      dbUser: "test"
-#      dbPassword: "test"
-#      dbDatabase: "test"
+db: {}
+#  test: 
+#    dbUser: "test"
+#    dbPassword: "test"
+#    dbDatabase: "test"
 
 ingress:
   enabled: false
@@ -62,7 +62,7 @@ resources:
     memory: 128Mi
 
 livenessProbe:
-  enabled: false
+  enabled: true
   path: /api
   initialDelaySeconds: 30
   periodSeconds: 10
@@ -71,7 +71,7 @@ livenessProbe:
   successThreshold: 1
 
 readinessProbe:
-  enabled: false
+  enabled: true
   path: /api
   initialDelaySeconds: 30
   periodSeconds: 10
@@ -89,6 +89,9 @@ serviceAccount:
   name: ""
 
 podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
 
 securityContext:
   privileged: false
