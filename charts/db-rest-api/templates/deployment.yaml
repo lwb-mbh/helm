@@ -44,7 +44,7 @@ spec:
           {{- if $.Values.livenessProbe.enabled }}
           livenessProbe:
             httpGet:
-              path: {{ $.Values.livenessProbe.path }}/{{ $value.dbDatabase }}
+              path: {{ $.Values.livenessProbe.path }}/{{ $value.dbTestTable }}
               port: http
             initialDelaySeconds: {{ $.Values.livenessProbe.initialDelaySeconds }}
             periodSeconds: {{ $.Values.livenessProbe.periodSeconds }}
@@ -55,7 +55,7 @@ spec:
           {{- if $.Values.readinessProbe.enabled }}
           readinessProbe:
             httpGet:
-              path: {{ $.Values.readinessProbe.path }}/{{ $value.dbDatabase }}
+              path: {{ $.Values.readinessProbe.path }}/{{ $value.dbTestTable }}
               port: http
             initialDelaySeconds: {{ $.Values.readinessProbe.initialDelaySeconds }}
             periodSeconds: {{ $.Values.readinessProbe.periodSeconds }}

@@ -29,6 +29,7 @@ db: {}
 #    dbUser: "test"
 #    dbPassword: "test"
 #    dbDatabase: "test"
+#    dbTestTable: "test"
 
 ingress:
   enabled: false
