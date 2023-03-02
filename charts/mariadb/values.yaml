@@ -29,7 +29,7 @@ nameOverride: ""
 fullnameOverride: ""
 
 storage:
-  className: "local-path"
+  className: "nfs-client"
   size: 4Gi
   backupClassName: "backup.smb"
 
@@ -117,7 +117,7 @@ rest:
     pathType: ImplementationSpecific
     className: ""
     annotations: {
-      cert-manager.io/cluster-issuer: ca-issuer,
+      cert-manager.io/cluster-issuer: lwb-issuer,
       traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd
     }
 

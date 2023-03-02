@@ -4,36 +4,36 @@ dependencies:
   version: 1.0.0
 - name: db-rest-api
   repository: file://../db-rest-api
-  version: 0.1.4
+  version: 0.2.0
 - name: drupal
   repository: file://../drupal
-  version: 0.3.12
+  version: 0.4.0
 - name: drupal7
   repository: file://../drupal7
-  version: 0.3.13
+  version: 0.4.0
 - name: gitlab
   repository: file://../gitlab
-  version: 0.3.5
+  version: 0.4.0
 - name: mariadb
   repository: file://../mariadb
-  version: 0.4.1
+  version: 0.5.0
 - name: mysql
   repository: https://charts.bitnami.com/bitnami
-  version: 9.4.8
+  version: 9.4.9
 - name: node
   repository: file://../node
-  version: 0.3.0
+  version: 0.4.0
 - name: phpmyadmin
   repository: https://charts.bitnami.com/bitnami
-  version: 10.4.2
+  version: 10.4.4
 - name: solr
   repository: file://../solr
-  version: 0.3.2
+  version: 0.4.0
 - name: tika
   repository: file://../tika
-  version: 0.3.0
+  version: 0.4.0
 - name: tomcat
   repository: file://../tomcat
-  version: 0.3.6
-digest: sha256:d6294e80f6b2bf1e521c47a69936f776c00b3e4a5ce7982d83d8532359660a70
-generated: "2023-02-15T11:12:53.3710957+01:00"
+  version: 0.4.0
+digest: sha256:624e97dc3cef51709976bf822c5b7b783f5870b0bd7adf8379705c4f68a3d414
+generated: "2023-03-02T09:31:21.5093789+01:00"

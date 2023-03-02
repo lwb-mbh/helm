@@ -2,8 +2,8 @@ apiVersion: v2
 name: application
 description: Umrella Chart for Applications
 type: application
-version: 0.4.33
-appVersion: "0.4.0"
+version: 0.5.0
+appVersion: "0.5.0"
 
 dependencies:
 - condition: db-backup.enabled
@@ -12,23 +12,23 @@ dependencies:
   repository: "file://../db-backup"
 - condition: db-rest-api.enabled
   name: db-rest-api
-  version: "0.1.*"
+  version: "0.2.*"
   repository: "file://../db-rest-api"
 - condition: drupal.enabled
   name: drupal
-  version: "0.3.*"
+  version: "0.4.*"
   repository: "file://../drupal"
 - condition: drupal7.enabled
   name: drupal7
-  version: "0.3.*"
+  version: "0.4.*"
   repository: "file://../drupal7"
 - condition: gitlab.enabled
   name: gitlab
-  version: "0.3.*"
+  version: "0.4.*"
   repository: "file://../gitlab"  
 - condition: mariadb.enabled
   name: mariadb
-  version: "0.4.*"
+  version: "0.5.*"
   repository: "file://../mariadb"
 - condition: mysql.enabled
   name: mysql
@@ -36,7 +36,7 @@ dependencies:
   repository: https://charts.bitnami.com/bitnami
 - condition: node.enabled
   name: node
-  version: "0.3.*"
+  version: "0.4.*"
   repository: "file://../node"
 - condition: phpmyadmin.enabled
   name: phpmyadmin
@@ -44,13 +44,13 @@ dependencies:
   repository: https://charts.bitnami.com/bitnami
 - condition: solr.enabled
   name: solr
-  version: "0.3.*"
+  version: "0.4.*"
   repository: "file://../solr"
 - condition: tika.enabled
   name: tika
-  version: "0.3.*"
+  version: "0.4.*"
   repository: "file://../tika"
 - condition: tomcat.enabled
   name: tomcat
-  version: "0.3.*"
+  version: "0.4.*"
   repository: "file://../tomcat"

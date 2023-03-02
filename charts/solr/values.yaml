@@ -64,12 +64,12 @@ ingress:
   pathType: ImplementationSpecific
   className: ""
   annotations: {
-    cert-manager.io/cluster-issuer: ca-issuer,
+    cert-manager.io/cluster-issuer: lwb-issuer,
     traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd
   }
 
 storage:
-  className: "local-path"
+  className: "nfs-client"
   size: 4Gi
 
 resources:

@@ -36,7 +36,7 @@ app:
   port: 80
 
 storage:
-  className: "local-path"
+  className: "nfs-client"
   public: 4Gi
   backupClassName: "backup.smb"
   backup: 20Gi
@@ -74,7 +74,7 @@ ingress:
   pathType: ImplementationSpecific
   className: ""
   annotations: {
-    cert-manager.io/cluster-issuer: ca-issuer,
+    cert-manager.io/cluster-issuer: lwb-issuer,
     traefik.ingress.kubernetes.io/router.middlewares: "default-redirect-https@kubernetescrd, kube-system-traefik-forward-auth@kubernetescrd"
   }
 

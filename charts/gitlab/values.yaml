@@ -55,7 +55,7 @@ ingress:
   pathType: ImplementationSpecific
   className: ""
   annotations: {
-    cert-manager.io/cluster-issuer: ca-issuer
+    cert-manager.io/cluster-issuer: lwb-issuer
   }
 
 resources:
