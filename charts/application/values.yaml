@@ -21,7 +21,7 @@ global:
   externalSecret:
     projectID: '0'
     accessToken:
-      name: gitlab-secret
+      name: external-secrets-gitlab-token
       key: token
       namespace: kube-system
 
