@@ -16,7 +16,7 @@ dependencies:
   version: 0.4.0
 - name: mariadb
   repository: file://../mariadb
-  version: 0.5.1
+  version: 0.5.2
 - name: mysql
   repository: https://charts.bitnami.com/bitnami
   version: 9.4.9
@@ -35,5 +35,5 @@ dependencies:
 - name: tomcat
   repository: file://../tomcat
   version: 0.4.0
-digest: sha256:89f1458e24ffbd87ef120893a851bcc48aff0eef00e9a17c17a0c819fcbbb2bc
-generated: "2023-03-02T16:31:28.2707008+01:00"
+digest: sha256:b7c4b8f9926c487ff6354404d99e3e4a229df8dc62e6754e3a97b4f884fca621
+generated: "2023-03-03T07:16:49.6313038+01:00"
