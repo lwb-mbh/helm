@@ -99,6 +99,7 @@ configuration: |-
   max_connections=100
   character-set-server=UTF8
   collation-server=utf8_general_ci
+  default-time-zone='Europe/Berlin'
 
   [client]
   default-character-set=UTF8
