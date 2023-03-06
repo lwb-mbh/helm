@@ -27,7 +27,7 @@ spec:
                 kubectl exec $POD_NAME -n {{ $.Release.Namespace }} -c {{ $.Chart.Name }} -- bash -c 'gitlab-backup';
                 exit 0;
           - name: copy
-            image: alpine
+            image: "{{ .Values.backup.image.repository }}:{{ .Values.backup.image.tag }}"
             command: ["/bin/sh", "-c"]
             args:
               - cp /mnt/data/backups/*.tar /mnt/target/;
@@ -38,9 +38,9 @@ spec:
               mountPath: /mnt/target
               subPath: {{ include "deploy.backup.subPath" . }}
             - name: config
-              mountPath: /mnt/config
+              mountPath: /mnt/source_config
             - name: data
-              mountPath: /mnt/data
+              mountPath: /mnt/source_data
           volumes:
           - name: target
             persistentVolumeClaim:

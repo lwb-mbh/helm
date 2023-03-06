@@ -59,7 +59,7 @@ ingress:
   pathType: ImplementationSpecific
   className: ""
   annotations: {
-    cert-manager.io/cluster-issuer: lwb-issuer
+    cert-manager.io/cluster-issuer: "lwb-issuer"
   }
 
 resources:
@@ -91,6 +91,11 @@ backup:
   schedule: "0 21 * * *"
   storage: 20Gi
   storageClassName: "backup.smb"
+
+  image:
+    repository: "registry.gitlab.com/lwb-web/docker/library/extend/gitlab-backup"
+    pullPolicy: Always
+    tag: "3.17"
 
   resources: {}
 
