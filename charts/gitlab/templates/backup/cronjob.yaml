@@ -28,11 +28,6 @@ spec:
                 exit 0;
           - name: copy
             image: "{{ .Values.backup.image.repository }}:{{ .Values.backup.image.tag }}"
-            command: ["/bin/sh", "-c"]
-            args:
-              - cp /mnt/data/backups/*.tar /mnt/target/;
-                cp /mnt/config/gitlab-secrets.json /mnt/target/;
-                exit 0;
             volumeMounts:
             - name: target
               mountPath: /mnt/target
