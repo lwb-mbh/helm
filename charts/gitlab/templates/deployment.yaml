@@ -25,10 +25,6 @@ spec:
       labels:
         {{- include "gitlab.deploy.selectorLabels" . | nindent 8 }}
     spec:
-      {{- with .Values.imagePullSecrets }}
-      imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
       serviceAccountName: {{ include "deploy.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
@@ -39,12 +35,15 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           volumeMounts:
-          - name: config
+          - name: data
             mountPath: /etc/gitlab
-          - name: logs
+            subpath: config
+          - name: data
             mountPath: /var/log/gitlab
+            subpath: logs
           - name: data
             mountPath: /var/opt/gitlab
+            subpath: data
           ports:
             - name: http
               containerPort: 80
@@ -90,8 +89,9 @@ spec:
           securityContext:
             runAsUser: 0
           volumeMounts:
-          - name: config
+          - name: data
             mountPath: /etc/gitlab
+            subpath: config
           - name: settings
             mountPath: /tmp/gitlab.rb
             subPath: gitlab.rb
@@ -108,18 +108,9 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       volumes:
-      - name: config
-        hostPath:
-          path: /opt/gitlab/config
-          type: DirectoryOrCreate
-      - name: logs
-        hostPath:
-          path: /opt/gitlab/logs
-          type: DirectoryOrCreate
       - name: data
-        hostPath:
-          path: /opt/gitlab/data
-          type: DirectoryOrCreate
+        persistentVolumeClaim:
+          claimName: {{ include "deploy.fullname" . }}
       - name: settings
         configMap:
           name: {{ include "deploy.fullname" . }}

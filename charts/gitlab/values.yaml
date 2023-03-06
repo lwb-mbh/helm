@@ -17,7 +17,11 @@ env:
 image:
   repository: "gitlab/gitlab-ce"
   pullPolicy: IfNotPresent
-  tag: "14.10.1-ce.0"
+  tag: "15.10.1-ce.0"
+
+storage:
+  className: "nfs-client"
+  size: 20Gi
 
 nameOverride: ""
 fullnameOverride: ""

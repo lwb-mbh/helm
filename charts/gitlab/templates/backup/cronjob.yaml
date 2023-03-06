@@ -37,20 +37,17 @@ spec:
             - name: target
               mountPath: /mnt/target
               subPath: {{ include "deploy.backup.subPath" . }}
-            - name: config
+            - name: data
               mountPath: /mnt/config
+              subPath: config
             - name: data
               mountPath: /mnt/data
+              subPath: data
           volumes:
           - name: target
             persistentVolumeClaim:
               claimName: {{ include "deploy.backup.name" . }}
-          - name: config
-            hostPath:
-              path: /opt/gitlab/config
-              type: DirectoryOrCreate
           - name: data
-            hostPath:
-              path: /opt/gitlab/data
-              type: DirectoryOrCreate
+            persistentVolumeClaim:
+              claimName: {{ include "deploy.fullname" . }}
 {{- end }}
