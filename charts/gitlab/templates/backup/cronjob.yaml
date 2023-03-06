@@ -37,17 +37,18 @@ spec:
             - name: target
               mountPath: /mnt/target
               subPath: {{ include "deploy.backup.subPath" . }}
-            - name: data
+            - name: config
               mountPath: /mnt/config
-              subPath: config
             - name: data
               mountPath: /mnt/data
-              subPath: data
           volumes:
           - name: target
             persistentVolumeClaim:
               claimName: {{ include "deploy.backup.name" . }}
+          - name: config
+            persistentVolumeClaim:
+              claimName: {{ include "deploy.fullname" . }}-config
           - name: data
             persistentVolumeClaim:
-              claimName: {{ include "deploy.fullname" . }}
+              claimName: {{ include "deploy.fullname" . }}-data
 {{- end }}
