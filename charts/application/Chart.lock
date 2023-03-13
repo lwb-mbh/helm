@@ -13,7 +13,7 @@ dependencies:
   version: 0.4.0
 - name: gitlab
   repository: file://../gitlab
-  version: 0.5.6
+  version: 0.5.7
 - name: mariadb
   repository: file://../mariadb
   version: 0.5.3
@@ -35,5 +35,5 @@ dependencies:
 - name: tomcat
   repository: file://../tomcat
   version: 0.4.0
-digest: sha256:813eb543913f69235b35eaafea350b38f146f9e6f3102e1797979edc251e9a3c
-generated: "2023-03-13T16:01:14.2348251+01:00"
+digest: sha256:e5436753959f82677381192295e3306c78fd6a5f1ab748d38e3ca374ea6d4b70
+generated: "2023-03-13T16:10:15.9169111+01:00"

@@ -100,8 +100,8 @@ Name of secrets
 {{/*
 Name of secrets
 */}}
-{{- define "deploy.externalsecrets" -}}
-{{- printf "%s_%s" .Chart.Name "secrets" | trunc 63 | trimSuffix "-" }}
+{{- define "deploy.external.config.secret" -}}
+{{- printf "%s_%s_%s" .Chart.Name "config" "secret" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
