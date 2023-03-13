@@ -114,5 +114,5 @@ spec:
         emptyDir:
           sizeLimit: 2Gi
       - name: settings
-        configMap:
-          name: {{ include "deploy.fullname" . }}
+        secret:
+          secretName: {{ include "deploy.config.secret" . }}

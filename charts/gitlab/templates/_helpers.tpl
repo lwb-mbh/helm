@@ -89,3 +89,24 @@ Name of backup env secrets
 {{- define "deploy.backup.env.secrets" -}}
 {{- printf "%s-%s-%s-%s" (include "deploy.fullname" .) "backup" "env" "secrets" | trunc 63 }}
 {{- end }}
+
+{{/*
+Name of secrets
+*/}}
+{{- define "deploy.config.secret" -}}
+{{- printf "%s-%s-%s" .Chart.Name "config" "secret" | trunc 63 | trimSuffix "-" }}
+{{- end }}
+
+{{/*
+Name of secrets
+*/}}
+{{- define "deploy.externalsecrets" -}}
+{{- printf "%s_%s" .Chart.Name "secrets" | trunc 63 | trimSuffix "-" }}
+{{- end }}
+
+{{/*
+Create name of secretstore.
+*/}}
+{{- define "deploy.secretstore" -}}
+{{- printf "%s" .Release.Name | replace "+" "_" | trunc 63 | trimSuffix "-" }}
+{{- end }}
