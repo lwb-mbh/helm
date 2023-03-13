@@ -90,7 +90,7 @@ spec:
             mountPath: /etc/gitlab
           - name: settings
             mountPath: /tmp/gitlab.rb
-            subPath: gitlab.rb
+            subPath: gitlab-config-secret
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
