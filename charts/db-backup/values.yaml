@@ -25,7 +25,7 @@ nameOverride: ""
 fullnameOverride: ""
 
 image:
-  repository: "registry.gitlab.com/lwb-web/docker/library/extend/mariadb-backup"
+  repository: "harbor.web3.lwb.local/library/extend/mariadb-backup"
   pullPolicy: Always
   tag: "3.17"
 

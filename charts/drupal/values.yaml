@@ -36,7 +36,7 @@ autoscaling:
   # targetMemoryUtilizationPercentage: 80
 
 image:
-  repository: "registry.gitlab.com/lwb-web/docker/library/base/drupal"
+  repository: "harbor.web3.lwb.local/library/base/drupal"
   pullPolicy: Always
   tag: "9-php8.1-apache"
 
@@ -122,7 +122,7 @@ backup:
   schedule: "0 21 * * *"
 
   image:
-    repository: "registry.gitlab.com/lwb-web/docker/library/extend/drupal-backup"
+    repository: "harbor.web3.lwb.local/library/extend/drupal-backup"
     pullPolicy: Always
     tag: "3.17"
 
