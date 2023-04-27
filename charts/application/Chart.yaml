@@ -2,8 +2,8 @@ apiVersion: v2
 name: application
 description: Umrella Chart for Applications
 type: application
-version: 0.6.0
-appVersion: "0.6.0"
+version: 0.7.0
+appVersion: "0.7.0"
 
 dependencies:
 - condition: db-backup.enabled
