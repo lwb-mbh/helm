@@ -2,7 +2,7 @@ apiVersion: v2
 name: application
 description: Umrella Chart for Applications
 type: application
-version: 0.7.2
+version: 0.7.3
 appVersion: "0.7.0"
 
 dependencies:
