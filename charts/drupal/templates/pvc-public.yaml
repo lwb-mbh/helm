@@ -9,4 +9,4 @@ spec:
   storageClassName: {{ .Values.storage.className }}
   resources:
     requests:
-      storage: {{ .Values.storage.public }}
+      storage: {{ .Values.storage.size }}
