@@ -25,10 +25,6 @@ spec:
       labels:
         {{- include "solr.deploy.selectorLabels" . | nindent 8 }}
     spec:
-      {{- with .Values.imagePullSecrets }}
-      imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
       serviceAccountName: {{ include "deploy.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
@@ -47,6 +43,7 @@ spec:
           volumeMounts:
             - name: solr
               mountPath: /opt/solr/server/solr/core/data
+              subPath: solr
           ports:
             - name: http
               containerPort: {{ .Values.app.port }}
@@ -93,7 +90,7 @@ spec:
         - name: solr
         {{- if not .Values.command }}
           persistentVolumeClaim:
-            claimName: {{ include "deploy.fullname" . }}
+            claimName: pvc
         {{- else }}
           emptyDir: {}
         {{- end }}

@@ -2,13 +2,13 @@ apiVersion: v2
 name: application
 description: Umrella Chart for Applications
 type: application
-version: 0.5.14
-appVersion: "0.5.0"
+version: 0.6.0
+appVersion: "0.6.0"
 
 dependencies:
 - condition: db-backup.enabled
   name: db-backup
-  version: "1.0.*"
+  version: "2.0.*"
   repository: "file://../db-backup"
 - condition: db-rest-api.enabled
   name: db-rest-api
@@ -16,11 +16,11 @@ dependencies:
   repository: "file://../db-rest-api"
 - condition: drupal.enabled
   name: drupal
-  version: "0.4.*"
+  version: "0.6.*"
   repository: "file://../drupal"
 - condition: drupal7.enabled
   name: drupal7
-  version: "0.4.*"
+  version: "0.6.*"
   repository: "file://../drupal7"
 - condition: gitlab.enabled
   name: gitlab
@@ -28,7 +28,7 @@ dependencies:
   repository: "file://../gitlab"  
 - condition: mariadb.enabled
   name: mariadb
-  version: "0.5.*"
+  version: "0.6.*"
   repository: "file://../mariadb"
 - condition: mysql.enabled
   name: mysql
@@ -44,7 +44,7 @@ dependencies:
   repository: https://charts.bitnami.com/bitnami
 - condition: solr.enabled
   name: solr
-  version: "0.4.*"
+  version: "0.6.*"
   repository: "file://../solr"
 - condition: tika.enabled
   name: tika

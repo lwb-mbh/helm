@@ -20,6 +20,14 @@ global:
   imageCredentials: {}
   createSecret: true
 
+  storage: 
+    className: "nfs-client"
+    size: 8Gi
+
+  backupStorage:
+    className: "backup.smb"
+    size: 20Gi
+
 image:
   repository: "mariadb"
   pullPolicy: IfNotPresent
@@ -27,11 +35,6 @@ image:
 
 nameOverride: ""
 fullnameOverride: ""
-
-storage:
-  className: "nfs-client"
-  size: 4Gi
-  backupClassName: "backup.smb"
 
 serviceAccount:
   # Specifies whether a service account should be created

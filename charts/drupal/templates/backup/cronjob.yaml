@@ -30,15 +30,17 @@ spec:
               subPath: {{ include "deploy.backup.subPath" . }}
             - name: drupal-private
               mountPath: /mnt/source_private
+              subPath: drupal-private
             - name: drupal-public
               mountPath: /mnt/source_public
+              subPath: drupal-public
           volumes:
           - name: drupal-public
             persistentVolumeClaim:
-              claimName: {{ include "deploy.pvc.public" . }}
+              claimName: pvc
           - name: drupal-private
             persistentVolumeClaim:
-              claimName: {{ include "deploy.pvc.private" . }}
+              claimName: pvc
           - name: target
             persistentVolumeClaim:
               claimName: {{ include "deploy.backup.name" . }}

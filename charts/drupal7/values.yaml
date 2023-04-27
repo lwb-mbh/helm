@@ -15,6 +15,14 @@ global:
   imageCredentials: {}
   createSecret: true
 
+  storage: 
+    className: "nfs-client"
+    size: 8Gi
+
+  backupStorage:
+    className: "backup.smb"
+    size: 20Gi
+
 replicaCount: 1
 
 autoscaling:
@@ -34,12 +42,6 @@ fullnameOverride: ""
 
 app: 
   port: 80
-
-storage:
-  className: "nfs-client"
-  public: 4Gi
-  backupClassName: "backup.smb"
-  backup: 20Gi
 
 serviceAccount:
   # Specifies whether a service account should be created

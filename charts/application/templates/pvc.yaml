@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ include "deploy.fullname" . }}
+  name: pvc
   namespace: {{ .Release.Namespace }}
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: {{ .Values.storage.className }}
+  storageClassName: {{ .Values.global.storage.className }}
   resources:
     requests:
-      storage: {{ .Values.storage.public }}
+      storage: {{ .Values.global.storage.size }}

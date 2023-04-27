@@ -9,6 +9,6 @@ spec:
     - ReadWriteMany
   resources:
     requests:
-      storage: {{ .Values.storage.backup }}
-  storageClassName: {{ .Values.storage.backupClassName }}
+      storage: {{ .Values.global.backupStorage.size }}
+  storageClassName: {{ .Values.global.backupStorage.className }}
 {{- end }}

@@ -1,22 +1,22 @@
 dependencies:
 - name: db-backup
   repository: file://../db-backup
-  version: 1.0.1
+  version: 2.0.0
 - name: db-rest-api
   repository: file://../db-rest-api
   version: 0.2.1
 - name: drupal
   repository: file://../drupal
-  version: 0.4.1
+  version: 0.6.0
 - name: drupal7
   repository: file://../drupal7
-  version: 0.4.1
+  version: 0.6.0
 - name: gitlab
   repository: file://../gitlab
   version: 0.5.9
 - name: mariadb
   repository: file://../mariadb
-  version: 0.5.4
+  version: 0.6.0
 - name: mysql
   repository: https://charts.bitnami.com/bitnami
   version: 9.4.9
@@ -25,15 +25,15 @@ dependencies:
   version: 0.4.0
 - name: phpmyadmin
   repository: https://charts.bitnami.com/bitnami
-  version: 10.4.4
+  version: 10.4.6
 - name: solr
   repository: file://../solr
-  version: 0.4.0
+  version: 0.6.0
 - name: tika
   repository: file://../tika
   version: 0.4.0
 - name: tomcat
   repository: file://../tomcat
   version: 0.4.0
-digest: sha256:4cd4ccddfd41e5b8ed0730243833b682e5f665cc2b65888fa4fdbfeeab90d998
-generated: "2023-03-17T11:31:30.6206118+01:00"
+digest: sha256:423b925fe56e8b70e6b100fdfde40996656e372fec52673c5318fda516e94962
+generated: "2023-04-27T08:30:30.6526783+02:00"

@@ -39,6 +39,7 @@ spec:
           volumeMounts:
           - name: mariadb
             mountPath: /var/lib/mysql
+            subPath: mariadb
           - name: config
             mountPath: /etc/mysql/conf.d/extra.cnf
             subPath: extra.cnf
@@ -98,7 +99,7 @@ spec:
       volumes:
       - name: mariadb
         persistentVolumeClaim:
-          claimName: {{ include "deploy.fullname" . }}
+          claimName: pvc
       - name: config
         configMap:
           name: {{ include "deploy.fullname" . }}          
