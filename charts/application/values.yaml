@@ -25,14 +25,6 @@ global:
       key: token
       namespace: kube-system
 
-  storage:
-    className: "nfs-client"
-    size: 4Gi
-
-  backupStorage:
-    className: "backup.smb"
-    size: 4Gi
-
 ## @section Common parameters
 
 ## @param imagePullSecrets.name Global image pull secrets

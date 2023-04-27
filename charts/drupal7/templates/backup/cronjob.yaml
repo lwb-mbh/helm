@@ -30,6 +30,7 @@ spec:
               subPath: {{ include "deploy.backup.subPath" . }}
             - name: drupal
               mountPath: /mnt/source
+              subPath: data
           volumes:
           - name: drupal
             persistentVolumeClaim:

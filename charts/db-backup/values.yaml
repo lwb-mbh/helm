@@ -21,9 +21,9 @@ global:
   imageCredentials: {}
   createSecret: true
 
-  backupStorage:
-    className: "backup.smb"
-    size: 20Gi
+backupStorage:
+  className: "backup.smb"
+  size: 20Gi
 
 nameOverride: ""
 fullnameOverride: ""

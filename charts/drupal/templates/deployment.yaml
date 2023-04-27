@@ -39,10 +39,10 @@ spec:
           volumeMounts:
           - name: drupal-public
             mountPath: /opt/drupal/web/sites/default/files
-            subPath: drupal-public
+            subPath: public
           - name: drupal-private
             mountPath: /opt/drupal/private/files
-            subPath: drupal-private
+            subPath: private
           ports:
             - name: http
               containerPort: {{ .Values.app.port }}
@@ -105,7 +105,7 @@ spec:
       volumes:
       - name: drupal-public
         persistentVolumeClaim:
-          claimName: pvc
+          claimName: {{ include "deploy.fullname" . }}
       - name: drupal-private
         persistentVolumeClaim:
-          claimName: pvc
+          claimName: {{ include "deploy.fullname" . }}

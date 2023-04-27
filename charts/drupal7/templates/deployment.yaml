@@ -39,7 +39,7 @@ spec:
           volumeMounts:
           - name: drupal
             mountPath: /opt/drupal
-            subPath: drupal
+            subPath: data
           - name: settings
             mountPath: /opt/drupal/web/sites/default/settings.php
             subPath: settings.php            
@@ -100,7 +100,7 @@ spec:
       volumes:
       - name: drupal
         persistentVolumeClaim:
-          claimName: pvc
+          claimName: {{ include "deploy.fullname" . }}
       - name: settings
         configMap:
           name: {{ include "deploy.fullname" . }}  

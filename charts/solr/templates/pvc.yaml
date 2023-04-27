@@ -1,14 +1,14 @@
+{{- if not .Values.command }}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: {{ include "deploy.fullname" . }}
   namespace: {{ .Release.Namespace }}
-  annotations:
-    argocd.argoproj.io/sync-wave: "-60"
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
+  storageClassName: {{ .Values.storage.className }}
   resources:
     requests:
-      storage: {{ .Values.backupStorage.size }}
-  storageClassName: {{ .Values.backupStorage.className }}
+      storage: {{ .Values.storage.size }}
+{{- end }}

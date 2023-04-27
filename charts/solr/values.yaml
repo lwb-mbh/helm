@@ -10,10 +10,6 @@ global:
   imageCredentials: {}
   createSecret: true
 
-  storage: 
-    className: "nfs-client"
-    size: 8Gi
-
 env:
   plain: {}
   secrets: {}
