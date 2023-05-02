@@ -3,6 +3,65 @@ entries:
   application:
   - apiVersion: v2
     appVersion: 0.7.0
+    created: "2023-05-02T06:30:05.459675553Z"
+    dependencies:
+    - condition: db-backup.enabled
+      name: db-backup
+      repository: file://../db-backup
+      version: 1.0.*
+    - condition: db-rest-api.enabled
+      name: db-rest-api
+      repository: file://../db-rest-api
+      version: 0.2.*
+    - condition: drupal.enabled
+      name: drupal
+      repository: file://../drupal
+      version: 0.4.*
+    - condition: drupal7.enabled
+      name: drupal7
+      repository: file://../drupal7
+      version: 0.4.*
+    - condition: gitlab.enabled
+      name: gitlab
+      repository: file://../gitlab
+      version: 0.5.*
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: file://../mariadb
+      version: 0.5.*
+    - condition: mysql.enabled
+      name: mysql
+      repository: https://charts.bitnami.com/bitnami
+      version: 9.4.*
+    - condition: node.enabled
+      name: node
+      repository: file://../node
+      version: 0.4.*
+    - condition: phpmyadmin.enabled
+      name: phpmyadmin
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.4.*
+    - condition: solr.enabled
+      name: solr
+      repository: file://../solr
+      version: 0.4.*
+    - condition: tika.enabled
+      name: tika
+      repository: file://../tika
+      version: 0.4.*
+    - condition: tomcat.enabled
+      name: tomcat
+      repository: file://../tomcat
+      version: 0.4.*
+    description: Umrella Chart for Applications
+    digest: 5cf68d362ec40a8e03040a56ae749108403db37ce3dab6e631b7d66a86600b04
+    name: application
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/application-0.7.6/application-0.7.6.tgz
+    version: 0.7.6
+  - apiVersion: v2
+    appVersion: 0.7.0
     created: "2023-05-02T06:19:26.309308549Z"
     dependencies:
     - condition: db-backup.enabled
@@ -8676,6 +8735,16 @@ entries:
     version: 0.6.0
   - apiVersion: v2
     appVersion: 0.4.0
+    created: "2023-05-02T06:30:05.604185729Z"
+    description: Chart for Apache Solr
+    digest: 53d2109780ef0ecdb6a3637ff6461a406199cad8b3226ac59c85ac874b9b5d03
+    name: solr
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/solr-0.4.2/solr-0.4.2.tgz
+    version: 0.4.2
+  - apiVersion: v2
+    appVersion: 0.4.0
     created: "2023-04-27T07:17:45.970377673Z"
     description: Chart for Apache Solr
     digest: a84593a9f2a320cd17aafe63a5b1871ff19013badcac4c027cea185e5d32278b
@@ -8885,6 +8954,16 @@ entries:
     - https://github.com/lwb-mbh/helm/releases/download/solr-0.1.0/solr-0.1.0.tgz
     version: 0.1.0
   tika:
+  - apiVersion: v2
+    appVersion: 0.4.0
+    created: "2023-05-02T06:30:05.752864128Z"
+    description: Chart for Apache Tika
+    digest: 5b40a8a8addae57d123edf003548b9fa5b635b73cea86feb15f3a4291f84c3da
+    name: tika
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/tika-0.4.1/tika-0.4.1.tgz
+    version: 0.4.1
   - apiVersion: v2
     appVersion: 0.4.0
     created: "2023-03-02T08:33:33.276816835Z"
@@ -9166,4 +9245,4 @@ entries:
     urls:
     - https://github.com/lwb-mbh/helm/releases/download/tomcat-0.1.0/tomcat-0.1.0.tgz
     version: 0.1.0
-generated: "2023-05-02T06:19:26.961320187Z"
+generated: "2023-05-02T06:30:05.753888958Z"
