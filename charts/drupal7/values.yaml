@@ -33,7 +33,7 @@ autoscaling:
   # targetMemoryUtilizationPercentage: 80
 
 image:
-  repository: "harbor.web3.lwb.local/library/base/drupal7"
+  repository: "harbor.web1.lwb.local/library/base/drupal7"
   pullPolicy: Always
   tag: "8-php7.4-apache"
 
@@ -119,7 +119,7 @@ backup:
   schedule: "0 21 * * *"
 
   image:
-    repository: "harbor.web3.lwb.local/library/extend/drupal7-backup"
+    repository: "harbor.web1.lwb.local/library/extend/drupal7-backup"
     pullPolicy: Always
     tag: "3.17"
 

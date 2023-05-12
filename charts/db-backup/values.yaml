@@ -29,7 +29,7 @@ nameOverride: ""
 fullnameOverride: ""
 
 image:
-  repository: "harbor.web3.lwb.local/library/extend/mariadb-backup"
+  repository: "harbor.web1.lwb.local/library/extend/mariadb-backup"
   pullPolicy: Always
   tag: "3.17"
 

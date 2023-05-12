@@ -93,7 +93,7 @@ backup:
   storageClassName: "backup.smb"
 
   image:
-    repository: "harbor.web3.lwb.local/library/extend/gitlab-backup"
+    repository: "harbor.web1.lwb.local/library/extend/gitlab-backup"
     pullPolicy: Always
     tag: "3.17"
 

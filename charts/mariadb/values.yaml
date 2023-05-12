@@ -129,7 +129,7 @@ rest:
     port: 3000
 
   image:
-    repository: "harbor.web3.lwb.local/library/extend/mariadb-rest"
+    repository: "harbor.web1.lwb.local/library/extend/mariadb-rest"
     tag: "1.0.0"
     pullPolicy: IfNotPresent
 
