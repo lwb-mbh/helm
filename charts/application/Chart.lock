@@ -22,7 +22,7 @@ dependencies:
   version: 9.4.9
 - name: node
   repository: file://../node
-  version: 0.4.1
+  version: 0.4.2
 - name: phpmyadmin
   repository: https://charts.bitnami.com/bitnami
   version: 10.4.6
@@ -35,5 +35,5 @@ dependencies:
 - name: tomcat
   repository: file://../tomcat
   version: 0.4.1
-digest: sha256:399acb18c98eeb78ec189046b6a0315c65bc1a4875ba1e49773bc51f60f44bb0
-generated: "2023-05-12T12:17:01.7745047+02:00"
+digest: sha256:21d068c5fb16e8969ca2c44e2b3b7c2addf4137ddf2953b2131541623e339372
+generated: "2023-05-12T12:20:15.8143519+02:00"
