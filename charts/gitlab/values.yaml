@@ -95,7 +95,7 @@ backup:
   image:
     repository: "harbor.web1.lwb.local/library/extend/gitlab-backup"
     pullPolicy: Always
-    tag: "3.17"
+    tag: "3.18"
 
   resources: {}
 
