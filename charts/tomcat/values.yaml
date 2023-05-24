@@ -82,8 +82,8 @@ resources:
     cpu: 750m
     memory: 2Gi
   requests:
-    cpu: 200m
-    memory: 256Mi
+    cpu: 100m
+    memory: 128Mi
 
 startupProbe:
   enabled: false

@@ -64,9 +64,11 @@ ingress:
 
 resources:
   limits:
+    cpu: 2000m
     memory: 8Gi
   requests:
-    memory: 1Gi
+    cpu: 500m
+    memory: 515Mi
 
 livenessProbe:
   enabled: true
