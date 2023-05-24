@@ -76,7 +76,7 @@ mysql:
         memory: 1Gi
       requests:
         cpu: 100m
-        memory: 256Mi
+        memory: 128Mi
 
     persistence:
       existingClaim: mysql
@@ -93,7 +93,7 @@ mysql:
         memory: 1Gi
       requests:
         cpu: 100m
-        memory: 256Mi
+        memory: 128Mi
 
     # configuration: |- 
     # existingConfigmap: ""
@@ -123,8 +123,8 @@ phpmyadmin:
       cpu: 250m
       memory: 512Mi
     requests:
-      cpu: 100m
-      memory: 128Mi
+      cpu: 50m
+      memory: 64Mi
 
   containerSecurityContext:
     enabled: true
