@@ -34,6 +34,6 @@ dependencies:
   version: 0.4.1
 - name: tomcat
   repository: file://../tomcat
-  version: 0.4.3
-digest: sha256:b5b9aa79775b71b95bbbff6ea9dd6b47b09a91f3149c57e380661b0bed91e649
-generated: "2023-05-26T12:05:51.4000284+02:00"
+  version: 0.4.4
+digest: sha256:76d2e867e5b1ddfb0e5829a4eb006de1d28b3cfddf1703482e0f0cb6e87033d1
+generated: "2023-05-26T12:29:35.0805109+02:00"
