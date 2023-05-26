@@ -77,6 +77,12 @@ ingress:
     traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd
   }
 
+storage:
+  enabled: false
+  className: "nfs-client"
+  size: 8Gi
+  path: "/opt/data"
+
 resources:
   limits:
     cpu: 750m
