@@ -92,11 +92,18 @@ spec:
           envFrom:
           - secretRef:
               name:  {{ include "deploy.secrets" . }}
-          {{- if .Values.storage.enabled }}
+          {{- if or (.Values.storage.data.enabled) (.Values.storage.logs.enabled) }}
           volumeMounts:
+          {{- if .Values.storage.data.enabled }}
           - name: data
-            mountPath: {{ .Values.storage.path }}
+            mountPath: {{ .Values.storage.data.path }}
             subPath: data
+          {{- end }}
+          {{- if .Values.storage.logs.enabled }}
+          - name: logs
+            mountPath: {{ .Values.storage.logs.path }}
+            subPath: logs
+          {{- end }}
           {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
@@ -110,9 +117,16 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- if .Values.storage.enabled }}
+      {{- if or (.Values.storage.data.enabled) (.Values.storage.logs.enabled) }}
       volumes:
+      {{- if .Values.storage.data.enabled }}
       - name: data
         persistentVolumeClaim:
           claimName: {{ include "deploy.fullname" . }}
+      {{- end }}
+      {{- if .Values.storage.logs.enabled }}
+      - name: logs
+        persistentVolumeClaim:
+          claimName: {{ include "deploy.fullname" . }}
+      {{- end }}
       {{- end }}

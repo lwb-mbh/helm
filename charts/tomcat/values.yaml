@@ -81,7 +81,14 @@ storage:
   enabled: false
   className: "nfs-client"
   size: 8Gi
-  path: "/opt/data"
+
+  data:
+    enabled: false
+    path: "/opt/data"
+  
+  logs:
+    enabled: false
+    path: "/usr/local/tomcat/logs"
 
 resources:
   limits:
