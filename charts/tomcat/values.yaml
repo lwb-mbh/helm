@@ -78,17 +78,17 @@ ingress:
   }
 
 storage:
-  enabled: false
   className: "nfs-client"
-  size: 8Gi
 
   data:
     enabled: false
     path: "/opt/data"
+    size: 8Gi
   
   logs:
     enabled: false
     path: "/usr/local/tomcat/logs"
+    size: 1Gi
 
 resources:
   limits:

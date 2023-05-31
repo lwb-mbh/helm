@@ -1,8 +1,8 @@
-{{- if or (.Values.storage.data.enabled) (.Values.storage.logs.enabled) -}}
+{{- if .Values.storage.logs.enabled -}}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ include "deploy.fullname" . }}
+  name: {{ include "deploy.fullname" . }}-logs
   namespace: {{ .Release.Namespace }}
 spec:
   accessModes:
@@ -10,5 +10,5 @@ spec:
   storageClassName: {{ .Values.storage.className }}
   resources:
     requests:
-      storage: {{ .Values.storage.size }}
+      storage: {{ .Values.storage.logs.size }}
 {{- end }}

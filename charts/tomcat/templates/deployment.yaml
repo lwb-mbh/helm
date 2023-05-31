@@ -122,11 +122,11 @@ spec:
       {{- if .Values.storage.data.enabled }}
       - name: data
         persistentVolumeClaim:
-          claimName: {{ include "deploy.fullname" . }}
+          claimName: {{ include "deploy.fullname" . }}-data
       {{- end }}
       {{- if .Values.storage.logs.enabled }}
       - name: logs
         persistentVolumeClaim:
-          claimName: {{ include "deploy.fullname" . }}
+          claimName: {{ include "deploy.fullname" . }}-logs
       {{- end }}
       {{- end }}
