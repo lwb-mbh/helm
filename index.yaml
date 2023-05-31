@@ -3,6 +3,65 @@ entries:
   application:
   - apiVersion: v2
     appVersion: 0.7.0
+    created: "2023-05-31T07:10:57.5293481Z"
+    dependencies:
+    - condition: db-backup.enabled
+      name: db-backup
+      repository: file://../db-backup
+      version: 1.0.*
+    - condition: db-rest-api.enabled
+      name: db-rest-api
+      repository: file://../db-rest-api
+      version: 0.2.*
+    - condition: drupal.enabled
+      name: drupal
+      repository: file://../drupal
+      version: 0.4.*
+    - condition: drupal7.enabled
+      name: drupal7
+      repository: file://../drupal7
+      version: 0.4.*
+    - condition: gitlab.enabled
+      name: gitlab
+      repository: file://../gitlab
+      version: 0.5.*
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: file://../mariadb
+      version: 0.5.*
+    - condition: mysql.enabled
+      name: mysql
+      repository: https://charts.bitnami.com/bitnami
+      version: 9.4.*
+    - condition: node.enabled
+      name: node
+      repository: file://../node
+      version: 0.4.*
+    - condition: phpmyadmin.enabled
+      name: phpmyadmin
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.4.*
+    - condition: solr.enabled
+      name: solr
+      repository: file://../solr
+      version: 0.4.*
+    - condition: tika.enabled
+      name: tika
+      repository: file://../tika
+      version: 0.4.*
+    - condition: tomcat.enabled
+      name: tomcat
+      repository: file://../tomcat
+      version: 0.4.*
+    description: Umrella Chart for Applications
+    digest: 59395a144cb5b41d9db07883c9dc42d68acaeca943dedc3bd053b1dab0551e60
+    name: application
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/application-0.7.17/application-0.7.17.tgz
+    version: 0.7.17
+  - apiVersion: v2
+    appVersion: 0.7.0
     created: "2023-05-26T10:30:29.870756284Z"
     dependencies:
     - condition: db-backup.enabled
@@ -9807,6 +9866,16 @@ entries:
   tomcat:
   - apiVersion: v2
     appVersion: 0.4.0
+    created: "2023-05-31T07:10:57.671630814Z"
+    description: Chart for Apache Tomcat
+    digest: 8ce852d11f77f8e3f481f674f8e84ccc8b82deb1b29193369f680ebc156c5956
+    name: tomcat
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/tomcat-0.4.5/tomcat-0.4.5.tgz
+    version: 0.4.5
+  - apiVersion: v2
+    appVersion: 0.4.0
     created: "2023-05-26T10:30:30.03924078Z"
     description: Chart for Apache Tomcat
     digest: 2e0df5861a0833506d74ddd717a045bad66c29577ca616ff94b8d8bf784c28ab
@@ -10065,4 +10134,4 @@ entries:
     urls:
     - https://github.com/lwb-mbh/helm/releases/download/tomcat-0.1.0/tomcat-0.1.0.tgz
     version: 0.1.0
-generated: "2023-05-26T10:30:30.041490448Z"
+generated: "2023-05-31T07:10:57.672683232Z"
