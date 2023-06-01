@@ -3,6 +3,65 @@ entries:
   application:
   - apiVersion: v2
     appVersion: 0.7.0
+    created: "2023-06-01T06:48:52.314538223Z"
+    dependencies:
+    - condition: db-backup.enabled
+      name: db-backup
+      repository: file://../db-backup
+      version: 1.0.*
+    - condition: db-rest-api.enabled
+      name: db-rest-api
+      repository: file://../db-rest-api
+      version: 0.2.*
+    - condition: drupal.enabled
+      name: drupal
+      repository: file://../drupal
+      version: 0.4.*
+    - condition: drupal7.enabled
+      name: drupal7
+      repository: file://../drupal7
+      version: 0.4.*
+    - condition: gitlab.enabled
+      name: gitlab
+      repository: file://../gitlab
+      version: 0.5.*
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: file://../mariadb
+      version: 0.5.*
+    - condition: mysql.enabled
+      name: mysql
+      repository: https://charts.bitnami.com/bitnami
+      version: 9.4.*
+    - condition: node.enabled
+      name: node
+      repository: file://../node
+      version: 0.4.*
+    - condition: phpmyadmin.enabled
+      name: phpmyadmin
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.4.*
+    - condition: solr.enabled
+      name: solr
+      repository: file://../solr
+      version: 0.4.*
+    - condition: tika.enabled
+      name: tika
+      repository: file://../tika
+      version: 0.4.*
+    - condition: tomcat.enabled
+      name: tomcat
+      repository: file://../tomcat
+      version: 0.4.*
+    description: Umrella Chart for Applications
+    digest: 9038a6af3d1a0bad71744b1bdff78f1e670fcb09cdb2ae919e1d8a66a2fdae0b
+    name: application
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/application-0.7.19/application-0.7.19.tgz
+    version: 0.7.19
+  - apiVersion: v2
+    appVersion: 0.7.0
     created: "2023-05-31T07:24:21.902589786Z"
     dependencies:
     - condition: db-backup.enabled
@@ -7807,6 +7866,16 @@ entries:
     version: 0.6.0
   - apiVersion: v2
     appVersion: 9.5.0
+    created: "2023-06-01T06:48:52.480688261Z"
+    description: Chart for Drupal
+    digest: a4474c58058eb4bd2f1461625e6228304ca06121ee4fedb5519f0bc7e4926866
+    name: drupal
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/drupal-0.4.8/drupal-0.4.8.tgz
+    version: 0.4.8
+  - apiVersion: v2
+    appVersion: 9.5.0
     created: "2023-05-25T07:32:03.994095025Z"
     description: Chart for Drupal
     digest: 7d024414fdc2c871f9e0f26b62fa1e685ab18d58e466adda4b2788b256ab19f2
@@ -8246,6 +8315,16 @@ entries:
     urls:
     - https://github.com/lwb-mbh/helm/releases/download/drupal7-0.6.0/drupal7-0.6.0.tgz
     version: 0.6.0
+  - apiVersion: v2
+    appVersion: 7.0.0
+    created: "2023-06-01T06:48:52.659768919Z"
+    description: Chart for Drupal7
+    digest: 18f74aaf1b77e2399736d8e5d04ad7819bdf5cecbfe3a11d7251091dfc041c02
+    name: drupal7
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/drupal7-0.4.9/drupal7-0.4.9.tgz
+    version: 0.4.9
   - apiVersion: v2
     appVersion: 7.0.0
     created: "2023-05-25T07:32:04.164826893Z"
@@ -10203,4 +10282,4 @@ entries:
     urls:
     - https://github.com/lwb-mbh/helm/releases/download/tomcat-0.1.0/tomcat-0.1.0.tgz
     version: 0.1.0
-generated: "2023-05-31T07:24:22.057099358Z"
+generated: "2023-06-01T06:48:52.661260721Z"
