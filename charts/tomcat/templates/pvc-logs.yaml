@@ -4,6 +4,8 @@ kind: PersistentVolumeClaim
 metadata:
   name: {{ include "deploy.fullname" . }}-logs
   namespace: {{ .Release.Namespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "-60"
 spec:
   accessModes:
     - ReadWriteOnce

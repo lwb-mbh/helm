@@ -7,16 +7,16 @@ dependencies:
   version: 0.2.6
 - name: drupal
   repository: file://../drupal
-  version: 0.4.8
+  version: 0.4.9
 - name: drupal7
   repository: file://../drupal7
-  version: 0.4.9
+  version: 0.4.10
 - name: gitlab
   repository: file://../gitlab
-  version: 0.5.12
+  version: 0.5.13
 - name: mariadb
   repository: file://../mariadb
-  version: 0.5.7
+  version: 0.5.8
 - name: mysql
   repository: https://charts.bitnami.com/bitnami
   version: 9.4.9
@@ -28,12 +28,12 @@ dependencies:
   version: 10.4.6
 - name: solr
   repository: file://../solr
-  version: 0.4.3
+  version: 0.4.4
 - name: tika
   repository: file://../tika
   version: 0.4.1
 - name: tomcat
   repository: file://../tomcat
-  version: 0.4.6
-digest: sha256:8d520897c828497a7648bba11396938510675c6afbf6629b14fa943fe928f654
-generated: "2023-06-01T08:47:46.8448447+02:00"
+  version: 0.4.7
+digest: sha256:37ec1bc8f71174ad7723354ea0764642a88e311b03f0854439a04482f614af33
+generated: "2023-06-20T18:28:47.4388971+02:00"
