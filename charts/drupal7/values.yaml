@@ -121,7 +121,7 @@ backup:
   image:
     repository: "harbor.web1.lwb.local/library/extend/drupal7-backup"
     pullPolicy: Always
-    tag: "3.18"
+    tag: "3.19"
 
   resources: {}
   #  limits:
