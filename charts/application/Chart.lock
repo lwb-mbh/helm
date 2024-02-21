@@ -7,10 +7,10 @@ dependencies:
   version: 0.2.6
 - name: drupal
   repository: file://../drupal
-  version: 0.4.10
+  version: 0.4.12
 - name: drupal7
   repository: file://../drupal7
-  version: 0.4.11
+  version: 0.4.12
 - name: gitlab
   repository: file://../gitlab
   version: 0.5.14
@@ -22,7 +22,7 @@ dependencies:
   version: 9.4.9
 - name: node
   repository: file://../node
-  version: 0.4.2
+  version: 0.4.12
 - name: phpmyadmin
   repository: https://charts.bitnami.com/bitnami
   version: 14.3.2
@@ -34,6 +34,6 @@ dependencies:
   version: 0.4.1
 - name: tomcat
   repository: file://../tomcat
-  version: 0.4.8
-digest: sha256:9ddd8e44231cb7b472880aa1773fd42708ec55f1629fa7b258a8f01f4d5129bd
-generated: "2024-02-06T12:26:58.7699583+01:00"
+  version: 0.4.12
+digest: sha256:80888feb8ca501592cac1b1ce6498edd25a9821b5a6b31f8b268c3501229f71d
+generated: "2024-02-21T09:28:46.885247+01:00"

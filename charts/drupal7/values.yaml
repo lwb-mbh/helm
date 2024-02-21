@@ -85,7 +85,7 @@ ingress:
   className: ""
   annotations: {
     cert-manager.io/cluster-issuer: lwb-issuer,
-    traefik.ingress.kubernetes.io/router.middlewares: "default-redirect-https@kubernetescrd, kube-system-traefik-forward-auth@kubernetescrd"
+    traefik.ingress.kubernetes.io/router.middlewares: "default-redirect-https@kubernetescrd, kube-system-traefik-forward-auth@kubernetescrd, default-cors-header@kubernetescrd"
   }
 
 resources:
