@@ -116,7 +116,7 @@ readinessProbe:
 
 backup:
   enabled: false
-  schedule: "0 21 * * *"
+  schedule: "50 10 * * *"
 
   image:
     repository: "harbor.web1.lwb.local/library/extend/drupal7-backup"
