@@ -8711,6 +8711,16 @@ entries:
     version: 0.6.0
   - apiVersion: v2
     appVersion: 7.0.0
+    created: "2025-02-21T09:52:55.697609769Z"
+    description: Chart for Drupal7
+    digest: 7331f4021b7045b8d04d0fb48ca0ab1dbcc8c1efbb0bdb9ea724eea5f3e450e8
+    name: drupal7
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/drupal7-0.4.13/drupal7-0.4.13.tgz
+    version: 0.4.13
+  - apiVersion: v2
+    appVersion: 7.0.0
     created: "2024-02-21T10:17:30.687852394Z"
     description: Chart for Drupal7
     digest: 857c6a2e9c009f5fedcb1d4b668f21f45917d5ec4ac92a6e60e70fdc85d4c0e7
@@ -10786,4 +10796,4 @@ entries:
     urls:
     - https://github.com/lwb-mbh/helm/releases/download/tomcat-0.1.0/tomcat-0.1.0.tgz
     version: 0.1.0
-generated: "2024-02-21T10:17:30.941636318Z"
+generated: "2025-02-21T09:52:55.698424859Z"
