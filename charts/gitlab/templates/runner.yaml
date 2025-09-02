@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "gitlab.fullname" . }}-runner-config
+  name: gitlab-runner-config
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "gitlab.labels" . | nindent 4 }}
@@ -27,14 +27,14 @@ data:
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: {{ include "gitlab.fullname" . }}-runner
+  name: gitlab-runner
   namespace: {{ .Release.Namespace }}
 
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: {{ include "gitlab.fullname" . }}-runner
+  name: gitlab-runner
   namespace: {{ .Release.Namespace }}
 rules:
   - apiGroups: [""]
@@ -45,22 +45,22 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: {{ include "gitlab.fullname" . }}-runner
+  name: gitlab-runner
   namespace: {{ .Release.Namespace }}
 subjects:
   - kind: ServiceAccount
-    name: {{ include "gitlab.fullname" . }}-runner
+    name: gitlab-runner
     namespace: {{ .Release.Namespace }}
 roleRef:
   kind: Role
-  name: {{ include "gitlab.fullname" . }}-runner
+  name: gitlab-runner
   apiGroup: rbac.authorization.k8s.io
 
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "gitlab.fullname" . }}-runner
+  name: gitlab-runner
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "gitlab.labels" . | nindent 4 }}
@@ -79,9 +79,9 @@ spec:
         {{- include "gitlab.selectorLabels" . | nindent 8 }}
         app.kubernetes.io/component: runner
     spec:
-      serviceAccountName: {{ include "gitlab.fullname" . }}-runner
+      serviceAccountName: gitlab-runner
       containers:
-        - name: {{ include "gitlab.fullname" . }}-runner
+        - name: gitlab-runner
           image: "{{ .Values.runner.image.repository }}:{{ .Values.runner.image.tag }}"
           imagePullPolicy: {{ .Values.runner.image.pullPolicy }}
           command:
@@ -113,7 +113,7 @@ spec:
       volumes:
         - name: config-template
           configMap:
-            name: {{ include "gitlab.fullname" . }}-runner-config
+            name: gitlab-runner-config
         - name: runner-data
           emptyDir: {}
 {{- end }}
