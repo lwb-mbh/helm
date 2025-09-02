@@ -9182,6 +9182,16 @@ entries:
   gitlab:
   - apiVersion: v2
     appVersion: 0.5.0
+    created: "2025-09-02T10:40:58.220893592Z"
+    description: Chart for Gitlab
+    digest: 744c2441d48437b9aa5c34302a8b853cb0f75dce3a2a7c742fb60f030cbe2795
+    name: gitlab
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/gitlab-0.5.15/gitlab-0.5.15.tgz
+    version: 0.5.15
+  - apiVersion: v2
+    appVersion: 0.5.0
     created: "2023-12-18T06:08:24.298220814Z"
     description: Chart for Gitlab
     digest: 70aa6a598bdd97155d6df1f9446077b3fc3ff788bbcfda9301fd7e6ecf98aaff
@@ -10796,4 +10806,4 @@ entries:
     urls:
     - https://github.com/lwb-mbh/helm/releases/download/tomcat-0.1.0/tomcat-0.1.0.tgz
     version: 0.1.0
-generated: "2025-02-21T09:52:55.698424859Z"
+generated: "2025-09-02T10:40:58.221696205Z"
