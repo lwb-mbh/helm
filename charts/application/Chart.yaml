@@ -32,7 +32,7 @@ dependencies:
   repository: "file://../mariadb"
 - condition: mysql.enabled
   name: mysql
-  version: 9.4.*
+  version: 9.4.9
   repository: https://charts.bitnami.com/bitnami
 - condition: node.enabled
   name: node
@@ -40,7 +40,7 @@ dependencies:
   repository: "file://../node"
 - condition: phpmyadmin.enabled
   name: phpmyadmin
-  version: 14.3.*
+  version: 14.3.2
   repository: https://charts.bitnami.com/bitnami
 - condition: solr.enabled
   name: solr
