@@ -108,6 +108,9 @@ spec:
               readOnly: true
             - name: runner-data
               mountPath: /etc/gitlab-runner
+            - name: gitlab-ca-certs
+              mountPath: /etc/gitlab-runner/certs
+              readOnly: true
           securityContext:
             runAsUser: 0
             runAsGroup: 0
@@ -120,4 +123,7 @@ spec:
             name: gitlab-runner-config
         - name: runner-data
           emptyDir: {}
+        - name: gitlab-ca-certs
+          secret:
+            secretName: {{ .Values.runner.tls_cert }}
 {{- end }}
