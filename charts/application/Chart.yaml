@@ -2,7 +2,7 @@ apiVersion: v2
 name: application
 description: Umbrella Chart for Applications
 type: application
-version: 0.7.40
+version: 0.7.41
 appVersion: "0.7.0"
 
 dependencies:
@@ -24,7 +24,7 @@ dependencies:
   repository: "file://../drupal7"
 - condition: gitlab.enabled
   name: gitlab
-  version: "0.5.27"
+  version: "0.5.28"
   repository: "file://../gitlab"  
 - condition: mariadb.enabled
   name: mariadb
