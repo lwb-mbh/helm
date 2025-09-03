@@ -23,6 +23,7 @@ data:
         namespace = "{{ .Release.Namespace }}"
         image = "alpine:latest"
         pull_policy = "if-not-present"
+        
 ---
 apiVersion: v1
 kind: ServiceAccount
