@@ -5,7 +5,8 @@ metadata:
   name: gitlab-runner-config
   namespace: {{ .Release.Namespace }}
   labels:
-    {{- include "gitlab.labels" . | nindent 4 }}
+    app.kubernetes.io/instance: gitlab
+    app.kubernetes.io/name: gitlab
     app.kubernetes.io/component: runner
 data:
   config.toml: |
