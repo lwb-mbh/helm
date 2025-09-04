@@ -23,6 +23,7 @@ data:
         namespace = "{{ .Release.Namespace }}"
         image = "alpine:latest"
         pull_policy = "if-not-present"
+        privileged = true
         [[runners.kubernetes.volumes.secret]]
           name = "gitlab-ca-certs"
           mount_path = "/etc/gitlab-runner/certs"
