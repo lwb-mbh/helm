@@ -23,10 +23,10 @@ data:
         namespace = "{{ .Release.Namespace }}"
         image = "alpine:latest"
         pull_policy = "if-not-present"
-        [[runners.kubernetes.volumes]]
+        [runners.kubernetes.volumes]
           name = "gitlab-ca-certs"
           secret = [{ name = "{{ .Values.runner.ca }}" }]
-        [[runners.kubernetes.volume_mounts]]
+        [runners.kubernetes.volume_mounts]
           name = "gitlab-ca-certs"
           mount_path = "/etc/gitlab-runner/certs"
           read_only = true
