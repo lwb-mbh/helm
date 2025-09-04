@@ -2,5 +2,5 @@ apiVersion: v2
 name: gitlab
 description: Chart for Gitlab
 type: application
-version: 0.5.29
+version: 0.5.30
 appVersion: "0.5.0"

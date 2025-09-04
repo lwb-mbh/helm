@@ -25,7 +25,7 @@ data:
         pull_policy = "if-not-present"
         [runners.kubernetes.volumes]
           name = "gitlab-ca-certs"
-          secret = { secret_name = "{{ .Values.runner.ca }}" }
+          secret = [ "{{ .Values.runner.ca }}" ]
         [runners.kubernetes.volume_mounts]
           name = "gitlab-ca-certs"
           mount_path = "/etc/gitlab-runner/certs"

@@ -2,7 +2,7 @@ apiVersion: v2
 name: application
 description: Umbrella Chart for Applications
 type: application
-version: 0.7.42
+version: 0.7.43
 appVersion: "0.7.0"
 
 dependencies:
