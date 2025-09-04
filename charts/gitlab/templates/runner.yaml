@@ -46,6 +46,7 @@ rules:
       - pods
       - pods/exec
       - pods/log
+      - pods/attach
       - secrets
       - configmaps
       - services
