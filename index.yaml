@@ -3,6 +3,65 @@ entries:
   application:
   - apiVersion: v2
     appVersion: 0.7.0
+    created: "2025-09-04T12:01:36.073324545Z"
+    dependencies:
+    - condition: db-backup.enabled
+      name: db-backup
+      repository: file://../db-backup
+      version: 1.0.5
+    - condition: db-rest-api.enabled
+      name: db-rest-api
+      repository: file://../db-rest-api
+      version: 0.2.6
+    - condition: drupal.enabled
+      name: drupal
+      repository: file://../drupal
+      version: 0.4.12
+    - condition: drupal7.enabled
+      name: drupal7
+      repository: file://../drupal7
+      version: 0.4.12
+    - condition: gitlab.enabled
+      name: gitlab
+      repository: file://../gitlab
+      version: 0.5.38
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: file://../mariadb
+      version: 0.5.8
+    - condition: mysql.enabled
+      name: mysql
+      repository: https://charts.bitnami.com/bitnami
+      version: 9.4.9
+    - condition: node.enabled
+      name: node
+      repository: file://../node
+      version: 0.4.12
+    - condition: phpmyadmin.enabled
+      name: phpmyadmin
+      repository: https://charts.bitnami.com/bitnami
+      version: 14.3.2
+    - condition: solr.enabled
+      name: solr
+      repository: file://../solr
+      version: 0.4.4
+    - condition: tika.enabled
+      name: tika
+      repository: file://../tika
+      version: 0.4.1
+    - condition: tomcat.enabled
+      name: tomcat
+      repository: file://../tomcat
+      version: 0.4.12
+    description: Umbrella Chart for Applications
+    digest: d722cde55b9d7ffd6022ce4f2afe678c5dd20900365aaadd2d5f37b321fe01e3
+    name: application
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/application-0.7.51/application-0.7.51.tgz
+    version: 0.7.51
+  - apiVersion: v2
+    appVersion: 0.7.0
     created: "2025-09-04T11:23:31.864740643Z"
     dependencies:
     - condition: db-backup.enabled
@@ -10598,6 +10657,16 @@ entries:
   gitlab:
   - apiVersion: v2
     appVersion: 0.5.0
+    created: "2025-09-04T12:01:36.280831991Z"
+    description: Chart for Gitlab
+    digest: 8850150c087e70a8ebf1c3b712004fa95e4b63b315dae7ff1e3befcac65c5ab3
+    name: gitlab
+    type: application
+    urls:
+    - https://github.com/lwb-mbh/helm/releases/download/gitlab-0.5.38/gitlab-0.5.38.tgz
+    version: 0.5.38
+  - apiVersion: v2
+    appVersion: 0.5.0
     created: "2025-09-04T11:23:32.072253809Z"
     description: Chart for Gitlab
     digest: d703d13bc5d90492962e0d29e47d6b7c8b8ae38ccea48c2197d248cdbd1a45cd
@@ -12442,4 +12511,4 @@ entries:
     urls:
     - https://github.com/lwb-mbh/helm/releases/download/tomcat-0.1.0/tomcat-0.1.0.tgz
     version: 0.1.0
-generated: "2025-09-04T11:23:32.073204433Z"
+generated: "2025-09-04T12:01:36.281905428Z"
